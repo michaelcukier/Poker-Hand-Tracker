@@ -7,9 +7,9 @@ mypath_hh = '/Users/cukiermichael/Downloads/AmericasCardroom/handHistory/PotNood
 mypath_sum = '/Users/cukiermichael/Downloads/AmericasCardroom/handHistory/PotNoodle99912'
 
 
-def task_1() -> int:
+def task_1() -> list:
     # get all current ids from db
-    return run_sql_command('SELECT ID FROM tournaments', unique_item=True)
+    return run_sql_command('SELECT ID FROM tournaments', unique_items=True)
 
 
 def task_2() -> list:
@@ -28,7 +28,7 @@ def task_3(filenames: list) -> list:
 
 
 def task_4(filenames: list, ids_already_in_db: list) -> list:
-    # remove from the list the ones currently in db and return list
+    # remove duplicates between filenames already in db and new ones
     filtered = []
     for file_name in filenames:
         if file_name not in ids_already_in_db:
@@ -66,8 +66,15 @@ def task_5(filenames: list) -> list:
 def get_new_raw_hh_from_file() -> list:
     '''
     this function performs tasks to return
-    the new hh filenames and their content
-    :return: [{'title': file_name, 'raw_hh': hhtext}, {...}]
+    the new hand histories
+    :return:
+    [{
+        'title': str,
+        'content': str,
+        'summary': str
+    }, {
+        ...
+    ]}
     '''
     current_ids_in_db = task_1()
     current_filenames_in_folder = task_2()
