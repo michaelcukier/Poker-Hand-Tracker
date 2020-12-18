@@ -1,8 +1,10 @@
+### What is PokerHUDv2?
+
+This program automatically imports the hand histories from the raw .txt files into a .sqlite database. 
+It performs some transformations on those raw .txt files to extract the relevant data. It then conveniently exposes a Python API to explore this database and create plots, pretty-printable tables, etc. 
 
 ### Folder structure
 
-This program automatically imports the hand histories from the raw .txt files into a .sqlite database. 
-It performs some transformations on those raw .txt files to extract the relevant data.  
 
     run.py                                # 10-line python code to use this program
     
