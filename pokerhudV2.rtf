@@ -1,0 +1,93 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Oblique;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue10;\red205\green205\blue205;}
+{\*\expandedcolortbl;;\cssrgb\c99942\c98555\c0;\csgray\c84070;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25000\viewh18460\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs52 \cf0  
+\fs36 DO POKER HUD \
+\
+CREATE FASTER FORK OF HOLDEM CALC !!! WITH NUMBA / PARALLELISM ?!\
+\
+NEED TO GET THE DATA ON MY PLAY IN THE .50s AND 1.5s !!! EV OF PLAYING 1?\
+\
+HAVE 3 HRS POKER SESSIONS WHERE U REGISTER NON STOP FOR 1h30 AND THEN STOP REGISTERING AND FINISH PLAY. \
+\
+DO ADVANCED SQL QUERIES IN THE DB\
+\
+\
+_______\
+\
+
+\fs52 \
+read original pokerhud for missing stuff:\
+* get_color_and_suit() --> in convert_json_to_pretty_table.py\
+* \cb2 ....\cb1 \
+\
+USES 2 DB: HANDS.db and TOURNAMENTS.db and OPPONENT.db and NOTES.db\
+\
+USE TDD \
+\
+EACH FUNCTION DEFINED IN COMMENTS \
+\
+____\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \cb3 run.py : 5-line code: \
+import /helpers, \
+update db, \
+import db_api, add_notes\
+have fun.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+/hh_import\
+	get_raw_hh_from_file.py  | returns an array of dict: \{title: < >, raw_hh: < >\} (new ones only)\
+	extract_from_raw_hh.py  |  extracts from the previous dict to get :\
+											sng prize, \
+											hands, \
+											opponents name, \
+											\cb2 ...\cb1 \
+									  returns dict: \{hands: [..., ....], tournaments: [..., ....], opponents: [..., ....]\}\
+	store_hh_sqlite_db.py  |  stores the extraction in the 3 db: add hands and tournaments and opponents\
+\
+/add_notes\
+		+ add_hand_note (params: note | hand_id )\
+		+ add_sng_note (params: note | sng_id)\
+\
+/db_api ---> .json\
+	/sngs\
+		+ def get_tournaments ( params: all time / last 
+\f1\i n
+\f0\i0  sng | sort by [most recent, highest prizes]  )\
+\
+	/hands\
+		+ get_highest_pots.py ( params: all time / from last 
+\f1\i n
+\f0\i0  sng | how many to get )\
+		+ get_steals.py ( params: all time / from last 
+\f1\i n
+\f0\i0  sng | how many to get )\
+		+ get_all_ins_pre.py ( params: all time / from last 
+\f1\i n
+\f0\i0  sng | how many to get )\
+		+ get_highest_showdown.py ( params: all time / from last 
+\f1\i n
+\f0\i0  sng | how many to get )\
+		+ get_all_from_one_sng.py ( params: sng_id )\
+\
+	/summaries\
+		- get_sng_summary.py:\
+		\'a7 $/game made, \
+		\'a7 nb of avg. participants (distribution graph with won/lost building coloring)\
+		\'a7 avg total time (distribution graph with won/lost building coloring), \
+		\'a7 total money won/lost, now and over time with graph.\
+		\'a7 total rake paid  \
+		\'a7 nb of games played\
+\
+/helpers\
+	convert_json_to_pretty_table.py  \
+	update_db.py	\
+\
+}
