@@ -4,7 +4,6 @@ from .new_tournaments import extract_new_tournament
 
 # ------
 
-
 def extract_from_raw_hh(raw_hh: list) -> list:
     extraction = []
     for hh in raw_hh:
