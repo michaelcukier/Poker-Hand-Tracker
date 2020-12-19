@@ -5,5 +5,8 @@ def extract_opponents_names(tourney_summary: dict) -> list:
     opponents = []
     for opp in tourney_summary['tournament_finishes_and_winnings']:
         opponents.append(opp['player_name'])
-    return opponents
+
+    opp_no_duplicates = list(dict.fromkeys(opponents))
+
+    return opp_no_duplicates
 
