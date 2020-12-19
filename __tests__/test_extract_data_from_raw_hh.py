@@ -1,8 +1,8 @@
 import unittest
 
-from hh_import.extract_data_from_raw_hh.new_hands import *
-from hh_import.extract_data_from_raw_hh.new_opponents import *
-from hh_import.extract_data_from_raw_hh.new_tournaments import *
+from hh_import.dict_to_clean_data.new_hands import *
+from hh_import.dict_to_clean_data.new_opponents import *
+from hh_import.dict_to_clean_data.new_tournaments import *
 
 
 from fake_data import *

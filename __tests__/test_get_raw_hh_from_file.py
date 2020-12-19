@@ -1,5 +1,5 @@
 import unittest
-from hh_import.get_raw_hh_from_file.run import *
+from hh_import.raw_hh_to_dict.run import *
 
 
 
