@@ -4,11 +4,10 @@ from hh_import.dict_to_clean_data.new_hands import *
 from hh_import.dict_to_clean_data.new_opponents import *
 from hh_import.dict_to_clean_data.new_tournaments import *
 
+from fake_data_tourneys.fake_data import *
 
-from fake_data import *
 
-
-class test_extract_from_raw_hh(unittest.TestCase):
+class test_dict_to_clean_data(unittest.TestCase):
 
     # tests for new_hands.py
     def test_extract_hands_from_content_to_list(self):
