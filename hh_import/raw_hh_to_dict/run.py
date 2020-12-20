@@ -3,10 +3,11 @@ from get_all_folder_hh_filenames import *
 from get_tracked_hh_filenames import *
 from remove_duplicates_db_and_hh_folder import *
 
-from get_tourney_content_and_summary_from_filename import *
+from get_tourney_content_and_summary_from_filename import \
+    get_tournament_content, get_tournament_summary
 
 
-def get_new_raw_hh_from_file() -> list:
+def run() -> list:
     '''
     this function performs tasks to return
     the new hand histories
@@ -38,6 +39,3 @@ def get_new_raw_hh_from_file() -> list:
         })
 
     return hhs
-
-
-print(get_new_raw_hh_from_file())

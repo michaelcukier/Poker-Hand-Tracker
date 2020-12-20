@@ -1,4 +1,9 @@
 
+CHALLENGE: DEALING WITH MISSING TOURNEY SUMMARIES
+HOW DID I OVERCOME THIS ?
+
+i manually ls the folders where the files were missing, and found out that some tournaments are split into multiple files.
+
 ### REFACTOR
 
 ### then rewrite this doc

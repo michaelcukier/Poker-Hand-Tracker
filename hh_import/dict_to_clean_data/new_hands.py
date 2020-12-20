@@ -160,8 +160,12 @@ def extract_hands_from_content(content: str) -> list:
     '''
 
     hands = []
-    hands_replayer_link = generate_hh_links_replayer(content)
-    for i, hand in enumerate(extract_hands_from_content_to_list(content)):
+    # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 18 IN THE FILE?!!
+    #hands_replayer_link = generate_hh_links_replayer(content)
+    # print(len(hands_replayer_link))
+    xxx = extract_hands_from_content_to_list(content)
+    # print(len(xxx))
+    for i, hand in enumerate(xxx):
         if get_hand_my_cards(hand) is not None:  # to deal with hand history where im not playing yet (allowed to play after the button)
             hands.append({
                 'time': get_hand_time(hand),
@@ -170,7 +174,7 @@ def extract_hands_from_content(content: str) -> list:
                 'my_cards': get_hand_my_cards(hand),
                 'board_cards': get_hand_board_cards(hand),
                 'hand_type': get_hand_type(hand),
-                'replayer_link': hands_replayer_link[i]
+                # 'replayer_link': hands_replayer_link[i]
             })
 
     return hands
