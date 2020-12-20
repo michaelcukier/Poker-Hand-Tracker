@@ -2,6 +2,7 @@ import sqlite3
 import contextlib
 from GLOBAL_VARIABLES import DATABASE_LOCATION
 
+
 def run_sql_command(query, unique_items=False):
     with contextlib.closing(sqlite3.connect(DATABASE_LOCATION)) as conn:
         with conn:

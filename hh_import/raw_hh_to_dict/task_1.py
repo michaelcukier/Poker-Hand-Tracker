@@ -3,7 +3,7 @@ from os import listdir
 from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER
 
 
-def get_all_hh_filenames_in_folder() -> list:
+def task_1() -> list:
     '''
     :return: list of all the file names in a particular folder
     '''

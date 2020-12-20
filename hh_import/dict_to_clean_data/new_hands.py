@@ -42,7 +42,7 @@ def extract_hands_from_content_to_list(content: str) -> list:
     return hands
 
 
-def get_hand_time(hand):
+def get_hand_time(hand: str):
     time = '202' + hand.split('\n')[0].split(')- 202')[1]
     return time
 
@@ -141,10 +141,10 @@ def get_hand_type(hand):
 
 
 
-def extract_hands_from_content(content: str) -> list:
+def get_hands_info(hands: list) -> list:
 
     '''
-    :param content: raw content in str of a single hand history
+    :param content: list of hands
     :return: list of dict of hands, ex:
     [{
         'time': str,
@@ -159,22 +159,22 @@ def extract_hands_from_content(content: str) -> list:
     }]
     '''
 
-    hands = []
     # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 18 IN THE FILE?!!
     #hands_replayer_link = generate_hh_links_replayer(content)
     # print(len(hands_replayer_link))
-    xxx = extract_hands_from_content_to_list(content)
+    # xxx = extract_hands_from_content_to_list(content)
     # print(len(xxx))
-    for i, hand in enumerate(xxx):
-        if get_hand_my_cards(hand) is not None:  # to deal with hand history where im not playing yet (allowed to play after the button)
-            hands.append({
-                'time': get_hand_time(hand),
-                'pot_size': get_hand_pot_size(hand),
-                'level': get_hand_level(hand),
-                'my_cards': get_hand_my_cards(hand),
-                'board_cards': get_hand_board_cards(hand),
-                'hand_type': get_hand_type(hand),
-                # 'replayer_link': hands_replayer_link[i]
-            })
+    hands_ = []
+    for hand in hands:
+        # if get_hand_my_cards(hand) is not None:  # to deal with hand history where im not playing yet (allowed to play after the button)
+        hands_.append({
+            'time': get_hand_time(hand),
+            'pot_size': get_hand_pot_size(hand),
+            'level': get_hand_level(hand),
+            'my_cards': get_hand_my_cards(hand),
+            'board_cards': get_hand_board_cards(hand),
+            'hand_type': get_hand_type(hand),
+            # 'replayer_link': hands_replayer_link[i]
+        })
 
-    return hands
+    return hands_

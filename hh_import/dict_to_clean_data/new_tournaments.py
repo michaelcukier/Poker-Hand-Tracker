@@ -1,6 +1,6 @@
 from datetime import datetime
 from helpers.check_no_tourney_summary import check_no_tourney_summary
-
+from helpers.extract_id_from_title import extract_id_from_title
 
 def extract_price_from_title(title: str) -> float:
     if "$0{FULLSTOP}50 Hold'Em Turbo" in title:
@@ -56,12 +56,12 @@ def extract_position(tourney_summary: dict) -> int:
 # -------
 
 
-def extract_new_tournament(tourney_title: str, tourney_content: str, tourney_summary: dict) -> dict:
+def extract_new_tournament(tourney_title: str, hands: list, tourney_summary: dict) -> dict:
     return {
-        'id': extract_id_from_content(tourney_content),
+        'id': extract_id_from_title(tourney_title),
         'price': extract_price_from_title(tourney_title),
-        'finished_time': extract_finished_time_from_content(tourney_content),
-        'elapsed_time': extract_elapsed_time_from_content(tourney_content),
+        'finished_time': extract_finished_time_from_content(hands[-1]),
+        'elapsed_time': extract_elapsed_time_from_content(hands[0] + hands[-1]),
         'prize': extract_prize(tourney_summary),
         'position': extract_position(tourney_summary)
     }

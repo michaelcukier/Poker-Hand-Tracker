@@ -1,41 +1,28 @@
-from get_all_tourney_ids_in_db import *
-from get_all_folder_hh_filenames import *
-from get_tracked_hh_filenames import *
-from remove_duplicates_db_and_hh_folder import *
+from task_1 import *
+from task_2 import *
+from task_3 import *
+from task_4 import *
+from task_5 import *
+from task_6 import *
+from task_7 import *
 
-from get_tourney_content_and_summary_from_filename import \
-    get_tournament_content, get_tournament_summary
 
-
-def run() -> list:
-    '''
-    this function performs tasks to return
-    the new hand histories
-    :return:
-    [{
-        'title': str,
-        'content': str,
-        'summary': str
-    },  { ... }
-    ]
+def run():
+    ''' :returns
+    final_hhs = [{
+        id: int,
+        title: str
+        summary: dict or None,
+        hands: list
+    }, {...}]
     '''
 
-    all_tournaments_ids_in_db = get_all_tourney_ids_in_db()
+    task1 = task_1()         # none -> list | Query the local filesystem to get all the .txt filenames in the hand history folder
+    task2 = task_2(task1)    # list -> list | Remove the tournaments that aren't tracked
+    task3 = task_3(task2)    # list -> list | Remove the tournaments IDs already in the db
+    task4 = task_4(task3)    # list -> dict | Group the remaining ones like this: {tourney_ID: {'filenames': filename1, filename2, ...}}
+    task5 = task_5(task4)    # dict -> dict | Concatenate the multiple .txt files into one big list of hands
+    task6 = task_6(task5)    # dict -> dict | Clean that list of hands to remove the hands where i'm not playing
+    task7 = task_7(task6)    # dict -> dict | Extracts tourney summary
 
-    all_tournaments_filenames_in_folder = get_all_hh_filenames_in_folder()
-
-    tournaments_in_folder_that_are_tracked = get_tracked_hh_filenames(all_tournaments_filenames_in_folder)
-
-    remove_duplicates_folder_and_db = remove_duplicates_db_and_hh_folder(
-        filenames=tournaments_in_folder_that_are_tracked,
-        ids_already_in_db=all_tournaments_ids_in_db)
-
-    hhs = []
-    for filename in remove_duplicates_folder_and_db:
-        hhs.append({
-            'title': filename,
-            'content': get_tournament_content(filename),
-            'summary': get_tournament_summary(filename)
-        })
-
-    return hhs
+    return task7
