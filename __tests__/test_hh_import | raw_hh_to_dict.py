@@ -15,7 +15,7 @@ FAKE_TOURNAMENT_SUMMARY_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2
 class test_dict_to_clean_data(unittest.TestCase):
 
     def test_task_1(self):
-        task1 = task_1(custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task1 = task_1(FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         self.assertEqual(task1, ["HH20201217 SITGOID-G23140753T3 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On "
         "Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
         'HH20201217 CASHID-G23130358T8 TN-Belleair GAMETYPE-Omaha LIMIT-no CUR-REAL '
@@ -34,7 +34,7 @@ class test_dict_to_clean_data(unittest.TestCase):
         'CUR-REAL OND-F BUYIN-0 MIN-1 MAX-2.txt'])
 
     def test_task_2(self):
-        task1 = task_1(custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task1 = task_1(FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         task2 = task_2(task1)
         self.assertEqual(task2, ["HH20201217 SITGOID-G23140753T3 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On "
        "Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
@@ -48,9 +48,9 @@ class test_dict_to_clean_data(unittest.TestCase):
        "Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"])
 
     def test_task_3(self):
-        task1 = task_1(custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task1 = task_1(FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         task2 = task_2(task1)
-        task3 = task_3(task2)
+        task3 = task_3(task2, FOR_TESTING_MOCK_EMPTY_DB=True)
         self.assertEqual(task3, [
             "HH20201217 SITGOID-G23140753T3 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
             "HH20201217 SITGOID-G23140753T4 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
@@ -60,9 +60,9 @@ class test_dict_to_clean_data(unittest.TestCase):
         ])
 
     def test_task_4(self):
-        task1 = task_1(custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task1 = task_1(FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         task2 = task_2(task1)
-        task3 = task_3(task2)
+        task3 = task_3(task2, FOR_TESTING_MOCK_EMPTY_DB=True)
         task4 = task_4(task3)
         self.assertEqual(len(task4.items()), 3)
         self.assertTrue('23140238' in task4)
@@ -70,11 +70,11 @@ class test_dict_to_clean_data(unittest.TestCase):
         self.assertTrue('23140753' in task4)
 
     def test_task_5(self):
-        task1 = task_1(custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task1 = task_1(FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         task2 = task_2(task1)
-        task3 = task_3(task2)
+        task3 = task_3(task2, FOR_TESTING_MOCK_EMPTY_DB=True)
         task4 = task_4(task3)
-        task5 = task_5(task4, custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task5 = task_5(task4, FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         self.assertEqual(len(task5['23140753']['hands']), 29)
 
     def test_order_hands_by_time(self):
@@ -96,22 +96,22 @@ class test_dict_to_clean_data(unittest.TestCase):
         self.assertTrue('21:24:15' in order_hands_by_time(test_hands)[2].split('\n')[0])
 
     def test_task_6(self):
-        task1 = task_1(custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task1 = task_1(FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         task2 = task_2(task1)
-        task3 = task_3(task2)
+        task3 = task_3(task2, FOR_TESTING_MOCK_EMPTY_DB=True)
         task4 = task_4(task3)
-        task5 = task_5(task4, custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task5 = task_5(task4, FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         task6 = task_6(task5)
         self.assertEqual(len(task6['23140753']['hands']), 28)
 
     def test_task_7(self):
-        task1 = task_1(custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task1 = task_1(FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         task2 = task_2(task1)
-        task3 = task_3(task2)
+        task3 = task_3(task2, FOR_TESTING_MOCK_EMPTY_DB=True)
         task4 = task_4(task3)
-        task5 = task_5(task4, custom_folder=FAKE_HAND_HISTORY_FOLDER)
+        task5 = task_5(task4, FOR_TESTING_CUSTOM_FOLDER=FAKE_HAND_HISTORY_FOLDER)
         task6 = task_6(task5)
-        task7 = task_7(task6, custom_folder=FAKE_TOURNAMENT_SUMMARY_FOLDER)
+        task7 = task_7(task6, FOR_TESTING_CUSTOM_FOLDER=FAKE_TOURNAMENT_SUMMARY_FOLDER)
         self.assertEqual(task7['23140238']['summary'], None)
         self.assertTrue(type(task7['23140119']['summary']) == dict)
         self.assertTrue(type(task7['23140753']['summary']) == dict)

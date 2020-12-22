@@ -1,10 +1,13 @@
 from datetime import datetime
 from helpers.check_no_tourney_summary import check_no_tourney_summary
 from helpers.extract_id_from_title import extract_id_from_title
+from GLOBAL_VARIABLES import TOURNAMENTS_TO_EXTRACT
+
 
 def extract_price_from_title(title: str) -> float:
-    if "$0{FULLSTOP}50 Hold'Em Turbo" in title:
-        return 0.55
+    for tourney_to_extract, price in TOURNAMENTS_TO_EXTRACT.items():
+        if tourney_to_extract in title:
+            return price
 
 
 def extract_id_from_content(content: str) -> int:

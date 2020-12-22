@@ -7,12 +7,12 @@ def order_hands_by_time(hands):
     return a
 
 
-def task_5(filenames: dict, custom_folder=False) -> dict:
+def task_5(filenames: dict, FOR_TESTING_CUSTOM_FOLDER=False) -> dict:
     for tourney_id, value in filenames.items():
         hands = []
         for filename in value['filenames']:
             # open current filename
-            with open((custom_folder if custom_folder else HAND_HISTORY_FOLDER) + '/' + filename, 'r') as f:
+            with open((FOR_TESTING_CUSTOM_FOLDER if FOR_TESTING_CUSTOM_FOLDER else HAND_HISTORY_FOLDER) + '/' + filename, 'r') as f:
                 data = f.read()
                 hhtext = copy.deepcopy(data)
             # split the hands into a list
