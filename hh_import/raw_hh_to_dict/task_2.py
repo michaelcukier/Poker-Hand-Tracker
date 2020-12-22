@@ -7,7 +7,7 @@ def task_2(filenames: list) -> list:
     '''
     filtered = []
     for file_name in filenames:
-        for tourney in TOURNAMENTS_TO_EXTRACT:
+        for tourney in TOURNAMENTS_TO_EXTRACT.keys():
             if tourney in file_name:
                 filtered.append(file_name)
     return filtered

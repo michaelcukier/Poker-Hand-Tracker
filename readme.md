@@ -1,22 +1,9 @@
 
-CHALLENGE: DEALING WITH MISSING TOURNEY SUMMARIES
-HOW DID I OVERCOME THIS ?
+Challenges:
 
-i manually ls the folders where the files were missing, and found out that some tournaments are split into multiple files.
-
-### REFACTOR
-
-### then rewrite this doc
-
-#### create VARIABLES.py with:
-- player name
-- list of tracked tourney
-- folder for hh (hh and summary)
-- local database folder
-
-#### make extract_data_from_raw_hh.py a folder instead 
-
-### THEN MAKE THE TESTS WORK
+* finding an appropriate testing strategy
+* dealing with missing tourney summaries
+* dealing with hand histories split into multiple files
 
 _______
 

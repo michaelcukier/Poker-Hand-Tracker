@@ -1,5 +1,4 @@
 from helpers.run_sql_command import run_sql_command
-# from __tests__.fake_data_tourneys.fake_data import test_data_clean
 
 
 def run(clean_data):
