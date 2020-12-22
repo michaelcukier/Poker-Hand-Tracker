@@ -31,6 +31,7 @@ _______
 
 Challenges:
 
+* finding a way to architect this app while remaining flexible
 * finding an appropriate testing strategy
 * dealing with missing tourney summaries
 * dealing with hand histories split into multiple files
