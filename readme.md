@@ -1,3 +1,33 @@
+### TODO
+
+* hand level must be saved as int, but pot size in BB and Chips
+* extract hand ID, will need it for the notes API later
+* create hh_import/run.py
+* create helpers/convert_json_to_pretty_table.py
+* write hh_import/dict_to_clean_data/new_opponents.py function
+* test with the $1.5s 
+* create db apis to generate JSON data:
+
+
+    [txt] total rake payed per tracked tourney
+    [txt] get number of games played per tracked tourney
+    [txt] get avg prize and profit per tracked tourney
+    [txt] get lifetime win/loss per tracked tourney
+    
+    [plot] relationship between prize and first hand's current level: does regging early improve my chances of winning?
+    [plot] plot $ won/lost per buyin sharkscope style
+    [plot] plot chips won/lost during tournament x
+    
+    [table] show all opponents sorted by most seen first 
+    [table] show all n tournaments   
+    params: all time / last n sng | sort by [most recent, highest prizes]
+    [table] show all n hands   
+    params: all time / from last n sng | how many to get | type | sort_by [pot_size, level]
+    [table] show all hands from tournament x 
+* create note-taking db and api
+* rewrite this doc
+_______
+
 
 Challenges:
 
@@ -40,3 +70,4 @@ It performs some transformations on those raw .txt files to extract the relevant
 
 
 ### How to use
+

@@ -1,7 +1,7 @@
 from datetime import datetime
 from helpers.check_no_tourney_summary import check_no_tourney_summary
 from helpers.extract_id_from_title import extract_id_from_title
-from GLOBAL_VARIABLES import TOURNAMENTS_TO_EXTRACT
+from GLOBAL_VARIABLES import TOURNAMENTS_TO_EXTRACT, PLAYER_NAME
 
 
 def extract_price_from_title(title: str) -> float:
@@ -38,22 +38,24 @@ def extract_elapsed_time_from_content(content: str) -> int:
     return round(duration_in_mn)
 
 
-def extract_nb_of_participants(tourney_summary: dict):
-    if check_no_tourney_summary(tourney_summary): return None
-    return tourney_summary['player_count']
+# def extract_nb_of_participants(tourney_summary: dict):
+#     if check_no_tourney_summary(tourney_summary): return None
+#     return tourney_summary['player_count']
 
 
 def extract_prize(tourney_summary: dict):
-    if check_no_tourney_summary(tourney_summary): return None
+    if check_no_tourney_summary(tourney_summary):
+        return 0
     for player in tourney_summary['tournament_finishes_and_winnings']:
-        if player['player_name'] == 'PotNoodle99912':
+        if player['player_name'] == PLAYER_NAME:
             return player['prize']
 
 
 def extract_position(tourney_summary: dict):
-    if check_no_tourney_summary(tourney_summary): return None
+    if check_no_tourney_summary(tourney_summary):
+        return 0
     for player in tourney_summary['tournament_finishes_and_winnings']:
-        if player['player_name'] == 'PotNoodle99912':
+        if player['player_name'] == PLAYER_NAME:
             return player['finish_position']
 
 # -------

@@ -5,7 +5,7 @@ from GLOBAL_VARIABLES import TOURNEY_SUMMARY_FOLDER
 
 def task_7(tourneys: dict, FOR_TESTING_CUSTOM_FOLDER=False) -> dict:
     '''
-    extracts the tourney summary from filesystem into a string
+    extracts the tourney summary from filesystem into a dict
     '''
     for tourney_id, hands in tourneys.items():
         summary_file_name = [f for f in listdir(FOR_TESTING_CUSTOM_FOLDER if FOR_TESTING_CUSTOM_FOLDER else TOURNEY_SUMMARY_FOLDER) if str(tourney_id) in f]
