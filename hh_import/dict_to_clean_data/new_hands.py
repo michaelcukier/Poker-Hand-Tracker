@@ -18,9 +18,11 @@ def generate_hh_links_replayer(hands):
         'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,la;q=0.7',
     }
 
+    to_send = '\n\n'.join(hands)
+
     data = {
         '$filename': '',
-        'text': hands,
+        'text': to_send,
         'format': 'replayer',
         'make_public': 'true',
         'hide_results': 'false',
@@ -30,6 +32,7 @@ def generate_hh_links_replayer(hands):
     }
 
     response = requests.post('http://pokeit.co/convert/hand.php', headers=headers, data=data)
+
     return response.json()['links']
 
 
@@ -159,14 +162,20 @@ def get_hands_info(hands: list) -> list:
     }]
     '''
 
-    # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 18 IN THE FILE?!!
-    #hands_replayer_link = generate_hh_links_replayer(content)
-    # print(len(hands_replayer_link))
-    # xxx = extract_hands_from_content_to_list(content)
-    # print(len(xxx))
+    # hands_replayer_links = generate_hh_links_replayer(hands)
+    #
+    # # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 18 IN THE FILE?!!
+    # if len(hands) != len(hands_replayer_links):
+    #     print('@@@@@@@@@@@@@ BUG  - hands:', len(hands), '- replayer:', len(hands_replayer_links))
+
+
     hands_ = []
-    for hand in hands:
-        # if get_hand_my_cards(hand) is not None:  # to deal with hand history where im not playing yet (allowed to play after the button)
+    for i, hand in enumerate(hands):
+        # try:
+        #     replayer_link = hands_replayer_links[i]
+        # except IndexError:
+        #     replayer_link = None
+
         hands_.append({
             'time': get_hand_time(hand),
             'pot_size': get_hand_pot_size(hand),
@@ -174,7 +183,17 @@ def get_hands_info(hands: list) -> list:
             'my_cards': get_hand_my_cards(hand),
             'board_cards': get_hand_board_cards(hand),
             'hand_type': get_hand_type(hand),
-            # 'replayer_link': hands_replayer_link[i]
+            # 'replayer_link': replayer_link,
+
+
+
+            'replayer_link': None   # just for testing
+
+
+
+
+
+
         })
 
     return hands_
