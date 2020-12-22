@@ -2,6 +2,11 @@ from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER
 import copy
 
 
+def order_hands_by_time(hands):
+    a = sorted(hands, key=lambda x: '20' + str(x.split('\n')[0].split('- 20')[1]))
+    return a
+
+
 def task_5(filenames: dict, custom_folder=False) -> dict:
     for tourney_id, value in filenames.items():
         hands = []
@@ -15,5 +20,7 @@ def task_5(filenames: dict, custom_folder=False) -> dict:
             for hand_ in str_to_hands:
                 hands.append(hand_)
             del hands[-1]
-        filenames[tourney_id] = {'title': value['filenames'][0], 'hands': hands}
+        # order hands by time
+        hands_t = order_hands_by_time(hands)
+        filenames[tourney_id] = {'title': value['filenames'][0], 'hands': hands_t}
     return filenames

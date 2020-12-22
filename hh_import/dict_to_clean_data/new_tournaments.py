@@ -35,20 +35,20 @@ def extract_elapsed_time_from_content(content: str) -> int:
     return round(duration_in_mn)
 
 
-def extract_nb_of_participants(tourney_summary: dict) -> list:
-    if check_no_tourney_summary(tourney_summary): return []
+def extract_nb_of_participants(tourney_summary: dict):
+    if check_no_tourney_summary(tourney_summary): return None
     return tourney_summary['player_count']
 
 
-def extract_prize(tourney_summary: dict) -> float:
-    if check_no_tourney_summary(tourney_summary): return 999.99
+def extract_prize(tourney_summary: dict):
+    if check_no_tourney_summary(tourney_summary): return None
     for player in tourney_summary['tournament_finishes_and_winnings']:
         if player['player_name'] == 'PotNoodle99912':
             return player['prize']
 
 
-def extract_position(tourney_summary: dict) -> int:
-    if check_no_tourney_summary(tourney_summary): return 999
+def extract_position(tourney_summary: dict):
+    if check_no_tourney_summary(tourney_summary): return None
     for player in tourney_summary['tournament_finishes_and_winnings']:
         if player['player_name'] == 'PotNoodle99912':
             return player['finish_position']

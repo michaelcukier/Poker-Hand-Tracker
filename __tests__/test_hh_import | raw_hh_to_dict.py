@@ -4,7 +4,7 @@ from hh_import.raw_hh_to_dict.task_1 import task_1
 from hh_import.raw_hh_to_dict.task_2 import task_2
 from hh_import.raw_hh_to_dict.task_3 import task_3
 from hh_import.raw_hh_to_dict.task_4 import task_4
-from hh_import.raw_hh_to_dict.task_5 import task_5
+from hh_import.raw_hh_to_dict.task_5 import task_5, order_hands_by_time
 from hh_import.raw_hh_to_dict.task_6 import task_6
 from hh_import.raw_hh_to_dict.task_7 import task_7
 
@@ -76,6 +76,24 @@ class test_dict_to_clean_data(unittest.TestCase):
         task4 = task_4(task3)
         task5 = task_5(task4, custom_folder=FAKE_HAND_HISTORY_FOLDER)
         self.assertEqual(len(task5['23140753']['hands']), 29)
+
+    def test_order_hands_by_time(self):
+        test_hands = [
+            '''Game Hand #613502712 - Tournament #23060933 - Holdem(No Limit) - Level 3 (500.00/1000.00)- 2020/12/06 21:23:06 UTC
+            Table '2' 9-max Seat #3 is the button''',
+
+            '''Game Hand #613505310 - Tournament #23060933 - Holdem(No Limit) - Level 3 (500.00/1000.00)- 2020/12/06 21:24:15 UTC
+            Table '2' 9-max Seat #4 is the button
+            Seat 1: SCHENCK101 (27495.00)
+            Seat 2: PotNoodle99912 (29900.00)
+            Seat 3: meatbro (15170.00)''',
+
+            '''Game Hand #613505310 - Tournament #23060933 - Holdem(No Limit) - Level 3 (500.00/1000.00)- 2020/12/06 21:20:15 UTC
+            Table '2' 9-max Seat #4 is the button
+            Seat 1: SCHENCK101 (27495.00)''']
+        self.assertTrue('21:20:15' in order_hands_by_time(test_hands)[0].split('\n')[0])
+        self.assertTrue('21:23:06' in order_hands_by_time(test_hands)[1].split('\n')[0])
+        self.assertTrue('21:24:15' in order_hands_by_time(test_hands)[2].split('\n')[0])
 
     def test_task_6(self):
         task1 = task_1(custom_folder=FAKE_HAND_HISTORY_FOLDER)
