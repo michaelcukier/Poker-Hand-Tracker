@@ -388,3 +388,17 @@ fake_tournament = {
         'internal_version': '1.43.4',
     }
 }
+
+FAKE_UNORDERED_HANDS = [
+    '''Game Hand #613502712 - Tournament #23060933 - Holdem(No Limit) - Level 3 (500.00/1000.00)- 2020/12/06 21:23:06 UTC
+    Table '2' 9-max Seat #3 is the button''',
+
+    '''Game Hand #613505310 - Tournament #23060933 - Holdem(No Limit) - Level 3 (500.00/1000.00)- 2020/12/06 21:24:15 UTC
+    Table '2' 9-max Seat #4 is the button
+    Seat 1: SCHENCK101 (27495.00)
+    Seat 2: PotNoodle99912 (29900.00)
+    Seat 3: meatbro (15170.00)''',
+
+    '''Game Hand #613505310 - Tournament #23060933 - Holdem(No Limit) - Level 3 (500.00/1000.00)- 2020/12/06 21:20:15 UTC
+    Table '2' 9-max Seat #4 is the button
+    Seat 1: SCHENCK101 (27495.00)''']

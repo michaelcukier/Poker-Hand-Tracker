@@ -6,8 +6,8 @@ def task_3(filenames: list, FOR_TESTING_MOCK_EMPTY_DB=False) -> list:
     '''
     remove filenames already in the db
     '''
-    if FOR_TESTING_MOCK_EMPTY_DB:
-        hh_in_db = []
+    if isinstance(FOR_TESTING_MOCK_EMPTY_DB, list):
+        hh_in_db = FOR_TESTING_MOCK_EMPTY_DB
     else:
         hh_in_db = run_sql_command('SELECT ID FROM tournaments', unique_items=True)
     filtered = []

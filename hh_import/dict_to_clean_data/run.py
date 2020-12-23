@@ -11,7 +11,7 @@ def run(raw_hh: dict, log_progress=False) -> list:
     for tourney_id, hh in raw_hh.items():
         idx += 1
         if log_progress:
-            print("Getting [", tourney_id, "]'s data...", str(idx) + '/' + str(len(raw_hh.items())))
+            print("Getting ", tourney_id, " data...", str(idx) + '/' + str(len(raw_hh.items())))
         extraction.append({
             'new_tournament': extract_new_tournament(hh['title'], hh['hands'], hh['summary']),
             'new_hands': get_hands_info(hh['hands']),
