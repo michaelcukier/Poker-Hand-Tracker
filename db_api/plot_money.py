@@ -17,15 +17,17 @@ for x in starting:
 import matplotlib.pyplot as plt
 import numpy as np
 
+import matplotlib as mpl
+mpl.rcParams['figure.dpi'] = 300
 
 from scipy.ndimage.filters import gaussian_filter1d
 
 x = range(len(starting))
 y = gaussian_filter1d(intz, sigma=10)
-plt.plot(x,y)
-plt.xlabel("# of game")
+plt.plot(x,y, '--')
+plt.xlabel("Game #")
 plt.ylabel("Money ($)")
-plt.title("Money made over time in the $0.55's")
+plt.title("Tournament: On-Demand $0.55")
 x2 = range(len(starting))
 y2 = intz
 

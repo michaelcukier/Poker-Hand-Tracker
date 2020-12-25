@@ -2,6 +2,8 @@
 
 * hand level must be saved as int, but pot size in BB and Chips
 * extract hand ID, will need it for the notes API later
+* hand type
+* import 'PotNoodle' from GLOBAL_VARIABLES.py everywhere
 * create hh_import/run.py
 * create public fork without the tracker link generator
 * create helpers/convert_json_to_pretty_table.py
