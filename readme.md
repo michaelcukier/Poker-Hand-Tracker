@@ -5,6 +5,7 @@
 ~~* hand type~~
 ~~* import 'PotNoodle' from GLOBAL_VARIABLES.py everywhere~~
 ~~* create hh_import/run.py~~
+
 * cluster hands, ch.9 Hands-On ML book + Unsupervised book
 * create public fork without the tracker link generator
 * create helpers/convert_json_to_pretty_table.py  
