@@ -7,9 +7,9 @@
 ~~* create hh_import/run.py~~
 * cluster hands, ch.9 Hands-On ML book + Unsupervised book
 * create public fork without the tracker link generator
-* create helpers/convert_json_to_pretty_table.py
-* write hh_import/dict_to_clean_data/new_opponents.py function
-* test with the $1.5s 
+* create helpers/convert_json_to_pretty_table.py  
+~~* write hh_import/dict_to_clean_data/new_opponents.py function~~  
+~~* test with the $1.5s~~ 
 * create db apis to generate JSON data:
 
 
@@ -44,6 +44,9 @@ Challenges:
 * dealing with missing tourney summaries
 * dealing with hand histories split into multiple files
 
+Problems:
+* hand histories get auto deleted after 30 days, so the data I didnt extract "on time" is lost.
+* adding a hand is somewhat slow (+- 2secs) because an API call has to be made
 _______
 
 ### What is PokerHUDv2?

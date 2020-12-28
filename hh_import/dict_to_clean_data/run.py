@@ -5,7 +5,7 @@ from .new_tournaments import extract_new_tournament
 # ------
 
 
-def run(raw_hh: dict, log_progress=False) -> list:
+def run(raw_hh: dict, log_progress=False, early_stop_for_test=False) -> list:
     extraction = []
     idx = 0
     for tourney_id, hh in raw_hh.items():
@@ -18,17 +18,8 @@ def run(raw_hh: dict, log_progress=False) -> list:
             'new_opponents': extract_opponents_names(hh['summary'])
         })
 
-
-
-
-
-
-        # # early stop for test
-        # if idx == 10:
-        #     return extraction
-        # # early stop for test
-
-
-
+        if early_stop_for_test:
+            if idx == 15:
+                return extraction
 
     return extraction

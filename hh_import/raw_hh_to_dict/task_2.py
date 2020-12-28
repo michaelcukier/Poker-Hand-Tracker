@@ -5,6 +5,7 @@ def task_2(filenames: list) -> list:
     '''
     remove filenames that aren't tracked
     '''
+
     filtered = []
     for file_name in filenames:
         for tourney in TOURNAMENTS_TO_EXTRACT.keys():

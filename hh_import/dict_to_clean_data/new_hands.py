@@ -66,7 +66,7 @@ def get_hand_level(hand):
 
 def get_hand_pot_size_bb(hand):
     current_level_big_blind = float(str(get_hand_level(hand)).split('/')[1].replace(')', ''))
-    return get_hand_pot_size_chips(hand)/current_level_big_blind
+    return round(get_hand_pot_size_chips(hand)/current_level_big_blind, 1)
 
 
 def get_hand_my_cards(hand):
@@ -93,6 +93,17 @@ def get_hand_id(hand: str) -> int:
         if 'Game Hand #' in line:
             return int(line.split('Game Hand #')[1].split(' - ')[0])
 
+
+def is_hand_relevant(hand: str) -> bool:
+    if PLAYER_NAME + ' folded on the Pre-Flop and did not bet' in hand:
+        return False
+    if PLAYER_NAME + ' (big blind) folded on the Pre-Flop' in hand:
+        return False
+    if PLAYER_NAME + ' (small blind) folded on the Pre-Flop' in hand:
+        return False
+    if PLAYER_NAME + ' (button) folded on the Pre-Flop' in hand:
+        return False
+    return True
 
 
 
@@ -169,51 +180,30 @@ def get_hand_id(hand: str) -> int:
 
 def get_hands_info(hands: list) -> list:
 
-    '''
-    :param content: list of hands
-    :return: list of dict of hands, ex:
-    [{
-        'time': str,
-        'pot_size': int,
-        'level': str,
-        'my_cards':str,
-        'board_cards': str,
-        'hand_type': str,
-        'replayer_link': str
-    },{
-        ...
-    }]
-    '''
+    hands_replayer_links = generate_hh_links_replayer(hands)
 
-    # hands_replayer_links = generate_hh_links_replayer(hands)
-    #
     # # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 17 IN THE FILE?!!
-    # if len(hands) != len(hands_replayer_links):
-    #     print('@@@@@@@@@@@@@ BUG  - hands:', len(hands), '- replayer:', len(hands_replayer_links))
-
+    if len(hands) != len(hands_replayer_links):
+        print('@@@@@@@@@@@@@ BUG  - hands:', len(hands), '- replayer:', len(hands_replayer_links))
 
     hands_ = []
     for i, hand in enumerate(hands):
-        # try:
-        #     replayer_link = hands_replayer_links[i]
-        # except IndexError:
-        #     replayer_link = None
+        try:
+            replayer_link = hands_replayer_links[i]
+        except IndexError:
+            replayer_link = None
 
-        hands_.append({
-            'time': get_hand_time(hand),
-            'pot_size_chips': get_hand_pot_size_chips(hand),
-            'pot_size_bb': get_hand_pot_size_bb(hand),
-            'level': get_hand_level(hand),
-            'my_cards': get_hand_my_cards(hand),
-            'board_cards': get_hand_board_cards(hand),
-            'replayer_link': '@@@TODO@@@',
-            'from_tourney_id': get_tourney_id(hand),
-            'hand_id': get_hand_id(hand)
-
-
-
-
-
-        })
+        if is_hand_relevant(hand):
+            hands_.append({
+                'time': get_hand_time(hand),
+                'pot_size_chips': get_hand_pot_size_chips(hand),
+                'pot_size_bb': get_hand_pot_size_bb(hand),
+                'level': get_hand_level(hand),
+                'my_cards': get_hand_my_cards(hand),
+                'board_cards': get_hand_board_cards(hand),
+                'replayer_link': replayer_link,
+                'tourney_id': get_tourney_id(hand),
+                'hand_id': get_hand_id(hand)
+            })
 
     return hands_
