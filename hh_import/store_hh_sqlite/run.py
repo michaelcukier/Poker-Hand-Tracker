@@ -20,8 +20,8 @@ def run(clean_data):
         for new_hand in new_tourney['new_hands']:
             run_sql_command(
                 "INSERT INTO "
-                "hands (tourney_id, time, pot_size_chips, pot_size_bb, level, my_cards, board_cards, replayer_link, hand_id) "
-                "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
+                "hands (tourney_id, time, pot_size_chips, pot_size_bb, level, my_cards, board_cards, replayer_link, hand_id, stack_size_start_of_hand) "
+                "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
                 new_hand['tourney_id'],
                 new_hand['time'],
                 new_hand['pot_size_chips'],
@@ -30,7 +30,8 @@ def run(clean_data):
                 new_hand['my_cards'],
                 new_hand['board_cards'],
                 new_hand['replayer_link'],
-                new_hand['hand_id']))
+                new_hand['hand_id'],
+                new_hand['stack_size_start_of_hand']))
 
         # add new opponents:
         # if opp is already in db, increment seen by 1

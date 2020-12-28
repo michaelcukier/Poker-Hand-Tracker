@@ -106,6 +106,10 @@ def is_hand_relevant(hand: str) -> bool:
     return True
 
 
+def get_stack_size_start_of_hand(hand):
+    for line in hand.split('\n'):
+        if PLAYER_NAME + ' (' in line:
+            return int(line.split(PLAYER_NAME + ' (')[1].split('.')[0])
 
 #
 # def get_hand_type(hand):
@@ -196,6 +200,7 @@ def get_hands_info(hands: list) -> list:
         if is_hand_relevant(hand):
             hands_.append({
                 'time': get_hand_time(hand),
+                'stack_size_start_of_hand': get_stack_size_start_of_hand(hand),
                 'pot_size_chips': get_hand_pot_size_chips(hand),
                 'pot_size_bb': get_hand_pot_size_bb(hand),
                 'level': get_hand_level(hand),

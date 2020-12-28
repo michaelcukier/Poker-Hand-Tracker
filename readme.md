@@ -6,12 +6,16 @@
 ~~* import 'PotNoodle' from GLOBAL_VARIABLES.py everywhere~~
 ~~* create hh_import/run.py~~
 
+* !!! need to investigate why tourney ID `23191111` doesnt save ALL hands but only 14 ?! 
+
+* more testing, look into coverage and try to get 100%. Add functional tests?
+
 * cluster hands, ch.9 Hands-On ML book + Unsupervised book
-* create public fork without the tracker link generator
+* create public fork without the tracker link generator and without my own stuff in global variable
 * create helpers/convert_json_to_pretty_table.py  
 ~~* write hh_import/dict_to_clean_data/new_opponents.py function~~  
 ~~* test with the $1.5s~~ 
-* create db apis to generate JSON data:
+* create db apis to generate JSON data OR plot image path :
 
 
     [txt] total rake payed per tracked tourney
@@ -38,14 +42,16 @@
 _______
 
 
-Challenges:
-
+Challenges and solutions:
 * finding a way to architect this app while remaining flexible
 * finding an appropriate testing strategy
 * dealing with missing tourney summaries
 * dealing with hand histories split into multiple files
+* i dont know what this app's gonna be, so better to create an API to access the DB that always returns JSON data OR path to plot image
+* the goal of this program is to have an easy-to-use API that 1) updates the database and 2) allows me to answer questions about the data in this db. However I don't know all of those questions, so I built this app always coming back to the data import when I needed more informations I didnt extracted already
+* its very hard and tiring to look at data, so I reverse-engineering a website where you can upload your hand history and it replays it.
 
-Problems:
+Problems/trade-offs of current implementation:
 * hand histories get auto deleted after 30 days, so the data I didnt extract "on time" is lost.
 * adding a hand is somewhat slow (+- 2secs) because an API call has to be made
 _______
