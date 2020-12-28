@@ -22,13 +22,13 @@ mpl.rcParams['figure.dpi'] = 300
 
 from scipy.ndimage.filters import gaussian_filter1d
 
-x = range(len(starting))
+x = range(1, len(starting) + 1)
 y = gaussian_filter1d(intz, sigma=10)
 plt.plot(x,y, '--')
 plt.xlabel("Game #")
 plt.ylabel("Money ($)")
 plt.title("Tournament: On-Demand $0.55")
-x2 = range(len(starting))
+x2 = range(1, len(starting) + 1)
 y2 = intz
 
 plt.plot(x2, y2)

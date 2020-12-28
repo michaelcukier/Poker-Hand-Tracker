@@ -1,5 +1,7 @@
 import requests
 
+from GLOBAL_VARIABLES import PLAYER_NAME
+
 
 def generate_hh_links_replayer(hands):
     headers = {
@@ -36,13 +38,14 @@ def generate_hh_links_replayer(hands):
     return response.json()['links']
 
 
-def extract_hands_from_content_to_list(content: str) -> list:
-    hands = []
-    for hand in content.split('\n\n'):
-        if 'PotNoodle99912 will be allowed to play after the button' not in hand:  # avoid hands where im not there
-            hands.append(hand)
-    # del hands[-1]
-    return hands
+# DELETE THIS ONE, NEVER USED (REPLACED BY TASK 4 IN raw_hh_to_dict
+# def extract_hands_from_content_to_list(content: str) -> list:
+#     hands = []
+#     for hand in content.split('\n\n'):
+#         if 'PotNoodle99912 will be allowed to play after the button' not in hand:  # avoid hands where im not there
+#             hands.append(hand)
+#     # del hands[-1]
+#     return hands
 
 
 def get_hand_time(hand: str):
@@ -50,7 +53,7 @@ def get_hand_time(hand: str):
     return time
 
 
-def get_hand_pot_size(hand):
+def get_hand_pot_size_chips(hand):
     for line in hand.split('\n'):
         if 'Total pot ' in line:
             return int(line.replace('Total pot ', '').split('.')[0])
@@ -61,10 +64,15 @@ def get_hand_level(hand):
     return level
 
 
+def get_hand_pot_size_bb(hand):
+    current_level_big_blind = float(str(get_hand_level(hand)).split('/')[1].replace(')', ''))
+    return get_hand_pot_size_chips(hand)/current_level_big_blind
+
+
 def get_hand_my_cards(hand):
     for line in hand.split('\n'):
-        if 'Dealt to PotNoodle99912 [' in line:
-            return line.replace('Dealt to PotNoodle99912 [', '').replace(']', '')
+        if 'Dealt to ' + PLAYER_NAME + ' [' in line:
+            return line.replace('Dealt to ' + PLAYER_NAME + ' [', '').replace(']', '')
 
 
 def get_hand_board_cards(hand):
@@ -74,69 +82,84 @@ def get_hand_board_cards(hand):
     return 'no-board'
 
 
-def get_hand_type(hand):
-    def get_hand_preflop_action(hand):
-        preflop = hand.split('*** FLOP ***')[0].split('*** HOLE CARDS ***')[1].split('*** SUMMARY ***')[0]
-        return preflop
+def get_tourney_id(hand: str) -> int:
+    for line in hand.split('\n'):
+        if 'Tournament #' in line:
+            return int(line.split('Tournament #')[1].split(' - ')[0])
 
-    def get_hand_flop_action(hand):
-        if '*** FLOP ***' not in hand:
-            return None
-        if 'all-in' in get_hand_preflop_action(hand):
-            return None
-        else:
-            flop = hand.split('*** FLOP ***')[1].split('***')[0].split(']')[1].split('\n')
-            flop_cleaned = ''
-            for line in flop:
-                if line != '':
-                    flop_cleaned += line + '\n'
-            return flop_cleaned
 
-    def get_hand_turn_action(hand):
-        if '*** TURN ***' not in hand:
-            return None
-        if 'all-in' in get_hand_preflop_action(hand):
-            return None
-        else:
-            flop = hand.split('*** TURN ***')[1].split('***')[0].split('\n')
-            flop_cleaned = ''
-            for line in flop:
-                if (line != '') and ('] [' not in line):
-                    flop_cleaned += line + '\n'
-            return flop_cleaned
+def get_hand_id(hand: str) -> int:
+    for line in hand.split('\n'):
+        if 'Game Hand #' in line:
+            return int(line.split('Game Hand #')[1].split(' - ')[0])
 
-    def get_hand_river_action(hand):
-        if '*** RIVER ***' not in hand:
-            return None
-        if 'all-in' in get_hand_preflop_action(hand):
-            return None
-        else:
-            flop = hand.split('*** RIVER ***')[1].split('***')[0].split('\n')
-            flop_cleaned = ''
-            for line in flop:
-                if (line != '') and ('] [' not in line):
-                    flop_cleaned += line + '\n'
-            return flop_cleaned
 
-    # if 'all-in' in str(get_hand_preflop_action(hand)):
-    #     return 'ALL-IN - PRE - CALLED' if 'folded' not in hand else 'ALL-IN - PRE - UNCALLED'
-    #
-    # elif 'all-in' in str(get_hand_flop_action(hand)):
-    #     return 'ALL-IN - FLOP - CALLED' if 'folded' not in hand else 'ALL-IN - FLOP - UNCALLED'
-    #
-    # elif 'all-in' in str(get_hand_turn_action(hand)):
-    #     return 'ALL-IN - TURN - CALLED' if 'folded' not in hand else 'ALL-IN - TURN - UNCALLED'
-    #
-    # elif 'all-in' in str(get_hand_river_action(hand)):
-    #     return 'ALL-IN - RIVER - CALLED' if 'folded' not in hand else 'ALL-IN - RIVER - UNCALLED'
-    #
-    # elif '*** SHOW DOWN ***' in hand:
-    #     return 'SHOWDOWN'
-    #
-    # else:
-    #     return None
 
-    return 'hand-type'
+
+#
+# def get_hand_type(hand):
+#     def get_hand_preflop_action(hand):
+#         preflop = hand.split('*** FLOP ***')[0].split('*** HOLE CARDS ***')[1].split('*** SUMMARY ***')[0]
+#         return preflop
+#
+#     def get_hand_flop_action(hand):
+#         if '*** FLOP ***' not in hand:
+#             return None
+#         if 'all-in' in get_hand_preflop_action(hand):
+#             return None
+#         else:
+#             flop = hand.split('*** FLOP ***')[1].split('***')[0].split(']')[1].split('\n')
+#             flop_cleaned = ''
+#             for line in flop:
+#                 if line != '':
+#                     flop_cleaned += line + '\n'
+#             return flop_cleaned
+#
+#     def get_hand_turn_action(hand):
+#         if '*** TURN ***' not in hand:
+#             return None
+#         if 'all-in' in get_hand_preflop_action(hand):
+#             return None
+#         else:
+#             flop = hand.split('*** TURN ***')[1].split('***')[0].split('\n')
+#             flop_cleaned = ''
+#             for line in flop:
+#                 if (line != '') and ('] [' not in line):
+#                     flop_cleaned += line + '\n'
+#             return flop_cleaned
+#
+#     def get_hand_river_action(hand):
+#         if '*** RIVER ***' not in hand:
+#             return None
+#         if 'all-in' in get_hand_preflop_action(hand):
+#             return None
+#         else:
+#             flop = hand.split('*** RIVER ***')[1].split('***')[0].split('\n')
+#             flop_cleaned = ''
+#             for line in flop:
+#                 if (line != '') and ('] [' not in line):
+#                     flop_cleaned += line + '\n'
+#             return flop_cleaned
+#
+#     # if 'all-in' in str(get_hand_preflop_action(hand)):
+#     #     return 'ALL-IN - PRE - CALLED' if 'folded' not in hand else 'ALL-IN - PRE - UNCALLED'
+#     #
+#     # elif 'all-in' in str(get_hand_flop_action(hand)):
+#     #     return 'ALL-IN - FLOP - CALLED' if 'folded' not in hand else 'ALL-IN - FLOP - UNCALLED'
+#     #
+#     # elif 'all-in' in str(get_hand_turn_action(hand)):
+#     #     return 'ALL-IN - TURN - CALLED' if 'folded' not in hand else 'ALL-IN - TURN - UNCALLED'
+#     #
+#     # elif 'all-in' in str(get_hand_river_action(hand)):
+#     #     return 'ALL-IN - RIVER - CALLED' if 'folded' not in hand else 'ALL-IN - RIVER - UNCALLED'
+#     #
+#     # elif '*** SHOW DOWN ***' in hand:
+#     #     return 'SHOWDOWN'
+#     #
+#     # else:
+#     #     return None
+#
+#     return 'hand-type'
 
 
 
@@ -164,7 +187,7 @@ def get_hands_info(hands: list) -> list:
 
     # hands_replayer_links = generate_hh_links_replayer(hands)
     #
-    # # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 18 IN THE FILE?!!
+    # # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 17 IN THE FILE?!!
     # if len(hands) != len(hands_replayer_links):
     #     print('@@@@@@@@@@@@@ BUG  - hands:', len(hands), '- replayer:', len(hands_replayer_links))
 
@@ -178,17 +201,14 @@ def get_hands_info(hands: list) -> list:
 
         hands_.append({
             'time': get_hand_time(hand),
-            'pot_size': get_hand_pot_size(hand),
+            'pot_size_chips': get_hand_pot_size_chips(hand),
+            'pot_size_bb': get_hand_pot_size_bb(hand),
             'level': get_hand_level(hand),
             'my_cards': get_hand_my_cards(hand),
             'board_cards': get_hand_board_cards(hand),
-            'hand_type': get_hand_type(hand),
-            # 'replayer_link': replayer_link,
-
-
-
-            'replayer_link': None   # just for testing
-
+            'replayer_link': '@@@TODO@@@',
+            'from_tourney_id': get_tourney_id(hand),
+            'hand_id': get_hand_id(hand)
 
 
 

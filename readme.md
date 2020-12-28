@@ -1,10 +1,11 @@
 ### TODO
 
-* hand level must be saved as int, but pot size in BB and Chips
-* extract hand ID, will need it for the notes API later
-* hand type
-* import 'PotNoodle' from GLOBAL_VARIABLES.py everywhere
-* create hh_import/run.py
+~~* hand level must be saved as int, but pot size in BB and Chips~~  
+~~* extract hand ID, will need it for the notes API later~~
+~~* hand type~~
+~~* import 'PotNoodle' from GLOBAL_VARIABLES.py everywhere~~
+~~* create hh_import/run.py~~
+* cluster hands, ch.9 Hands-On ML book + Unsupervised book
 * create public fork without the tracker link generator
 * create helpers/convert_json_to_pretty_table.py
 * write hh_import/dict_to_clean_data/new_opponents.py function
@@ -18,8 +19,9 @@
     [txt] get lifetime win/loss per tracked tourney
     [txt] get % of cash per tracked tourney
     
+    [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
     [plot] relationship between prize and first hand's current level: does regging early improve my chances of winning?
-    [plot] plot $ won/lost per buyin sharkscope style
+    [x] [plot] plot $ won/lost per buyin sharkscope style
     [plot] plot chips won/lost during tournament x
     
     [table] show all opponents sorted by most seen first 
