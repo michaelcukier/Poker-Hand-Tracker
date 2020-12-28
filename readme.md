@@ -1,12 +1,12 @@
 ### TODO
 
 ~~* hand level must be saved as int, but pot size in BB and Chips~~  
-~~* extract hand ID, will need it for the notes API later~~
-~~* hand type~~
-~~* import 'PotNoodle' from GLOBAL_VARIABLES.py everywhere~~
+~~* extract hand ID, will need it for the notes API later~~  
+~~* hand type~~  
+~~* import 'PotNoodle' from GLOBAL_VARIABLES.py everywhere~~  
 ~~* create hh_import/run.py~~
 
-* !!! need to investigate why tourney ID `23191111` doesnt save ALL hands but only 14 ?! 
+* !!! need to investigate why tourney ID `23191111` doesnt have ALL hands but only 14 ?! 
 
 * more testing, look into coverage and try to get 100%. Add functional tests?
 
@@ -25,9 +25,9 @@
     [txt] get % of cash per tracked tourney
     
     [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
-    [plot] relationship between prize and first hand's current level: does regging early improve my chances of winning?
+    [plot] relationship between position and first hand's level: does regging early improve my chances of winning?
     [x] [plot] plot $ won/lost per buyin sharkscope style
-    [plot] plot chips won/lost during tournament x
+    [x] [plot] plot chips won/lost during tournament x
     
     [table] show all opponents sorted by most seen first 
     [table] show all n tournaments   
@@ -50,10 +50,24 @@ Challenges and solutions:
 * i dont know what this app's gonna be, so better to create an API to access the DB that always returns JSON data OR path to plot image
 * the goal of this program is to have an easy-to-use API that 1) updates the database and 2) allows me to answer questions about the data in this db. However I don't know all of those questions, so I built this app always coming back to the data import when I needed more informations I didnt extracted already
 * its very hard and tiring to look at data, so I reverse-engineering a website where you can upload your hand history and it replays it.
+* clear separations of tasks in folder/files/functions, fully tested and 0 code repetition. 
 
 Problems/trade-offs of current implementation:
 * hand histories get auto deleted after 30 days, so the data I didnt extract "on time" is lost.
 * adding a hand is somewhat slow (+- 2secs) because an API call has to be made
+* not following a particular design pattern
+
+Skills:
+* data pipeline testing/building
+* data exploration and understanding: there was tons of irrelevant hands where im not playing (fold pre), there were tournaments where the HH summary wasn't saved at all (missing data). 
+* SQL
+* documentation
+* plotting
+
+Why I did this project?
+* make more money playing this game
+* show off skills to employers
+* have fun building a project 
 _______
 
 ### What is PokerHUDv2?
