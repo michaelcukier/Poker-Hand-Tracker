@@ -17,7 +17,7 @@ def plot_rate_of_profit_per_game(buyin=None, all_buyins=False):
         else:
             avg_profits.append(round(sum(profits_per_game[:i+1])/(i+1), 2))
 
-    title = 'Profit rate per tournament (across all tournaments buyins)' if all_buyins else 'Profit rate per game over time for $' + str(buyin) + ')'
+    title = 'Profit rate per tournament (across all tournaments buyins)' if all_buyins else 'Profit rate per game over time for $' + str(buyin)
 
     plot_something(
         list_of_data_points=avg_profits,

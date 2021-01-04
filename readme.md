@@ -13,7 +13,7 @@
     
     [plot] find the most common money spot: extract the hands where I won the pot, and categorize them (coolers, PFAI, ..). 
            Aggregate the number of chips won and make pie chart + figure out % of stack invested in a hand
-    [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
+    [DONE] [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
     [plot] relationship between position and first hand's level: does regging early improve my chances of winning?
     [DONE] [plot] plot $ won/lost per buyin sharkscope style
     [DONE] [plot] plot chips won/lost during tournament x

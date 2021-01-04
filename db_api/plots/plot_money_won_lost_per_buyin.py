@@ -17,7 +17,7 @@ def plot_money_won_lost(sigma, all_buyins=False, buyin=None):
             float(float(datapoints[-1]) + (price - prize))
         )
 
-    title = 'Cumulative $ won (all tournaments)' if all_buyins else 'Cumulative $ won (buyin:' + str(buyin) + ')'
+    title = 'All Profit in $ won (all tournaments)' if all_buyins else 'All Profit in $ won (buyin:' + str(buyin) + ')'
 
     plot_something(
         list_of_data_points=datapoints,
