@@ -94,22 +94,41 @@ def get_hand_id(hand: str) -> int:
             return int(line.split('Game Hand #')[1].split(' - ')[0])
 
 
-def is_hand_relevant(hand: str) -> bool:
-    if PLAYER_NAME + ' folded on the Pre-Flop and did not bet' in hand:
-        return False
-    if PLAYER_NAME + ' (big blind) folded on the Pre-Flop' in hand:
-        return False
-    if PLAYER_NAME + ' (small blind) folded on the Pre-Flop' in hand:
-        return False
-    if PLAYER_NAME + ' (button) folded on the Pre-Flop' in hand:
-        return False
-    return True
+# def is_hand_relevant(hand: str) -> bool:
+#     if PLAYER_NAME + ' folded on the Pre-Flop and did not bet' in hand:
+#         return False
+#     if PLAYER_NAME + ' (big blind) folded on the Pre-Flop' in hand:
+#         return False
+#     if PLAYER_NAME + ' (small blind) folded on the Pre-Flop' in hand:
+#         return False
+#     if PLAYER_NAME + ' (button) folded on the Pre-Flop' in hand:
+#         return False
+#     return True
 
+
+def get_winners_of_hand(hand: str) -> str:
+    def remove_position_from_name(name: str) -> str:
+        return name.replace(' (big blind)', '').replace(' (button)', '').replace(' (small blind)', '')
+
+    winners = ''
+    for line in hand.split('\n'):
+        if 'and won' in line:
+
+            # no showdown
+            if 'did not' in line:
+                winners += remove_position_from_name(line.split(' and won ')[0].split(': ')[1].split(' did not')[0]) + ','
+
+            # showdown
+            elif 'showed' in line:
+                winners += remove_position_from_name(line.split(' and won ')[0].split(' showed ')[0].split(': ')[1]) + ','
+
+    return winners[:-1]
 
 def get_stack_size_start_of_hand(hand):
+    current_level_big_blind = float(str(get_hand_level(hand)).split('/')[1].replace(')', ''))
     for line in hand.split('\n'):
         if PLAYER_NAME + ' (' in line:
-            return int(line.split(PLAYER_NAME + ' (')[1].split('.')[0])
+            return round(int(line.split(PLAYER_NAME + ' (')[1].split('.')[0])/current_level_big_blind, 1)
 
 #
 # def get_hand_type(hand):
@@ -184,31 +203,31 @@ def get_stack_size_start_of_hand(hand):
 
 def get_hands_info(hands: list) -> list:
 
-    hands_replayer_links = generate_hh_links_replayer(hands)
-
-    # # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 17 IN THE FILE?!!
-    if len(hands) != len(hands_replayer_links):
-        print('@@@@@@@@@@@@@ BUG  - hands:', len(hands), '- replayer:', len(hands_replayer_links))
+    # hands_replayer_links = generate_hh_links_replayer(hands)
+    #
+    # # # BUG WITH THE REPLAYER.... IT GENERATES 18 HANDS WHEN THERES 17 IN THE FILE?!!
+    # if len(hands) != len(hands_replayer_links):
+    #     print('@@@@@@@@@@@@@ BUG  - hands:', len(hands), '- replayer:', len(hands_replayer_links))
 
     hands_ = []
     for i, hand in enumerate(hands):
-        try:
-            replayer_link = hands_replayer_links[i]
-        except IndexError:
-            replayer_link = None
+        # try:
+        #     replayer_link = hands_replayer_links[i]
+        # except IndexError:
+        #     replayer_link = None
 
-        if is_hand_relevant(hand):
-            hands_.append({
-                'time': get_hand_time(hand),
-                'stack_size_start_of_hand': get_stack_size_start_of_hand(hand),
-                'pot_size_chips': get_hand_pot_size_chips(hand),
-                'pot_size_bb': get_hand_pot_size_bb(hand),
-                'level': get_hand_level(hand),
-                'my_cards': get_hand_my_cards(hand),
-                'board_cards': get_hand_board_cards(hand),
-                'replayer_link': replayer_link,
-                'tourney_id': get_tourney_id(hand),
-                'hand_id': get_hand_id(hand)
-            })
+        hands_.append({
+            'time': get_hand_time(hand),
+            'stack_size_start_of_hand': get_stack_size_start_of_hand(hand),
+            'pot_size_chips': get_hand_pot_size_chips(hand),
+            'pot_size_bb': get_hand_pot_size_bb(hand),
+            'level': get_hand_level(hand),
+            'winner': get_winners_of_hand(hand),
+            'my_cards': get_hand_my_cards(hand),
+            'board_cards': get_hand_board_cards(hand),
+            'replayer_link': None,
+            'tourney_id': get_tourney_id(hand),
+            'hand_id': get_hand_id(hand)
+        })
 
     return hands_

@@ -6,9 +6,12 @@
 
 
 # ---- 2. Play with the API
-# from db_api.plots.plot_money_won_lost_per_buyin import plot_money_won_lost_per_buyin
+from db_api.plots.plot_money_won_lost_per_buyin import plot_money_won_lost
 #
-# plot_money_won_lost_per_buyin(buyin=0.55, sigma=3)
+# plot_money_won_lost(buyin=6.6, sigma=7)
 
 from db_api.plots.plot_chips_won_lost_for_tournament import plot_chips_won_lost_for_tournament
-plot_chips_won_lost_for_tournament(23191111)
+# plot_chips_won_lost_for_tournament(23115737, width=50)
+
+from db_api.plots.plot_rate_of_profit_per_game import plot_rate_of_profit_per_game
+plot_rate_of_profit_per_game(buyin=0.55)

@@ -1,20 +1,7 @@
 ### TODO
-
-~~* hand level must be saved as int, but pot size in BB and Chips~~  
-~~* extract hand ID, will need it for the notes API later~~  
-~~* hand type~~  
-~~* import 'PotNoodle' from GLOBAL_VARIABLES.py everywhere~~  
-~~* create hh_import/run.py~~
-
-* !!! need to investigate why tourney ID `23191111` doesnt have ALL hands but only 14 ?! 
-
 * more testing, look into coverage and try to get 100%. Add functional tests?
-
-* cluster hands, ch.9 Hands-On ML book + Unsupervised book
 * create public fork without the tracker link generator and without my own stuff in global variable
 * create helpers/convert_json_to_pretty_table.py  
-~~* write hh_import/dict_to_clean_data/new_opponents.py function~~  
-~~* test with the $1.5s~~ 
 * create db apis to generate JSON data OR plot image path :
 
 
@@ -24,10 +11,12 @@
     [txt] get lifetime win/loss per tracked tourney
     [txt] get % of cash per tracked tourney
     
+    [plot] find the most common money spot: extract the hands where I won the pot, and categorize them (coolers, PFAI, ..). 
+           Aggregate the number of chips won and make pie chart + figure out % of stack invested in a hand
     [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
     [plot] relationship between position and first hand's level: does regging early improve my chances of winning?
-    [x] [plot] plot $ won/lost per buyin sharkscope style
-    [x] [plot] plot chips won/lost during tournament x
+    [DONE] [plot] plot $ won/lost per buyin sharkscope style
+    [DONE] [plot] plot chips won/lost during tournament x
     
     [table] show all opponents sorted by most seen first 
     [table] show all n tournaments   
@@ -52,12 +41,17 @@ Challenges and solutions:
 * its very hard and tiring to look at data, so I reverse-engineering a website where you can upload your hand history and it replays it.
 * clear separations of tasks in folder/files/functions, fully tested and 0 code repetition. 
 
+
 Problems/trade-offs of current implementation:
 * hand histories get auto deleted after 30 days, so the data I didnt extract "on time" is lost.
 * adding a hand is somewhat slow (+- 2secs) because an API call has to be made
 * not following a particular design pattern
+* SQL design pattern breach: winner in hands table contains multiple items sometimes (side pots)
+
 
 Skills:
+* testing 
+* passion
 * data pipeline testing/building
 * data exploration and understanding: there was tons of irrelevant hands where im not playing (fold pre), there were tournaments where the HH summary wasn't saved at all (missing data). 
 * SQL

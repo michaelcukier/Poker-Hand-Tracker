@@ -49,10 +49,21 @@ class test_dict_to_clean_data(unittest.TestCase):
         self.assertEqual(get_hand_id(fake_tournament['hands'][1]), 620221751)
         self.assertEqual(get_hand_id(fake_tournament['hands'][2]), 620222790)
 
+    def test_get_winner_of_hand(self):
+        self.assertEqual(get_winners_of_hand(fake_tournament['hands'][0]), 'RJB2020')
+        self.assertEqual(get_winners_of_hand(fake_tournament['hands'][1]), 'Hows_That_Fair')
+        self.assertEqual(get_winners_of_hand(fake_tournament['hands'][2]), 'ricthepric')
+        self.assertEqual(get_winners_of_hand(fake_tournament['hands'][3]), 'solving4what,PotNoodle99912')
+
+    def test_get_stack_size_start_of_hand(self):
+        self.assertEqual(get_stack_size_start_of_hand(fake_tournament['hands'][0]), None)
+        self.assertEqual(get_stack_size_start_of_hand(fake_tournament['hands'][1]), 30.0)
+        self.assertEqual(get_stack_size_start_of_hand(fake_tournament['hands'][2]), 29.9)
+
     # tests for new_opponents.py
     def test_extract_opponents_names(self):
         extraction = extract_opponents_names(fake_tournament['summary'])
-        self.assertEqual(len(extraction), 49)
+        self.assertEqual(len(extraction), 48)
         self.assertTrue(len(extraction) == len(set(extraction)))
 
     # tests for new_tournaments.py
