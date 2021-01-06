@@ -410,60 +410,14 @@ FAKE_UNORDERED_HANDS = [
     Seat 1: SCHENCK101 (27495.00)''']
 
 
+examples_titles_id_extraction = [
+    "HH20201231 SITGOID-G23231703T10 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
+    "HH20201231 SITGOID-G23231703T4 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0"
+]
+
+
 # for hand in fake_tournament['hands']:
 #     for line in hand.split('\n'):
 #         print(line)
 #     print()
 
-
-
-zoppp = '''Game Hand #646160180 - Tournament #23237908 - Holdem(No Limit) - Level 18 (9000.00/18000.00)- 2021/01/01 20:13:03 UTC
-Table '1' 9-max Seat #2 is the button
-Seat 1: outsider37 (60916.00)
-Seat 2: solving4what (884380.00)
-Seat 3: IN979504 (726466.00)
-Seat 4: OMGitsvariance (192464.00)
-Seat 5: PotNoodle99912 (7560.00)
-Seat 7: pr6792 (18214.00)
-outsider37 posts ante 1800.00
-solving4what posts ante 1800.00
-IN979504 posts ante 1800.00
-OMGitsvariance posts ante 1800.00
-PotNoodle99912 posts ante 1800.00
-pr6792 posts ante 1800.00
-IN979504 posts the small blind 9000.00
-OMGitsvariance posts the big blind 18000.00
-*** HOLE CARDS ***
-Main pot 10800.00
-Dealt to PotNoodle99912 [Ah Ac]
-PotNoodle99912 calls 5760.00 and is all-in
-pr6792 folds
-outsider37 folds
-solving4what raises 45000.00 to 45000.00
-IN979504 folds
-OMGitsvariance folds
-Uncalled bet (27000.00) returned to solving4what
-*** FLOP *** [8c 2c 7h]
-Main pot 33840.00
-Side pot(1) 27720.00
-*** TURN *** [8c 2c 7h] [5d]
-Main pot 33840.00
-Side pot(1) 27720.00
-*** RIVER *** [8c 2c 7h 5d] [9c]
-Main pot 33840.00
-Side pot(1) 27720.00
-*** SHOW DOWN ***
-Main pot 33840.00
-Side pot(1) 27720.00
-solving4what shows [Jh Ks] (a high card, King high [Ks Jh 9c 8c 7h])
-PotNoodle99912 shows [Ah Ac] (a pair of Aces [Ah Ac 9c 8c 7h])
-PotNoodle99912 collected 33840.00 from main pot
-solving4what collected 27720.00 from side pot-1
-*** SUMMARY ***
-Total pot 61560.00
-Board [8c 2c 7h 5d 9c]
-Seat 1: outsider37 folded on the Pre-Flop and did not bet
-Seat 2: solving4what (button) showed [Jh Ks] and won 27720.00 with a high card, King high [Ks Jh 9c 8c 7h]
-Seat 3: IN979504 (small blind) folded on the Pre-Flop
-Seat 4: OMGitsvariance (big blind) folded on the Pre-Flop
-Seat 5: PotNoodle99912 showed [Ah Ac] and won 33840.00 with a pair of Aces [Ah Ac 9c 8c 7h]'''
