@@ -6,11 +6,24 @@ from helpers.make_scatter_plot import make_scatter_plot
 
 def plot_relationship_between_regging_time_and_position():
 
+
+    '''
+    select id, position, time, level
+    from
+        (Select t.ID, t.position, h.time, h.level, row_number() over (partition by t.id order by h.time) rank
+        FROM Tournaments t
+        inner join hands h
+        on t.id = h.tournament_id
+        ) r
+    where rank = 1
+    '''
+
     get_all_ids_and_positions = run_sql_command(
         '''
         SELECT ID, position
         FROM tournaments
         ''')
+
 
     first_hand_levels = []
     positions = []
@@ -28,7 +41,7 @@ def plot_relationship_between_regging_time_and_position():
             positions.append(position)
 
     sorted_first_hand_levels, sorted_final_position = (list(t) for t in zip(*sorted(zip(first_hand_levels, positions))))
-    #
+
     # for lvl, pos in zip(sorted_first_hand_levels, sorted_final_position):
     #     print('lvl:'+str(lvl), '- pos:'+str(pos))
     #

@@ -20,3 +20,4 @@ def make_scatter_plot(x_coordinates: list, y_coordinates: list, x_label, y_label
     #         orientation='portrait', papertype=None, format=None,
     #         transparent=False, bbox_inches='tight', pad_inches=0, metadata=None)
     return title + '.jpg'
+
