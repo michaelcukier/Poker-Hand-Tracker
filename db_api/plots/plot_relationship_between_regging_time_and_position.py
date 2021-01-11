@@ -47,6 +47,3 @@ def plot_relationship_between_regging_time_and_position():
         y_label='Final position',
         title='Relationship between regging level and final position',
     )
-
-
-plot_relationship_between_regging_time_and_position()
