@@ -1,6 +1,6 @@
 
 from helpers.run_sql_command import run_sql_command
-from helpers.plot_something import plot_something
+from helpers.make_line_plot import make_line_plot
 
 
 def plot_money_won_lost(sigma, all_buyins=False, buyin=None):
@@ -19,7 +19,7 @@ def plot_money_won_lost(sigma, all_buyins=False, buyin=None):
 
     title = 'All Profit in $ won (all tournaments)' if all_buyins else 'All Profit in $ won (buyin:' + str(buyin) + ')'
 
-    plot_something(
+    make_line_plot(
         list_of_data_points=datapoints,
         xlabel='Game #',
         ylabel='Money ($)',

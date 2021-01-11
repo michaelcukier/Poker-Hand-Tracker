@@ -3,7 +3,7 @@ from scipy.ndimage.filters import gaussian_filter1d
 from matplotlib.pyplot import figure
 
 
-def plot_something(list_of_data_points, xlabel, ylabel, title, add_avg_line=False, sigma=0, all_xticks=False, custom_width=False, width=0):
+def make_line_plot(list_of_data_points, xlabel, ylabel, title, add_avg_line=False, sigma=0, all_xticks=False, custom_width=False, width=0):
     if custom_width:
         figure(num=None, figsize=(width, 6), dpi=300, facecolor='w', edgecolor='k')
     else:

@@ -1,6 +1,6 @@
 
 from helpers.run_sql_command import run_sql_command
-from helpers.plot_something import plot_something
+from helpers.make_line_plot import make_line_plot
 
 
 def plot_rate_of_profit_per_game(buyin=None, all_buyins=False):
@@ -19,7 +19,7 @@ def plot_rate_of_profit_per_game(buyin=None, all_buyins=False):
 
     title = 'Profit rate per tournament (across all tournaments buyins)' if all_buyins else 'Profit rate per game over time for $' + str(buyin)
 
-    plot_something(
+    make_line_plot(
         list_of_data_points=avg_profits,
         xlabel='Game',
         ylabel='Profit/game',
