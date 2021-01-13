@@ -20,19 +20,25 @@ def run(clean_data):
         for new_hand in new_tourney['new_hands']:
             run_sql_command(
                 "INSERT INTO "
-                "hands (tourney_id, time, pot_size_chips, pot_size_bb, level, my_cards, board_cards, replayer_link, hand_id, stack_size_start_of_hand, winner) "
-                "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
-                new_hand['tourney_id'],
-                new_hand['time'],
-                new_hand['pot_size_chips'],
-                new_hand['pot_size_bb'],
-                new_hand['level'],
-                new_hand['my_cards'],
-                new_hand['board_cards'],
-                new_hand['replayer_link'],
-                new_hand['hand_id'],
-                new_hand['stack_size_start_of_hand'],
-                new_hand['winner']))
+                "hands (`tourney_id`, `time`, `my_cards`, `board_cards`, `replayer_link`, `hand_id`, `Stack size at start of hand`, `Winner (Main Pot)`,`Winner (Side Pot #1)`, `Winner (Side Pot #2)`, `Winner (Side Pot #3)`, `Pot Size (Main Pot)`, `Pot Size (Side Pot #1)`, `Pot Size (Side Pot #2)`, `Pot Size (Side Pot #3)`, `level`) "
+                "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
+                    new_hand['tourney_id'],
+                    new_hand['time'],
+                    new_hand['my_cards'],
+                    new_hand['board_cards'],
+                    new_hand['replayer_link'],
+                    new_hand['hand_id'],
+                    new_hand['Stack size at start of hand'],
+                    new_hand['Winner (Main Pot)'],
+                    new_hand['Winner (Side Pot #1)'],
+                    new_hand['Winner (Side Pot #2)'],
+                    new_hand['Winner (Side Pot #3)'],
+                    new_hand['Pot Size (Main Pot)'],
+                    new_hand['Pot Size (Side Pot #1)'],
+                    new_hand['Pot Size (Side Pot #2)'],
+                    new_hand['Pot Size (Side Pot #3)'],
+                    new_hand['level']
+                ))
 
         # add new opponents:
         # if opp is already in db, increment seen by 1

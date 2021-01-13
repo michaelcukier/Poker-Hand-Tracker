@@ -1,25 +1,35 @@
 ### TODO
-* more testing, look into coverage and try to get 100%. Add functional tests?
-* save the hhs txt in this folder!
-* fix pb database: Main Pot, Side Pot etc. and add position.
-* create public fork without the tracker link generator and without my own stuff in global variable
-* create helpers/convert_json_to_pretty_table.py  
-* create db apis to generate JSON data OR plot image path :
+* DO THIS FIRST --- I deleted 23316052, just need
+  to add 
+  - position extraction, tests, and then 
+  check by importing 23316052
+  - % of player stack invested in this hand
+    
+* more testing, look into coverage and try to get 100%. 
+  add coverage logos in the github readme
 
+* save hhs txt in a folder !!!
+
+* create public version without the tracker link generator and 
+  without my own stuff in global variable
+
+* create helpers/convert_json_to_pretty_table.py 
+ 
+* create db apis to generate JSON data OR plot image path :
 
     [txt] total rake payed per tracked tourney
     [txt] get number of games played per tracked tourney
     [txt] get avg prize and profit per tracked tourney
     [txt] get lifetime win/loss per tracked tourney
-    [txt] get % of cash per tracked tourney
-    
+    [plot] get % of cash per tracked tourney
     [plot] find the most common money spot: extract the hands where I won the pot, and categorize them (coolers, PFAI, ..). 
            Aggregate the number of chips won and make pie chart + figure out % of stack invested in a hand
     [DONE] [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
-    [plot] relationship between position and first hand's level: does regging early improve my chances of winning?
+    [DONE] [plot] relationship between position and first hand's level: does regging early improve my chances of winning?
     [DONE] [plot] plot $ won/lost per buyin sharkscope style
     [DONE] [plot] plot chips won/lost during tournament x
-    
+    [plot] plot chips won across ALL hands
+
     [table] show all opponents sorted by most seen first 
     [table] show all n tournaments   
     params: all time / last n sng | sort by [most recent, highest prizes]

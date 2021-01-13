@@ -195,6 +195,9 @@ def get_side_pot_size(hand, pot_nb):
     return 0
 
 
+def get_hand_position(hand):
+    return 'todo and testing'
+
 
 # def get_hand_type(hand):
 #     def get_hand_preflop_action(hand):
@@ -289,6 +292,8 @@ def get_hands_info(hands: list) -> list:
             'replayer_link': None,
             'tourney_id': get_tourney_id(hand),
             'hand_id': get_hand_id(hand),
+
+            'Position': get_hand_position(hand),
 
             'Stack size at start of hand': get_stack_size_start_of_hand(hand),
 
