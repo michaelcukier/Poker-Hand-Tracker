@@ -6,6 +6,8 @@ from hh_import.dict_to_clean_data.new_tournaments import *
 
 from fake_data_tourneys.fake_data import *
 
+import copy
+
 
 class test_dict_to_clean_data(unittest.TestCase):
 
@@ -49,11 +51,153 @@ class test_dict_to_clean_data(unittest.TestCase):
         self.assertEqual(get_hand_id(fake_tournament['hands'][1]), 620221751)
         self.assertEqual(get_hand_id(fake_tournament['hands'][2]), 620222790)
 
-    def test_get_winner_of_hand(self):
-        self.assertEqual(get_winners_of_hand(fake_tournament['hands'][0]), 'RJB2020')
-        self.assertEqual(get_winners_of_hand(fake_tournament['hands'][1]), 'Hows_That_Fair')
-        self.assertEqual(get_winners_of_hand(fake_tournament['hands'][2]), 'ricthepric')
-        self.assertEqual(get_winners_of_hand(fake_tournament['hands'][3]), 'solving4what,PotNoodle99912')
+    # def test_get_winner_of_hand(self):
+    #     self.assertEqual(get_winners_of_hand(fake_tournament['hands'][0]), 'RJB2020')
+    #     self.assertEqual(get_winners_of_hand(fake_tournament['hands'][1]), 'Hows_That_Fair')
+    #     self.assertEqual(get_winners_of_hand(fake_tournament['hands'][2]), 'ricthepric')
+    #     self.assertEqual(get_winners_of_hand(fake_tournament['hands'][3]), 'solving4what,PotNoodle99912')
+
+    def test_get_winner_of_side_pot(self):
+
+        # load hands from long txt file
+        hands = []
+        with open('./fake_data_tourneys/long_hand_history_for_tests.txt', 'r') as f:
+            data = f.read()
+            hhtext = copy.deepcopy(data)
+        str_to_hands = hhtext.split('\n\n')
+        for hand_ in str_to_hands:
+            hands.append(hand_)
+
+        results = [
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'no-side-pot',
+            'Bubbazinitty',
+            'slbetters'
+        ]
+
+        for hand, result in zip(hands, results):
+            self.assertEqual(get_winner_of_side_pot(hand, pot_nb=1), result)
+
+        # TEST FOR POT NB 2 AND 3 !!!
+
+
+
+    def test_get_side_pot_size(self):
+        # load hands from long txt file
+        hands = []
+        with open('./fake_data_tourneys/long_hand_history_for_tests.txt', 'r') as f:
+            data = f.read()
+            hhtext = copy.deepcopy(data)
+        str_to_hands = hhtext.split('\n\n')
+        for hand_ in str_to_hands:
+            hands.append(hand_)
+
+        # side pot 1
+        results = [
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            1.59,
+            2.05,
+            1.93,
+            5.83,
+        ]
+        for hand, result in zip(hands, results):
+            self.assertEqual(get_side_pot_size(hand, pot_nb=1), result)
+
+        # side pot 2
+        results = [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            8.13
+        ]
+        for hand, result in zip(hands, results):
+            self.assertEqual(get_side_pot_size(hand, pot_nb=2), result)
+
+        # side pot 3
+        results = [
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0,
+            1.67
+        ]
+        for hand, result in zip(hands, results):
+            self.assertEqual(get_side_pot_size(hand, pot_nb=3), result)
+
+
+    def test_get_main_pot_size(self):
+        # load hands from long txt file
+        hands = []
+        with open('./fake_data_tourneys/long_hand_history_for_tests.txt', 'r') as f:
+            data = f.read()
+            hhtext = copy.deepcopy(data)
+        str_to_hands = hhtext.split('\n\n')
+        for hand_ in str_to_hands:
+            hands.append(hand_)
+
+        results = [2.2, 3.3, 37.05, 2.3, 7.95, 5.6,
+                   30.1, 3.3, 3.3, 11.62, 3.8, 8.73,
+                   19.57, 3.2, 27.67, 10.29, 17.84,
+                   3.2, 3.2, 43.92, 2.7, 1.42, 3.45]
+
+        for hand, result in zip(hands, results):
+            self.assertEqual(get_main_pot_size(hand), result)
+
+
+    def test_get_winner_of_main_pot(self):
+
+        # load hands from long txt file
+        hands = []
+        with open('./fake_data_tourneys/long_hand_history_for_tests.txt', 'r') as f:
+            data = f.read()
+            hhtext = copy.deepcopy(data)
+        str_to_hands = hhtext.split('\n\n')
+        for hand_ in str_to_hands:
+            hands.append(hand_)
+
+        self.assertEqual(get_winner_of_main_pot(hands[0]), 'PotNoodle99912')
+        self.assertEqual(get_winner_of_main_pot(hands[1]), 'yaya12')
+        self.assertEqual(get_winner_of_main_pot(hands[2]), 'Didlo1987')
+        self.assertEqual(get_winner_of_main_pot(hands[3]), 'yaya12')
+        self.assertEqual(get_winner_of_main_pot(hands[4]), 'seamynutz')
+        self.assertEqual(get_winner_of_main_pot(hands[5]), 'xiooong')
+        self.assertEqual(get_winner_of_main_pot(hands[6]), 'omc7272')
+        self.assertEqual(get_winner_of_main_pot(hands[7]), 'jbgutrock')
+        self.assertEqual(get_winner_of_main_pot(hands[8]), 'yaya12')
+        self.assertEqual(get_winner_of_main_pot(hands[9]),  '**[CHOP-CHOP]**')
+        self.assertEqual(get_winner_of_main_pot(hands[10]), 'Sgt. Fury')
+        self.assertEqual(get_winner_of_main_pot(hands[11]), 'seamynutz')
+        self.assertEqual(get_winner_of_main_pot(hands[12]), 'jbgutrock')
+        self.assertEqual(get_winner_of_main_pot(hands[13]), 'yaya12')
+        self.assertEqual(get_winner_of_main_pot(hands[14]), 'xiooong')
+        self.assertEqual(get_winner_of_main_pot(hands[15]), 'Vadims')
+        self.assertEqual(get_winner_of_main_pot(hands[16]), 'PotNoodle99912')
+        self.assertEqual(get_winner_of_main_pot(hands[17]), 'Didlo1987')
+        self.assertEqual(get_winner_of_main_pot(hands[18]), 'PotNoodle99912')
+        self.assertEqual(get_winner_of_main_pot(hands[19]), 'jbgutrock')
+        self.assertEqual(get_winner_of_main_pot(hands[20]), 'Sgt. Fury')
+        self.assertEqual(get_winner_of_main_pot(hands[21]), 'Ginijo')
+        self.assertEqual(get_winner_of_main_pot(hands[22]), 'slbetters')
+
 
     def test_get_stack_size_start_of_hand(self):
         self.assertEqual(get_stack_size_start_of_hand(fake_tournament['hands'][0]), None)

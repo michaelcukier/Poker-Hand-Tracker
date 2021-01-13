@@ -1,5 +1,7 @@
 ### TODO
 * more testing, look into coverage and try to get 100%. Add functional tests?
+* save the hhs txt in this folder!
+* fix pb database: Main Pot, Side Pot etc. and add position.
 * create public fork without the tracker link generator and without my own stuff in global variable
 * create helpers/convert_json_to_pretty_table.py  
 * create db apis to generate JSON data OR plot image path :
@@ -51,7 +53,6 @@ Problems/trade-offs of current implementation:
 
 Skills:
 * testing 
-* passion
 * data pipeline testing/building
 * data exploration and understanding: there was tons of irrelevant hands where im not playing (fold pre), there were tournaments where the HH summary wasn't saved at all (missing data). 
 * SQL

@@ -106,23 +106,23 @@ def get_hand_id(hand: str) -> int:
 #     return True
 
 
-def get_winners_of_hand(hand: str) -> str:
-    def remove_position_from_name(name: str) -> str:
-        return name.replace(' (big blind)', '').replace(' (button)', '').replace(' (small blind)', '')
-
-    winners = ''
-    for line in hand.split('\n'):
-        if 'and won' in line:
-
-            # no showdown
-            if 'did not' in line:
-                winners += remove_position_from_name(line.split(' and won ')[0].split(': ')[1].split(' did not')[0]) + ','
-
-            # showdown
-            elif 'showed' in line:
-                winners += remove_position_from_name(line.split(' and won ')[0].split(' showed ')[0].split(': ')[1]) + ','
-
-    return winners[:-1]
+# def get_winners_of_hand(hand: str) -> str:
+#     def remove_position_from_name(name: str) -> str:
+#         return name.replace(' (big blind)', '').replace(' (button)', '').replace(' (small blind)', '')
+#
+#     winners = ''
+#     for line in hand.split('\n'):
+#         if 'and won' in line:
+#
+#             # no showdown
+#             if 'did not' in line:
+#                 winners += remove_position_from_name(line.split(' and won ')[0].split(': ')[1].split(' did not')[0]) + ','
+#
+#             # showdown
+#             elif 'showed' in line:
+#                 winners += remove_position_from_name(line.split(' and won ')[0].split(' showed ')[0].split(': ')[1]) + ','
+#
+#     return winners[:-1]
 
 def get_stack_size_start_of_hand(hand):
     current_level_big_blind = float(str(get_hand_level(hand)).split('/')[1].replace(')', ''))
@@ -130,7 +130,72 @@ def get_stack_size_start_of_hand(hand):
         if PLAYER_NAME + ' (' in line:
             return round(int(line.split(PLAYER_NAME + ' (')[1].split('.')[0])/current_level_big_blind, 1)
 
-#
+
+def get_winner_of_main_pot(hand):
+    # side pots
+    if 'side pot-1' in str(hand):
+        for line in hand.split('\n'):
+            if 'main pot' in line:
+                return line.split(' collected')[0]
+
+    # chop pot
+    if str(hand).count('from main pot') >= 2:
+        return '**[CHOP-CHOP]**'
+
+    # normal main pot
+    for line in hand.split('\n'):
+        if 'and won' in line:
+            if 'did not' in line:
+                return line.split(' did not ')[0].split(': ')[1]
+            elif 'showed' in line:
+                return line.split(' showed ')[0].split(': ')[1].split(' (')[0]
+
+
+def get_winner_of_side_pot(hand, pot_nb):
+    # if side pot winner = main pot winner
+    for line in hand.split('\n'):
+        if ('side pot-' + str(pot_nb)) in line:
+            return line.split(' collected')[0]
+    return 'no-side-pot'
+
+
+def get_main_pot_size(hand):
+    current_level_big_blind = float(str(get_hand_level(hand)).split('/')[1].replace(')', ''))
+
+    # if just one main pot:
+    if get_winner_of_side_pot(hand, pot_nb=1) == 'no-side-pot':
+        for line in hand.split('\n'):
+            if ' did not show and won ' in line:
+                pot_size_chips = int(line.split(' did not show and won ')[1].split('.')[0])
+                return round(pot_size_chips/current_level_big_blind, 2)
+            elif '] and won ' in line:
+                pot_size_chips = int(line.split('] and won ')[1].split(' with ')[0].split('.')[0])
+                return round(pot_size_chips/current_level_big_blind, 2)
+    else:
+        # if winner wins side + main
+        if get_winner_of_main_pot(hand) == get_winner_of_side_pot(hand, pot_nb=1):
+            for line in hand.split('\n'):
+                if 'Total pot ' in line:
+                    pot_size_chips = int(line.split('Total pot ')[1].split('.')[0])
+                    return round(pot_size_chips / current_level_big_blind, 2)
+
+        # if winner wins only main
+        for line in hand.split('\n'):
+            if '.00 from main pot' in line:
+                pot_size_chips = int(line.split('.00 from main pot')[0].split('collected ')[1])
+                return round(pot_size_chips / current_level_big_blind, 2)
+
+
+def get_side_pot_size(hand, pot_nb):
+    current_level_big_blind = float(str(get_hand_level(hand)).split('/')[1].replace(')', ''))
+    for line in hand.split('\n'):
+        if ('from side pot-' + str(pot_nb)) in line:
+            pot_size_chips = int(line.split(' collected ')[1].split('.00 from side pot-' + str(pot_nb))[0])
+            return round(pot_size_chips / current_level_big_blind, 2)
+    return 0
+
+
+
 # def get_hand_type(hand):
 #     def get_hand_preflop_action(hand):
 #         preflop = hand.split('*** FLOP ***')[0].split('*** HOLE CARDS ***')[1].split('*** SUMMARY ***')[0]
@@ -218,16 +283,25 @@ def get_hands_info(hands: list) -> list:
 
         hands_.append({
             'time': get_hand_time(hand),
-            'stack_size_start_of_hand': get_stack_size_start_of_hand(hand),
-            'pot_size_chips': get_hand_pot_size_chips(hand),
-            'pot_size_bb': get_hand_pot_size_bb(hand),
             'level': get_hand_level(hand),
-            'winner': get_winners_of_hand(hand),
             'my_cards': get_hand_my_cards(hand),
             'board_cards': get_hand_board_cards(hand),
             'replayer_link': None,
             'tourney_id': get_tourney_id(hand),
-            'hand_id': get_hand_id(hand)
+            'hand_id': get_hand_id(hand),
+
+            'Stack size at start of hand': get_stack_size_start_of_hand(hand),
+
+            'Winner (Main Pot)': get_winner_of_main_pot(hand),
+            'Winner (Side Pot #1)': get_winner_of_side_pot(hand, pot_nb=1),
+            'Winner (Side Pot #2)': get_winner_of_side_pot(hand, pot_nb=2),
+            'Winner (Side Pot #3)': get_winner_of_side_pot(hand, pot_nb=3),
+
+            'Pot Size (Main Pot)': get_main_pot_size(hand),
+            'Pot Size (Side Pot #1)': get_side_pot_size(hand, pot_nb=1),
+            'Pot Size (Side Pot #2)': get_side_pot_size(hand, pot_nb=2),
+            'Pot Size (Side Pot #3)': get_side_pot_size(hand, pot_nb=3),
+
         })
 
     return hands_
