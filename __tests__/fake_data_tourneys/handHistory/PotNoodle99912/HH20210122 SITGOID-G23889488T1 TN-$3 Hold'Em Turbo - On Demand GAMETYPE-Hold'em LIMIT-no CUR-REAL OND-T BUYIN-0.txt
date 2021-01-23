@@ -1,0 +1,368 @@
+Game Hand #673950146 - Tournament #23889488 - Holdem(No Limit) - Level 1 (250.00/500.00)- 2021/01/22 18:30:07 UTC
+Table '1' 9-max Seat #6 is the button
+Seat 1: Fiend4poker (30000.00)
+Seat 2: DmexicanPooh (30000.00)
+Seat 3: PotNoodle99912 (30000.00)
+Seat 6: YakAttack904 (30000.00)
+Seat 7: Iconoclast63 (30000.00)
+Seat 8: CoachTom58 (30000.00)
+Seat 9: MGMNHDaYu (30000.00)
+Fiend4poker posts ante 50.00
+DmexicanPooh posts ante 50.00
+PotNoodle99912 posts ante 50.00
+YakAttack904 posts ante 50.00
+Iconoclast63 posts ante 50.00
+CoachTom58 posts ante 50.00
+MGMNHDaYu posts ante 50.00
+*** HOLE CARDS ***
+Main pot 350.00
+Iconoclast63 posts the small blind 250.00
+CoachTom58 posts the big blind 500.00
+Dealt to PotNoodle99912 [Ad 4d]
+MGMNHDaYu folds
+Fiend4poker folds
+DmexicanPooh folds
+PotNoodle99912 raises 1250.00 to 1250.00
+YakAttack904 folds
+Iconoclast63 calls 1000.00
+CoachTom58 calls 750.00
+*** FLOP *** [Kh 4c Ah]
+Main pot 4100.00
+Iconoclast63 checks
+CoachTom58 checks
+PotNoodle99912 bets 1025.00
+Iconoclast63 calls 1025.00
+CoachTom58 folds
+*** TURN *** [Kh 4c Ah] [4s]
+Main pot 6150.00
+Iconoclast63 checks
+PotNoodle99912 checks
+*** RIVER *** [Kh 4c Ah 4s] [3c]
+Main pot 6150.00
+Iconoclast63 checks
+PotNoodle99912 bets 4613.00
+Iconoclast63 folds
+Uncalled bet (4613.00) returned to PotNoodle99912
+PotNoodle99912 does not show
+*** SUMMARY ***
+Total pot 6150.00
+Board [Kh 4c Ah 4s 3c]
+Seat 1: Fiend4poker folded on the Pre-Flop and did not bet
+Seat 2: DmexicanPooh folded on the Pre-Flop and did not bet
+Seat 3: PotNoodle99912 did not show and won 6150.00
+Seat 6: YakAttack904 (button) folded on the Pre-Flop
+Seat 7: Iconoclast63 (small blind) folded on the River
+Seat 8: CoachTom58 (big blind) folded on the Flop
+Seat 9: MGMNHDaYu folded on the Pre-Flop and did not bet
+
+Game Hand #673951752 - Tournament #23889488 - Holdem(No Limit) - Level 1 (250.00/500.00)- 2021/01/22 18:31:43 UTC
+Table '1' 9-max Seat #7 is the button
+Seat 1: Fiend4poker (29950.00)
+Seat 2: DmexicanPooh (29950.00)
+Seat 3: PotNoodle99912 (33825.00)
+Seat 6: YakAttack904 (29950.00)
+Seat 7: Iconoclast63 (27675.00)
+Seat 8: CoachTom58 (28700.00)
+Seat 9: MGMNHDaYu (29950.00)
+Fiend4poker posts ante 50.00
+DmexicanPooh posts ante 50.00
+PotNoodle99912 posts ante 50.00
+YakAttack904 posts ante 50.00
+Iconoclast63 posts ante 50.00
+CoachTom58 posts ante 50.00
+MGMNHDaYu posts ante 50.00
+*** HOLE CARDS ***
+Main pot 350.00
+CoachTom58 posts the small blind 250.00
+MGMNHDaYu posts the big blind 500.00
+Dealt to PotNoodle99912 [Jc 6s]
+Fiend4poker folds
+DmexicanPooh folds
+PotNoodle99912 folds
+YakAttack904 folds
+Iconoclast63 folds
+CoachTom58 raises 1250.00 to 1500.00
+MGMNHDaYu raises 5500.00 to 6000.00
+CoachTom58 folds
+MGMNHDaYu does not show
+*** SUMMARY ***
+Total pot 7850.00
+Seat 1: Fiend4poker folded on the Pre-Flop and did not bet
+Seat 2: DmexicanPooh folded on the Pre-Flop and did not bet
+Seat 3: PotNoodle99912 folded on the Pre-Flop and did not bet
+Seat 6: YakAttack904 folded on the Pre-Flop and did not bet
+Seat 7: Iconoclast63 (button) folded on the Pre-Flop
+Seat 8: CoachTom58 (small blind) folded on the Pre-Flop
+Seat 9: MGMNHDaYu did not show and won 7850.00
+
+Game Hand #673952215 - Tournament #23889488 - Holdem(No Limit) - Level 1 (250.00/500.00)- 2021/01/22 18:32:10 UTC
+Table '1' 9-max Seat #8 is the button
+Seat 1: Fiend4poker (29900.00)
+Seat 2: DmexicanPooh (29900.00)
+Seat 3: PotNoodle99912 (33775.00)
+Seat 6: YakAttack904 (29900.00)
+Seat 7: Iconoclast63 (27625.00)
+Seat 8: CoachTom58 (27150.00)
+Seat 9: MGMNHDaYu (31750.00)
+Fiend4poker posts ante 50.00
+DmexicanPooh posts ante 50.00
+PotNoodle99912 posts ante 50.00
+YakAttack904 posts ante 50.00
+Iconoclast63 posts ante 50.00
+CoachTom58 posts ante 50.00
+MGMNHDaYu posts ante 50.00
+*** HOLE CARDS ***
+Main pot 350.00
+MGMNHDaYu posts the small blind 250.00
+Fiend4poker posts the big blind 500.00
+Dealt to PotNoodle99912 [Js 2c]
+DmexicanPooh folds
+PotNoodle99912 folds
+YakAttack904 folds
+Iconoclast63 raises 1250.00 to 1250.00
+CoachTom58 folds
+MGMNHDaYu folds
+Fiend4poker calls 750.00
+*** FLOP *** [3h Qd Jc]
+Main pot 3100.00
+Fiend4poker bets 1550.00
+Iconoclast63 raises 7750.00 to 7750.00
+Fiend4poker calls 6200.00
+*** TURN *** [3h Qd Jc] [Ad]
+Main pot 18600.00
+Fiend4poker checks
+Iconoclast63 bets 18575.00 and is all-in
+Fiend4poker folds
+Uncalled bet (18575.00) returned to Iconoclast63
+Iconoclast63 does not show
+*** SUMMARY ***
+Total pot 18600.00
+Board [3h Qd Jc Ad]
+Seat 1: Fiend4poker (big blind) folded on the Turn
+Seat 2: DmexicanPooh folded on the Pre-Flop and did not bet
+Seat 3: PotNoodle99912 folded on the Pre-Flop and did not bet
+Seat 6: YakAttack904 folded on the Pre-Flop and did not bet
+Seat 7: Iconoclast63 did not show and won 18600.00
+Seat 8: CoachTom58 (button) folded on the Pre-Flop
+Seat 9: MGMNHDaYu (small blind) folded on the Pre-Flop
+
+Game Hand #673953418 - Tournament #23889488 - Holdem(No Limit) - Level 1 (250.00/500.00)- 2021/01/22 18:33:23 UTC
+Table '1' 9-max Seat #9 is the button
+Seat 1: Fiend4poker (20850.00)
+Seat 2: DmexicanPooh (29850.00)
+Seat 3: PotNoodle99912 (33725.00)
+Seat 4: Snow88man (30000.00)
+Seat 6: YakAttack904 (29850.00)
+Seat 7: Iconoclast63 (37175.00)
+Seat 8: CoachTom58 (27100.00)
+Seat 9: MGMNHDaYu (31450.00)
+Fiend4poker posts ante 50.00
+DmexicanPooh posts ante 50.00
+PotNoodle99912 posts ante 50.00
+Snow88man posts ante 50.00
+YakAttack904 posts ante 50.00
+Iconoclast63 posts ante 50.00
+CoachTom58 posts ante 50.00
+MGMNHDaYu posts ante 50.00
+*** HOLE CARDS ***
+Main pot 400.00
+Fiend4poker posts the small blind 250.00
+DmexicanPooh posts the big blind 500.00
+Dealt to PotNoodle99912 [As 6d]
+PotNoodle99912 folds
+Snow88man folds
+YakAttack904 calls 500.00
+Iconoclast63 folds
+CoachTom58 folds
+MGMNHDaYu folds
+Fiend4poker folds
+DmexicanPooh checks
+*** FLOP *** [5s Qc 9s]
+Main pot 1650.00
+DmexicanPooh checks
+YakAttack904 bets 750.00
+DmexicanPooh folds
+Uncalled bet (750.00) returned to YakAttack904
+YakAttack904 does not show
+*** SUMMARY ***
+Total pot 1650.00
+Board [5s Qc 9s]
+Seat 1: Fiend4poker (small blind) folded on the Pre-Flop
+Seat 2: DmexicanPooh (big blind) folded on the Flop
+Seat 3: PotNoodle99912 folded on the Pre-Flop and did not bet
+Seat 4: Snow88man folded on the Pre-Flop and did not bet
+Seat 6: YakAttack904 did not show and won 1650.00
+Seat 7: Iconoclast63 folded on the Pre-Flop and did not bet
+Seat 8: CoachTom58 folded on the Pre-Flop and did not bet
+Seat 9: MGMNHDaYu (button) folded on the Pre-Flop
+
+Game Hand #673954214 - Tournament #23889488 - Holdem(No Limit) - Level 1 (250.00/500.00)- 2021/01/22 18:34:11 UTC
+Table '1' 9-max Seat #1 is the button
+Seat 1: Fiend4poker (20550.00)
+Seat 2: DmexicanPooh (29300.00)
+Seat 3: PotNoodle99912 (33675.00)
+Seat 4: Snow88man (29950.00)
+Seat 5: DubJ1313 (30000.00)
+Seat 6: YakAttack904 (30950.00)
+Seat 7: Iconoclast63 (37125.00)
+Seat 8: CoachTom58 (27050.00)
+Seat 9: MGMNHDaYu (31400.00)
+Fiend4poker posts ante 50.00
+DmexicanPooh posts ante 50.00
+PotNoodle99912 posts ante 50.00
+Snow88man posts ante 50.00
+DubJ1313 posts ante 50.00
+YakAttack904 posts ante 50.00
+Iconoclast63 posts ante 50.00
+CoachTom58 posts ante 50.00
+MGMNHDaYu posts ante 50.00
+*** HOLE CARDS ***
+Main pot 450.00
+DmexicanPooh posts the small blind 250.00
+PotNoodle99912 posts the big blind 500.00
+Dealt to PotNoodle99912 [Ac 3c]
+Snow88man folds
+DubJ1313 folds
+YakAttack904 folds
+Iconoclast63 folds
+CoachTom58 folds
+MGMNHDaYu folds
+Fiend4poker raises 1500.00 to 1500.00
+DmexicanPooh folds
+PotNoodle99912 calls 1000.00
+*** FLOP *** [3h 9d 5d]
+Main pot 3700.00
+PotNoodle99912 checks
+Fiend4poker bets 1850.00
+PotNoodle99912 calls 1850.00
+*** TURN *** [3h 9d 5d] [8d]
+Main pot 7400.00
+PotNoodle99912 checks
+Fiend4poker bets 5634.00
+PotNoodle99912 folds
+Uncalled bet (5634.00) returned to Fiend4poker
+Fiend4poker does not show
+*** SUMMARY ***
+Total pot 7400.00
+Board [3h 9d 5d 8d]
+Seat 1: Fiend4poker did not show and won 7400.00
+Seat 2: DmexicanPooh (small blind) folded on the Pre-Flop
+Seat 3: PotNoodle99912 (big blind) folded on the Turn
+Seat 4: Snow88man folded on the Pre-Flop and did not bet
+Seat 5: DubJ1313 folded on the Pre-Flop and did not bet
+Seat 6: YakAttack904 folded on the Pre-Flop and did not bet
+Seat 7: Iconoclast63 folded on the Pre-Flop and did not bet
+Seat 8: CoachTom58 folded on the Pre-Flop and did not bet
+Seat 9: MGMNHDaYu folded on the Pre-Flop and did not bet
+
+Game Hand #673955323 - Tournament #23889488 - Holdem(No Limit) - Level 2 (350.00/700.00)- 2021/01/22 18:35:16 UTC
+Table '1' 9-max Seat #2 is the button
+Seat 1: Fiend4poker (24550.00)
+Seat 2: DmexicanPooh (29000.00)
+Seat 3: PotNoodle99912 (30275.00)
+Seat 4: Snow88man (29900.00)
+Seat 5: DubJ1313 (29950.00)
+Seat 6: YakAttack904 (30900.00)
+Seat 7: Iconoclast63 (37075.00)
+Seat 8: CoachTom58 (27000.00)
+Seat 9: MGMNHDaYu (31350.00)
+Fiend4poker posts ante 70.00
+DmexicanPooh posts ante 70.00
+PotNoodle99912 posts ante 70.00
+Snow88man posts ante 70.00
+DubJ1313 posts ante 70.00
+YakAttack904 posts ante 70.00
+Iconoclast63 posts ante 70.00
+CoachTom58 posts ante 70.00
+MGMNHDaYu posts ante 70.00
+*** HOLE CARDS ***
+Main pot 630.00
+PotNoodle99912 posts the small blind 350.00
+Snow88man posts the big blind 700.00
+Dealt to PotNoodle99912 [8d Kd]
+DubJ1313 raises 1470.00 to 1470.00
+YakAttack904 folds
+Iconoclast63 folds
+CoachTom58 folds
+MGMNHDaYu folds
+Fiend4poker folds
+DmexicanPooh raises 4340.00 to 4340.00
+PotNoodle99912 folds
+Snow88man calls 3640.00
+DubJ1313 calls 2870.00
+*** FLOP *** [Qc Ac 6d]
+Main pot 14000.00
+Snow88man bets 1400.00
+DubJ1313 folds
+DmexicanPooh raises 9800.00 to 9800.00
+Snow88man calls 8400.00
+*** TURN *** [Qc Ac 6d] [4c]
+Main pot 33600.00
+Snow88man checks
+DmexicanPooh checks
+*** RIVER *** [Qc Ac 6d 4c] [2d]
+Main pot 33600.00
+Snow88man checks
+DmexicanPooh checks
+*** SHOW DOWN ***
+Main pot 33600.00
+DmexicanPooh shows [Ad Td] (a pair of Aces [Ad Ac Qc Td 6d])
+Snow88man shows [3h 3d] (a pair of Threes [3h 3d Ac Qc 6d])
+DmexicanPooh collected 33600.00 from main pot
+*** SUMMARY ***
+Total pot 33600.00
+Board [Qc Ac 6d 4c 2d]
+Seat 1: Fiend4poker folded on the Pre-Flop and did not bet
+Seat 2: DmexicanPooh (button) showed [Ad Td] and won 33600.00 with a pair of Aces [Ad Ac Qc Td 6d]
+Seat 3: PotNoodle99912 (small blind) folded on the Pre-Flop
+Seat 4: Snow88man (big blind) showed [3h 3d] and lost with a pair of Threes [3h 3d Ac Qc 6d]
+Seat 5: DubJ1313 folded on the Flop
+Seat 6: YakAttack904 folded on the Pre-Flop and did not bet
+Seat 7: Iconoclast63 folded on the Pre-Flop and did not bet
+Seat 8: CoachTom58 folded on the Pre-Flop and did not bet
+Seat 9: MGMNHDaYu folded on the Pre-Flop and did not bet
+
+Game Hand #673956969 - Tournament #23889488 - Holdem(No Limit) - Level 2 (350.00/700.00)- 2021/01/22 18:36:54 UTC
+Table '1' 9-max Seat #3 is the button
+Seat 2: DmexicanPooh (48390.00)
+Seat 3: PotNoodle99912 (29855.00)
+Seat 4: Snow88man (15690.00)
+Seat 5: DubJ1313 (25540.00)
+Seat 7: Iconoclast63 (37005.00)
+DmexicanPooh posts ante 70.00
+PotNoodle99912 posts ante 70.00
+Snow88man posts ante 70.00
+DubJ1313 posts ante 70.00
+Iconoclast63 posts ante 70.00
+*** HOLE CARDS ***
+Main pot 350.00
+Snow88man posts the small blind 350.00
+DubJ1313 posts the big blind 700.00
+Dealt to PotNoodle99912 [4d 2d]
+Iconoclast63 folds
+DmexicanPooh folds
+PotNoodle99912 folds
+Snow88man calls 350.00
+DubJ1313 raises 2170.00 to 2870.00
+Snow88man raises 14920.00 to 15620.00 and is all-in
+DubJ1313 calls 12750.00
+*** FLOP *** [7d 2h Kc]
+Main pot 31590.00
+*** TURN *** [7d 2h Kc] [3s]
+Main pot 31590.00
+*** RIVER *** [7d 2h Kc 3s] [8d]
+Main pot 31590.00
+*** SHOW DOWN ***
+Main pot 31590.00
+Snow88man shows [7s 6c] (a pair of Sevens [7s 7d Kc 8d 6c])
+DubJ1313 shows [Kh Th] (a pair of Kings [Kh Kc Th 8d 7d])
+DubJ1313 collected 31590.00 from main pot
+*** SUMMARY ***
+Total pot 31590.00
+Board [7d 2h Kc 3s 8d]
+Seat 2: DmexicanPooh folded on the Pre-Flop and did not bet
+Seat 3: PotNoodle99912 (button) folded on the Pre-Flop
+Seat 4: Snow88man (small blind) showed [7s 6c] and lost with a pair of Sevens [7s 7d Kc 8d 6c]
+Seat 5: DubJ1313 (big blind) showed [Kh Th] and won 31590.00 with a pair of Kings [Kh Kc Th 8d 7d]
+Seat 7: Iconoclast63 folded on the Pre-Flop and did not bet
+

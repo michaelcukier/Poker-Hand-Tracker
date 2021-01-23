@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 
-def make_box_plot(x_axis_labels, data, x_label, y_label, title, size=(10, 10), range_=range(1, 38)):
+def make_box_plot(x_axis_labels, data, x_label, y_label, title, size=(10, 10), range_=range(1, 46)):
     plt.figure(figsize=size)
     plt.yticks(range_)
     plt.grid(alpha=0.3)

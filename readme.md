@@ -1,14 +1,35 @@
-### TODO
-* DO THIS FIRST --- I deleted 23316052, just need
-  to add 
-  - position extraction, tests, and then 
-  check by importing 23316052
-  - % of player stack invested in this hand
+### HYPER IMPORTANT #####
+
+workflow:
+
+* while developing this app, I select 20 tournaments and 
+their corresponding files (it'll be about 60 then, with the hhs and tourney sums).
+I do all my tests on these 20 tourneys, including plotting and shit. 
+
+* at the same time, I create a small script that copy/paste the new tournaments files 
+(the ones I play every day) and dumps them in this "HHS_DUMP" folder. 
+
+* in the end, when I feel like this project is near completion, I can safely change
+the source folder from FAKE_DATA to HHS_DUMP and everything should work properly. 
+
+BUT BEFORE THIS, LEARN HOW TO DO UNIT-TESTS + USING GIT AND FUNCTIONAL TESTS PROPERLY:
+- how to do functional tests?
+- better testing tools than UnitTests ?!
+- USING GIT PROPERLY WITH BRANCHES 
+- implement CI/CD
+- figure out coverage
+- How to organize my tests? folders and stuff? where to put my files?
+- LEARN ABOUT DESIGN PATTERNS 
+- LEARN TO CREATE MODULES INSTEAD OF DOING from.abcde.abcde import abcde ?!
+- LEARN TO CREATE SOFTWARE ARCHITECUTURE DIAGRAMS: https://c4model.com/
+
+
+# ---------------------------------------------------------------------
+
+* % of player stack invested in each hand
     
 * more testing, look into coverage and try to get 100%. 
   add coverage logos in the github readme
-
-* save hhs txt in a folder !!!
 
 * create public version without the tracker link generator and 
   without my own stuff in global variable

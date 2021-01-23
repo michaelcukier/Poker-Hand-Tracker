@@ -7,14 +7,15 @@ def run(clean_data):
         # add new tournaments to `tournaments` table
         run_sql_command(
             "INSERT INTO "
-            "tournaments (ID, finished_time, price, prize, position, elapsed_time) "
-            "VALUES ('{}', '{}', '{}', '{}', '{}', '{}')".format(
+            "tournaments (ID, finished_time, price, prize, position, elapsed_time, Entries) "
+            "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
             new_tourney['new_tournament']['id'],
             new_tourney['new_tournament']['finished_time'],
             new_tourney['new_tournament']['price'],
             new_tourney['new_tournament']['prize'],
             new_tourney['new_tournament']['position'],
-            new_tourney['new_tournament']['elapsed_time']))
+            new_tourney['new_tournament']['elapsed_time'],
+            new_tourney['new_tournament']['re_entries']))
 
         # add new hands to `hands` table
         for new_hand in new_tourney['new_hands']:

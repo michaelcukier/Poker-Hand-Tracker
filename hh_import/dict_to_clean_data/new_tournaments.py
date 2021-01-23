@@ -58,15 +58,17 @@ def extract_position(tourney_summary: dict):
         if player['player_name'] == PLAYER_NAME:
             return player['finish_position']
 
+
 # -------
 
 
-def extract_new_tournament(tourney_title: str, hands: list, tourney_summary: dict) -> dict:
+def extract_new_tournament(tourney_title: str, hands: list, tourney_summary: dict, re_entries: int) -> dict:
     return {
         'id': extract_id_from_title(tourney_title),
         'price': extract_price_from_title(tourney_title),
         'finished_time': extract_finished_time_from_content(hands[-1]),
         'elapsed_time': extract_elapsed_time_from_content(hands[0] + hands[-1]),
         'prize': extract_prize(tourney_summary),
-        'position': extract_position(tourney_summary)
+        'position': extract_position(tourney_summary),
+        're_entries': re_entries
     }
