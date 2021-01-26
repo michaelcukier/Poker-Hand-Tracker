@@ -12,11 +12,50 @@ I do all my tests on these 20 tourneys, including plotting and shit.
 * in the end, when I feel like this project is near completion, I can safely change
 the source folder from FAKE_DATA to HHS_DUMP and everything should work properly. 
 
+* UP-TO-DATE DB  --->  26/01 (check github)
+
+Use Classes instead of dictionary to deal with the hhs import to the db. something like:
+* (see comment) https://www.reddit.com/r/Python/comments/4lz80o/whats_the_best_way_to_implement_the_collection/
+
+
+========
+
+basic architecture?
+
+-- /hh_importer/: module that takes in .txt files from a specified folder, process them into
+an array of Hands, Opponents and Tournaments classes and store them in an SQL db. 
+------ /tests/
+
+-- /db_api/: module that exposes easy-to-use APIs to explore the database and returns .json
+------ /tests/
+
+-- GLOBAL_VARIABLES.py
+-- RUN.py: 
+
+========
+
++ BUILDER DESIGN PATTERN
+* https://refactoring.guru/design-patterns/builder/python/example
+
++ MODERN TDD
+* https://testdriven.io/blog/modern-tdd/
+* pytest book
+
++ CIRCLECI for CI
+* https://www.youtube.com/watch?v=CB7vnoXI0pE
+
++ folder structure, license and stuff
+* https://docs.python-guide.org/writing/structure/
+
++ read and pick from: https://docs.python-guide.org/
+
+========
 BUT BEFORE THIS, LEARN HOW TO DO UNIT-TESTS + USING GIT AND FUNCTIONAL TESTS PROPERLY:
 - how to do functional tests?
 - better testing tools than UnitTests ?!
 - USING GIT PROPERLY WITH BRANCHES 
 - implement CI/CD
+- use of __init__.py for module stuf?
 - figure out coverage
 - How to organize my tests? folders and stuff? where to put my files?
 - LEARN ABOUT DESIGN PATTERNS 
