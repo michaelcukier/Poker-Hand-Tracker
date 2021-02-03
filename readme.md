@@ -1,6 +1,22 @@
 ### HYPER IMPORTANT #####
 
+
+* create testing database of .txt
+* refactor tests with mocking
+* add __init__ for module import
+* make task in a big class for tournament/opponent/hands and refactor the pipeline,
+* add docstrings
+
+
+hhs = get_new_hhs()
+for hh in get_new_hhs():
+    tournament = Tournament(hh)
+    hands = Hands(hh)
+    opponents = Opponents(hh)
+
+
 workflow:
+
 
 * while developing this app, I select 20 tournaments and 
 their corresponding files (it'll be about 60 then, with the hhs and tourney sums).
