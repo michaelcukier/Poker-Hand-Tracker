@@ -1,9 +1,9 @@
 
-from src.query_local_filesystem import query_local_filesystem
-from src.remove_untracked_tournaments import remove_untracked_tournaments
-from src.query_local_database import query_local_database
-from src.group_filenames_by_id import group_filenames_by_id
-from src.get_tournament_summaries_and_re_entries import get_tournament_summaries_and_re_entries
+from src.tasks.query_local_filesystem import query_local_filesystem
+from src.tasks.remove_untracked_tournaments import remove_untracked_tournaments
+from src.tasks.query_local_database import query_local_database
+from src.tasks.group_filenames_by_id import group_filenames_by_id
+from src.tasks.get_tournament_summaries_and_re_entries import get_tournament_summaries_and_re_entries
 
 
 def get_new_filenames(HH_PATH):

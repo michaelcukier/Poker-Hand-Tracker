@@ -38,7 +38,7 @@ def generate_hh_links_replayer(hands):
     return response.json()['links']
 
 
-# DELETE THIS ONE, NEVER USED (REPLACED BY TASK 4 IN temp_____extract_hh_from_txt
+# DELETE THIS ONE, NEVER USED (REPLACED BY TASK 4 IN _____TEMP___extract_hh_from_txt
 # def extract_hands_from_content_to_list(content: str) -> list:
 #     hands = []
 #     for hand in content.split('\n\n'):

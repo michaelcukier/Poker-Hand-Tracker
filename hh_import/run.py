@@ -1,5 +1,5 @@
 from hh_import.raw_hh_to_dict.run import run as raw_hh_to_dict
-from hh_import.process_hhs.run import run as dict_to_clean_data
+from hh_import.process_filenames.run import run as dict_to_clean_data
 from hh_import.store_hh_sqlite.run import run as store_hh_sqlite
 
 

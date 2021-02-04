@@ -1,4 +1,4 @@
-from src.TournamentFiles import TournamentFiles
+from src.TournamentFiles.TournamentFiles import TournamentFiles
 
 
 def group_filenames_by_id(filenames: list) -> list:
