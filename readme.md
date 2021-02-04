@@ -1,11 +1,28 @@
 ### HYPER IMPORTANT #####
 
 
-* create testing database of .txt
-* refactor tests with mocking
-* add __init__ for module import
-* make task in a big class for tournament/opponent/hands and refactor the pipeline,
-* add docstrings
+
+
+
+
+* after refactoring everything.... :
+    * create testing database of .txt
+    * refactor tests with mocking
+    * add docstrings
+    * write good documentation
+
+
+
+
+---------
+
+
+
+
+
+
+
+
 
 
 hhs = get_new_hhs()

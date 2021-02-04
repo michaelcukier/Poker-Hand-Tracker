@@ -21,7 +21,7 @@ def make_line_plot(list_of_data_points, xlabel, ylabel, title, add_avg_line=Fals
         plt.xticks(x2)
     plt.plot(x2, y2)
     plt.grid()
-    plt.savefig('./plots_jpgs/' + str(title + '.jpg').replace(' ', '_'), dpi=300, facecolor='w', edgecolor='w',
+    plt.savefig('./plots_dump/' + str(title + '.jpg').replace(' ', '_'), dpi=300, facecolor='w', edgecolor='w',
             orientation='portrait', papertype=None, format=None,
             transparent=False, pad_inches=1, metadata=None)
     return title + '.jpg'

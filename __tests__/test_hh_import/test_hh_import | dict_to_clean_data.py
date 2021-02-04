@@ -2,7 +2,6 @@ import unittest
 
 from hands.new_hands import *
 from opponents.new_opponents import *
-from tournament.create_new_tournament import *
 
 from fake_data_tourneys.fake_data import *
 

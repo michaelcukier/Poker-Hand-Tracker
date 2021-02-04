@@ -7,6 +7,6 @@ TOURNAMENTS_TO_EXTRACT = {
     "$3 Hold'Em Turbo - On Demand": 3.30,
     "$6 Hold'Em Turbo - On Demand": 6.60
 }
-DATABASE_LOCATION = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/database/db.db'
+DATABASE_LOCATION = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/db.db'
 FAKE_HAND_HISTORY_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/__tests__/fake_data_tourneys/handHistory/' + PLAYER_NAME + '/'
 FAKE_TOURNAMENT_SUMMARY_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/__tests__/fake_data_tourneys/TournamentSummary/' + PLAYER_NAME + '/'
