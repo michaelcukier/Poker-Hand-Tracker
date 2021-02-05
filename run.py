@@ -3,14 +3,17 @@
 from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER
 
 # 1- get the new filenames
-from hh_import.get_new_filenames.get_new_filenames import get_new_filenames
+from import_new_tournament.get_new_filenames.get_new_filenames import get_new_filenames
 new_tourneys_filenames = get_new_filenames(HAND_HISTORY_FOLDER)
 
 
-for t in new_tourneys_filenames:
-    print(t.__dict__)
+# 2- extract the relevant info
+from import_new_tournament.process_filenames.process_filenames import process_filenames
+processed_tournaments = process_filenames(new_tourneys_filenames, HAND_HISTORY_FOLDER)
 
-quit()
+
+for p in processed_tournaments:
+    print(p.__dict__)
 
 #
 # # 2- extract

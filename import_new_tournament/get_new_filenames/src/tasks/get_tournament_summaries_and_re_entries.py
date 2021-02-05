@@ -43,7 +43,7 @@ def get_tournament_summaries_and_re_entries(tournament_files: list) -> list:
         summary_file_names = [f for f in listdir(TOURNEY_SUMMARY_FOLDER) if str(t_file.tournament_id) in f]
         re_entries = get_re_entries(summary_file_names)
         tournament_summary = get_tournament_summary_filename(summary_file_names)
-        t_file.re_entries = re_entries
+        t_file.set_re_entries(re_entries)
         t_file.add_tournament_summary_filename(tournament_summary)
 
     return tournament_files

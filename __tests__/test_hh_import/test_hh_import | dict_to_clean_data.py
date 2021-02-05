@@ -1,7 +1,7 @@
 import unittest
 
-from hands.new_hands import *
-from opponents.new_opponents import *
+from extract.hands.hands import *
+from extract.tournament.extract.opponents import *
 
 from fake_data_tourneys.fake_data import *
 
@@ -203,13 +203,13 @@ class test_dict_to_clean_data(unittest.TestCase):
         self.assertEqual(get_stack_size_start_of_hand(fake_tournament['hands'][1]), 30.0)
         self.assertEqual(get_stack_size_start_of_hand(fake_tournament['hands'][2]), 29.9)
 
-    # tests for new_opponents.py
+    # tests for opponents.py
     def test_extract_opponents_names(self):
         extraction = extract_opponents_names(fake_tournament['summary'])
         self.assertEqual(len(extraction), 48)
         self.assertTrue(len(extraction) == len(set(extraction)))
 
-    # tests for create_new_tournament.py
+    # tests for create_tournament.py
     def test_extract_price_from_title(self):
         self.assertEqual(extract_price_from_title(fake_tournament['title']), 0.55)
 
