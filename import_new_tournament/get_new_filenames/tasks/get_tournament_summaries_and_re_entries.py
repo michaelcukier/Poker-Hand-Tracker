@@ -1,20 +1,21 @@
+
 from os import listdir
 import copy
-from GLOBAL_VARIABLES import TOURNEY_SUMMARY_FOLDER
-import sys
 
 
-def get_tournament_summaries_and_re_entries(tournament_files: list) -> list:
+def get_tournament_summaries_and_re_entries(
+        tournament_files: list,
+        TOURNAMENT_SUMMARY_FOLDER: str) -> list:
+
     '''
     extracts the tourney summary from filesystem into a dict
-
     ! nb of process summaries found for a particular process = nb of re-entries
     '''
 
     def find_best_summary_when_multiple_filenames(summary_file_name: list):
         all = {}
         for file in summary_file_name:
-            with open(TOURNEY_SUMMARY_FOLDER + file, 'r') as f:
+            with open(TOURNAMENT_SUMMARY_FOLDER + file, 'r') as f:
                 data = f.read()
                 hhsum = eval(copy.deepcopy(data))
                 all[file] = hhsum['player_count']
@@ -36,11 +37,8 @@ def get_tournament_summaries_and_re_entries(tournament_files: list) -> list:
             return 1
         return nb_of_re_entries
 
-
-
-
     for t_file in tournament_files:
-        summary_file_names = [f for f in listdir(TOURNEY_SUMMARY_FOLDER) if str(t_file.tournament_id) in f]
+        summary_file_names = [f for f in listdir(TOURNAMENT_SUMMARY_FOLDER) if str(t_file.tournament_id) in f]
         re_entries = get_re_entries(summary_file_names)
         tournament_summary = get_tournament_summary_filename(summary_file_names)
         t_file.set_re_entries(re_entries)

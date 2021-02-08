@@ -4,10 +4,12 @@ from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER, TOURNEY_SUMMARY_FOLDER
 
 # 1- get the new filenames
 from import_new_tournament.get_new_filenames.get_new_filenames import get_new_filenames
-new_tourneys_filenames = get_new_filenames(HAND_HISTORY_FOLDER)
+new_tourneys_filenames = get_new_filenames(
+    HAND_HISTORY_FOLDER,
+    TOURNEY_SUMMARY_FOLDER)
 
 
-# 2- process the relevant info
+# 2- process the filenames
 from process_filenames import process_filenames
 processed_tournaments = process_filenames(
     new_tourneys_filenames,
@@ -15,7 +17,7 @@ processed_tournaments = process_filenames(
     parent_folder_tournament_summary=TOURNEY_SUMMARY_FOLDER)
 
 
-for p in processed_tournaments[:3]:
+for p in processed_tournaments[-3:]:
     for k, v in p.__dict__.items():
         print(k, ' ----> ', str(v)[:50])
     print()

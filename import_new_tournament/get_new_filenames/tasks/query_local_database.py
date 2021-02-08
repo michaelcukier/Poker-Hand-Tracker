@@ -1,7 +1,7 @@
 from utils.run_sql_command import run_sql_command
 
 
-def query_local_database(filenames: list) -> list:
+def query_local_database(filenames: list, database_file_path: str) -> list:
     '''
     remove filenames already in the db
     '''
@@ -14,7 +14,7 @@ def query_local_database(filenames: list) -> list:
         ID 
         FROM 
         tournaments
-    ''', unique_items=True)
+    ''', unique_items=True, database_file_path=database_file_path)
 
     filtered = []
     for file_name in filenames:
