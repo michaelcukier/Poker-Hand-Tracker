@@ -1,22 +1,27 @@
 
 
-from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER
+from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER, TOURNEY_SUMMARY_FOLDER
 
 # 1- get the new filenames
 from import_new_tournament.get_new_filenames.get_new_filenames import get_new_filenames
 new_tourneys_filenames = get_new_filenames(HAND_HISTORY_FOLDER)
 
 
-# 2- extract the relevant info
-from import_new_tournament.process_filenames.process_filenames import process_filenames
-processed_tournaments = process_filenames(new_tourneys_filenames, HAND_HISTORY_FOLDER)
+# 2- process the relevant info
+from process_filenames import process_filenames
+processed_tournaments = process_filenames(
+    new_tourneys_filenames,
+    parent_folder_hand_history=HAND_HISTORY_FOLDER,
+    parent_folder_tournament_summary=TOURNEY_SUMMARY_FOLDER)
 
 
-for p in processed_tournaments:
-    print(p.__dict__)
-
+for p in processed_tournaments[:3]:
+    for k, v in p.__dict__.items():
+        print(k, ' ----> ', str(v)[:50])
+    print()
+    print()
 #
-# # 2- extract
+# # 2- process
 # tournaments = []
 # for tourney_filename in new_tourneys_filenames:
 #

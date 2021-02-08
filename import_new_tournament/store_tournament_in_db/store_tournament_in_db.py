@@ -4,10 +4,10 @@ from helpers.run_sql_command import run_sql_command
 def run(clean_data):
     for new_tourney in clean_data:
 
-        # add new tournament to `tournament` table
+        # add new process to `process` table
         run_sql_command(
             "INSERT INTO "
-            "tournament (ID, finished_time, price, prize, position, elapsed_time, Entries) "
+            "process (ID, finished_time, price, prize, position, elapsed_time, Entries) "
             "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
             new_tourney['new_tournament']['id'],
             new_tourney['new_tournament']['finished_time'],

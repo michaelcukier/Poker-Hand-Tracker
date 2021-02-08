@@ -1,8 +1,5 @@
 import unittest
 
-from extract.hands.hands import *
-from extract.tournament.extract.opponents import *
-
 from fake_data_tourneys.fake_data import *
 
 import copy
