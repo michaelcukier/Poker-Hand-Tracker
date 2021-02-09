@@ -8,9 +8,9 @@ class test(unittest.TestCase):
     def test_elapsed_time(self):
 
         fake_hand = Hand(hand_txt='x')
-        fake_hand.time = 'test'
+        fake_hand.time = 'tests'
 
         self.assertEqual(
             finish_time(fake_hand),
-            'test'
+            'tests'
         )

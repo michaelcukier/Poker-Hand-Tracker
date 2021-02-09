@@ -8,8 +8,13 @@
 * after refactoring everything.... :
     * create testing database of .txt
     * refactor tests with mocking
+    
     * add docstrings
     * write good documentation
+
+* write script to dump hhs files
+
+* write script to run all tests and report back
 
 * when all that is done, implement a new feature in db_api 
 using branches and automated testing (CI)
