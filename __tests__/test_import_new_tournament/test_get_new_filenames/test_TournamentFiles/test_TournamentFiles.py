@@ -1,16 +1,31 @@
 
-class TournamentFiles:
-    def __init__(self, tournament_id):
-        self.tournament_id = tournament_id
-        self.hand_history_filenames = []
-        self.tournament_summary_filename = None
-        self.re_entries = 0
+import unittest
+from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
+from import_new_tournament.get_new_filenames.tasks.query_local_filesystem import query_local_filesystem
 
-    def add_hand_history_filename(self, filename):
-        self.hand_history_filenames.append(filename)
+from import_new_tournament.get_new_filenames.TournamentFiles.TournamentFiles import TournamentFiles
 
-    def set_tournament_summary_filename(self, filename):
-        self.tournament_summary_filename = filename
 
-    def set_re_entries(self, re_entries: int):
-        self.re_entries = re_entries
+class test(unittest.TestCase):
+    def test_TournamentFiles(self):
+        f = TournamentFiles(tournament_id=123)
+        f.add_hand_history_filename('test_hh')
+        f.set_tournament_summary_filename('test_ts')
+        f.set_re_entries(3)
+
+        self.assertEqual(
+            f.re_entries, 3
+        )
+
+        self.assertEqual(
+            f.tournament_id, 123
+        )
+
+        self.assertEqual(
+            f.hand_history_filenames, ['test_hh']
+        )
+
+        self.assertEqual(
+            f.tournament_summary_filename, 'test_ts'
+        )
+

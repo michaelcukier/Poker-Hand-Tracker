@@ -1,39 +1,63 @@
 
-from tasks.query_local_filesystem import query_local_filesystem
-from tasks.remove_untracked_tournaments import remove_untracked_tournaments
-from tasks.query_local_database import query_local_database
-from tasks.group_filenames_by_id import group_filenames_by_id
-from tasks.get_tournament_summaries_and_re_entries import get_tournament_summaries_and_re_entries
+import unittest
+from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER, FAKE_TOURNAMENT_SUMMARY_FOLDER
+from utils.create_fake_database.create_fake_database import CreateFakeDatabase
+from import_new_tournament.get_new_filenames.get_new_filenames import get_new_filenames
 
 
-def get_new_filenames(HH_PATH):
-    # returns a list of Filename to be processed
+class test(unittest.TestCase):
 
-    tournaments = query_local_filesystem(HH_PATH)
-    # print(len(tournaments))
+    @classmethod
+    def setUpClass(cls):
+        cls.database = CreateFakeDatabase(
+            db_name='testDB',
+            table_name='tournaments',
+            columns_labels=['ID'],
+            data=[
+                ['23889488']
+            ])
 
-    tournaments = remove_untracked_tournaments(tournaments)
-    # print(len(tournaments))
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.database.destroy()
 
-    tournaments = query_local_database(tournaments)
-    # print(len(tournaments))
+    def test_get_new_filenames(self):
+        files = get_new_filenames(
+            HH_PATH=FAKE_HAND_HISTORY_FOLDER,
+            TOURNAMENT_SUMMARY_FOLDER=FAKE_TOURNAMENT_SUMMARY_FOLDER,
+            DATABASE_PATH='./testDB.db'
+        )
 
-    # here we create the TournamentFiles class
-    tournaments = group_filenames_by_id(tournaments)
-    # print(len(tournaments))
+        ids = [
+            23140753,
+            23140119,
+            23315209,
+            23140238
+        ]
 
-    tournaments = get_tournament_summaries_and_re_entries(tournaments)
-    # print(len(tournaments))
-    return tournaments
+        hh_filenames = [
+            ["HH20201217 SITGOID-G23140753T3 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt", "HH20201217 SITGOID-G23140753T4 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt", "HH20201217 SITGOID-G23140753T2 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"],
+            ["HH20201217 SITGOID-G23140119T3 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"],
+            ["HH20210112 SITGOID-G23315209T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt", "HH20210112 SITGOID-G23315209T1 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"],
+            ["HH20201217 SITGOID-G23140238T1 TN-$0{FULLSTOP}50\xa0Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"]
+        ]
 
+        ts_filenames = [
+            "TS20201217 T23140753 E197540971 NL Hold’em $0.50 + $0.05.ots",
+            "TS20201217 T23140119 E197503901 NL Hold’em $0.50 + $0.05.ots",
+            "TS20210112 T23315209 E206991272 NL Hold’em $1.50 + $0.15.ots",
+            None
+        ]
 
-#
-#
-# from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER
-# for x in get_new_tourneys_filenames(HAND_HISTORY_FOLDER):
-#     for k in x.__dict__:
-#         print(k)
-#
-#     print()
-#     print()
+        re_entries = [
+            1,
+            1,
+            2,
+            1
+        ]
 
+        for idx, f in enumerate(files):
+            self.assertEqual(f.tournament_id, ids[idx])
+            self.assertEqual(f.hand_history_filenames, hh_filenames[idx])
+            self.assertEqual(f.tournament_summary_filename, ts_filenames[idx])
+            self.assertEqual(f.re_entries, re_entries[idx])

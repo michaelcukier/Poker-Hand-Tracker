@@ -1,12 +1,13 @@
 
 
-from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER, TOURNEY_SUMMARY_FOLDER
+from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER, TOURNEY_SUMMARY_FOLDER, DATABASE_LOCATION
 
 # 1- get the new filenames
 from import_new_tournament.get_new_filenames.get_new_filenames import get_new_filenames
 new_tourneys_filenames = get_new_filenames(
     HAND_HISTORY_FOLDER,
-    TOURNEY_SUMMARY_FOLDER)
+    TOURNEY_SUMMARY_FOLDER,
+    DATABASE_LOCATION)
 
 
 # 2- process the filenames
