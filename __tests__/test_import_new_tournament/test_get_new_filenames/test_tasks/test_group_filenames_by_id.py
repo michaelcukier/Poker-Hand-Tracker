@@ -1,21 +1,32 @@
-from TournamentFiles.TournamentFiles import TournamentFiles
+import unittest
+from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
+from os import listdir
+from os.path import isfile, join
+from import_new_tournament.get_new_filenames.tasks.group_filenames_by_id import group_filenames_by_id
 
 
-def group_filenames_by_id(filenames: list) -> list:
-    '''
-    group remaining filenames and create a dict: {tourney_ID: [filename1, filename2, ...]}
-    '''
+class test(unittest.TestCase):
 
-    def extract_id_from_title(title: str):
-        return title.split('SITGOID-G')[1].split(' TN')[0].split('T')[0]
+    def test_group_filenames_by_id(self):
+        new_filenames = [f for f in listdir(FAKE_HAND_HISTORY_FOLDER) if isfile(join(FAKE_HAND_HISTORY_FOLDER, f))]
+        files = group_filenames_by_id(new_filenames)
 
-    filenames_classes = {}
-    for file_name in filenames:
-        id = extract_id_from_title(file_name)
-        if id in filenames_classes:
-            filenames_classes.get(id).add_hand_history_filename(file_name)
-        else:
-            new_t = TournamentFiles(id)
-            new_t.add_hand_history_filename(file_name)
-            filenames_classes[id] = new_t
-    return list(filenames_classes.values())
+        ids = [
+            23889488,
+            23140753,
+            23140119,
+            23315209,
+            23140238
+        ]
+
+        hh_amount = [
+            2,
+            3,
+            1,
+            2,
+            1
+        ]
+
+        for idx, f in enumerate(files):
+            self.assertEqual(f.__dict__['tournament_id'], ids[idx])
+            self.assertEqual(len(f.__dict__['hand_history_filenames']), hh_amount[idx])

@@ -1,13 +1,10 @@
 from TournamentFiles.TournamentFiles import TournamentFiles
-
+from utils.extract_id_from_title import extract_id_from_title
 
 def group_filenames_by_id(filenames: list) -> list:
     '''
     group remaining filenames and create a dict: {tourney_ID: [filename1, filename2, ...]}
     '''
-
-    def extract_id_from_title(title: str):
-        return title.split('SITGOID-G')[1].split(' TN')[0].split('T')[0]
 
     filenames_classes = {}
     for file_name in filenames:

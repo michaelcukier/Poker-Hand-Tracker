@@ -33,6 +33,7 @@ class test(unittest.TestCase):
             database_file_path='./testDB.db'
         )
 
+
         # since there's "23889488" in the database,
         # should return 9-2=7 elements from above list
         self.assertEqual(len(files), 7)
