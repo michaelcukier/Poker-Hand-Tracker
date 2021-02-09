@@ -1,0 +1,295 @@
+Game Hand #624700000 - Tournament #23123480 - Holdem(No Limit) - Level 5 (1000.00/2000.00)- 2020/12/15 21:20:06 UTC
+Table '1' 9-max Seat #5 is the button
+Seat 1: Didlo1987 (36850.00)
+Seat 2: yaya12 (28150.00)
+Seat 3: Sgt. Fury (105161.00)
+Seat 4: jbgutrock (61629.00)
+Seat 6: xiooong (58290.00)
+Seat 7: PotNoodle99912 (30000.00)
+Seat 8: seamynutz (45896.00)
+Didlo1987 posts ante 200.00
+yaya12 posts ante 200.00
+Sgt. Fury posts ante 200.00
+jbgutrock posts ante 200.00
+xiooong posts ante 200.00
+PotNoodle99912 posts ante 200.00
+seamynutz posts ante 200.00
+xiooong posts the small blind 1000.00
+PotNoodle99912 posts the big blind 2000.00
+*** HOLE CARDS ***
+Main pot 1400.00
+Dealt to PotNoodle99912 [3h Ah]
+seamynutz folds
+Didlo1987 folds
+yaya12 folds
+Sgt. Fury folds
+jbgutrock folds
+xiooong folds
+PotNoodle99912 does not show
+*** SUMMARY ***
+Total pot 4400.00
+Seat 1: Didlo1987 folded on the Pre-Flop and did not bet
+Seat 2: yaya12 folded on the Pre-Flop and did not bet
+Seat 3: Sgt. Fury folded on the Pre-Flop and did not bet
+Seat 4: jbgutrock folded on the Pre-Flop and did not bet
+Seat 6: xiooong (small blind) folded on the Pre-Flop
+Seat 7: PotNoodle99912 did not show and won 4400.00
+Seat 8: seamynutz folded on the Pre-Flop and did not bet
+
+Game Hand #624749910 - Tournament #23123480 - Holdem(No Limit) - Level 13 (4500.00/9000.00)- 2020/12/15 22:05:21 UTC
+Table '1' 9-max Seat #1 is the button
+Seat 1: Didlo1987 (121415.00)
+Seat 2: slbetters will be allowed to play after the button
+Seat 3: Bubbazinitty (62036.00)
+Seat 4: jbgutrock (133556.00)
+Seat 5: Ginijo (2750.00)
+Seat 6: PumaVest (191104.00)
+Seat 7: PotNoodle99912 (103537.00)
+Seat 8: Vadims (156720.00)
+Seat 9: Lovecraft2020 (235040.00)
+Didlo1987 posts ante 900.00
+Bubbazinitty posts ante 900.00
+jbgutrock posts ante 900.00
+Ginijo posts ante 900.00
+PumaVest posts ante 900.00
+PotNoodle99912 posts ante 900.00
+Vadims posts ante 900.00
+Lovecraft2020 posts ante 900.00
+Bubbazinitty posts the small blind 4500.00
+jbgutrock posts the big blind 9000.00
+*** HOLE CARDS ***
+Main pot 7200.00
+Dealt to PotNoodle99912 [2h Js]
+Ginijo calls 1850.00 and is all-in
+PumaVest folds
+PotNoodle99912 folds
+Vadims folds
+Lovecraft2020 folds
+Didlo1987 folds
+Bubbazinitty raises 56636.00 to 61136.00 and is all-in
+jbgutrock folds
+Uncalled bet (52136.00) returned to Bubbazinitty
+*** FLOP *** [6s 3d 5c]
+Main pot 12750.00
+Side pot(1) 14300.00
+*** TURN *** [6s 3d 5c] [4d]
+Main pot 12750.00
+Side pot(1) 14300.00
+*** RIVER *** [6s 3d 5c 4d] [2d]
+Main pot 12750.00
+Side pot(1) 14300.00
+*** SHOW DOWN ***
+Main pot 12750.00
+Side pot(1) 14300.00
+Bubbazinitty shows [Ad 9s] (a straight, Six high [6s 5c 4d 3d 2d])
+Ginijo shows [Tc 7h] (a straight, Seven high [7h 6s 5c 4d 3d])
+Ginijo collected 12750.00 from main pot
+Bubbazinitty collected 14300.00 from side pot-1
+*** SUMMARY ***
+Total pot 27050.00
+Board [6s 3d 5c 4d 2d]
+Seat 1: Didlo1987 (button) folded on the Pre-Flop
+Seat 3: Bubbazinitty (small blind) showed [Ad 9s] and won 14300.00 with a straight, Six high [6s 5c 4d 3d 2d]
+Seat 4: jbgutrock (big blind) folded on the Pre-Flop
+Seat 5: Ginijo showed [Tc 7h] and won 12750.00 with a straight, Seven high [7h 6s 5c 4d 3d]
+Seat 6: PumaVest folded on the Pre-Flop and did not bet
+Seat 7: PotNoodle99912 folded on the Pre-Flop and did not bet
+Seat 8: Vadims folded on the Pre-Flop and did not bet
+Seat 9: Lovecraft2020 folded on the Pre-Flop and did not bet
+
+Game Hand #624752872 - Tournament #23123480 - Holdem(No Limit) - Level 13 (4500.00/9000.00)- 2020/12/15 22:07:47 UTC
+Table '1' 9-max Seat #5 is the button
+Seat 1: Didlo1987 (258280.00)
+Seat 2: slbetters (102042.00)
+Seat 3: Bubbazinitty (64636.00)
+Seat 4: jbgutrock (2241.00)
+Seat 6: PumaVest (179404.00)
+Seat 7: PotNoodle99912 (100837.00)
+Seat 8: Vadims (154020.00)
+Seat 9: Lovecraft2020 (248540.00)
+Didlo1987 posts ante 900.00
+slbetters posts ante 900.00
+Bubbazinitty posts ante 900.00
+jbgutrock posts ante 900.00
+PumaVest posts ante 900.00
+PotNoodle99912 posts ante 900.00
+Vadims posts ante 900.00
+Lovecraft2020 posts ante 900.00
+PumaVest posts the small blind 4500.00
+PotNoodle99912 posts the big blind 9000.00
+*** HOLE CARDS ***
+Main pot 7200.00
+Dealt to PotNoodle99912 [Qs Ah]
+Vadims folds
+Lovecraft2020 folds
+Didlo1987 folds
+slbetters raises 101142.00 to 101142.00 and is all-in
+Bubbazinitty folds
+jbgutrock calls 1341.00 and is all-in
+PumaVest folds
+PotNoodle99912 folds
+Uncalled bet (92142.00) returned to slbetters
+*** FLOP *** [8s 4c 2c]
+Main pot 12564.00
+Side pot(1) 18477.00
+*** TURN *** [8s 4c 2c] [Td]
+Main pot 12564.00
+Side pot(1) 18477.00
+*** RIVER *** [8s 4c 2c Td] [5d]
+Main pot 12564.00
+Side pot(1) 18477.00
+*** SHOW DOWN ***
+Main pot 12564.00
+Side pot(1) 18477.00
+slbetters shows [5c 5s] (three of a kind, Set of Fives [5s 5d 5c Td 8s])
+jbgutrock shows [Jh Ac] (a high card, Ace high [Ac Jh Td 8s 5d])
+slbetters collected 12564.00 from main pot
+slbetters collected 18477.00 from side pot-1
+*** SUMMARY ***
+Total pot 31041.00
+Board [8s 4c 2c Td 5d]
+Seat 1: Didlo1987 folded on the Pre-Flop and did not bet
+Seat 2: slbetters showed [5c 5s] and won 31041.00 with three of a kind, Set of Fives [5s 5d 5c Td 8s]
+Seat 3: Bubbazinitty folded on the Pre-Flop and did not bet
+Seat 4: jbgutrock showed [Jh Ac] and lost with a high card, Ace high [Ac Jh Td 8s 5d]
+Seat 6: PumaVest (small blind) folded on the Pre-Flop
+Seat 7: PotNoodle99912 (big blind) folded on the Pre-Flop
+Seat 8: Vadims folded on the Pre-Flop and did not bet
+Seat 9: Lovecraft2020 folded on the Pre-Flop and did not bet
+
+Game Hand #660426565 - Tournament #23315145 - Holdem(No Limit) - Level 7 (1500.00/3000.00)- 2021/01/12 21:22:37 UTC
+Table '10' 9-max Seat #3 is the button
+Seat 2: GABI22 (107732.00)
+Seat 3: R.Clark (15300.00)
+Seat 4: valueexpected (38205.00)
+Seat 5: Jukomane (52240.00)
+Seat 6: Jhonybegoooddd (45660.00)
+Seat 7: Luckydog22 (48555.00)
+Seat 8: PotNoodle99912 (22246.00)
+Seat 9: WolvieTK (19700.00)
+GABI22 posts ante 300.00
+R.Clark posts ante 300.00
+valueexpected posts ante 300.00
+Jukomane posts ante 300.00
+Jhonybegoooddd posts ante 300.00
+Luckydog22 posts ante 300.00
+PotNoodle99912 posts ante 300.00
+WolvieTK posts ante 300.00
+valueexpected posts the small blind 1500.00
+Jukomane posts the big blind 3000.00
+*** HOLE CARDS ***
+Main pot 2400.00
+Dealt to PotNoodle99912 [7h Th]
+Jhonybegoooddd raises 45360.00 to 45360.00 and is all-in
+Luckydog22 raises 48255.00 to 48255.00 and is all-in
+PotNoodle99912 folds
+WolvieTK folds
+GABI22 calls 48255.00
+R.Clark folds
+valueexpected folds
+Jukomane folds
+*** FLOP *** [3c Jc 2d]
+Main pot 142980.00
+Side pot(1) 5790.00
+*** TURN *** [3c Jc 2d] [Tc]
+Main pot 142980.00
+Side pot(1) 5790.00
+*** RIVER *** [3c Jc 2d Tc] [5h]
+Main pot 142980.00
+Side pot(1) 5790.00
+*** SHOW DOWN ***
+Main pot 142980.00
+Side pot(1) 5790.00
+GABI22 shows [9s 9d] (a pair of Nines [9s 9d Jc Tc 5h])
+Jhonybegoooddd shows [Qh Jh] (a pair of Jacks [Jh Jc Qh Tc 5h])
+Luckydog22 shows [As Qd] (a high card, Ace high [As Qd Jc Tc 5h])
+Jhonybegoooddd collected 142980.00 from main pot
+GABI22 collected 5790.00 from side pot-1
+*** SUMMARY ***
+Total pot 148770.00
+Board [3c Jc 2d Tc 5h]
+Seat 2: GABI22 showed [9s 9d] and won 5790.00 with a pair of Nines [9s 9d Jc Tc 5h]
+Seat 3: R.Clark (button) folded on the Pre-Flop
+Seat 4: valueexpected (small blind) folded on the Pre-Flop
+Seat 5: Jukomane (big blind) folded on the Pre-Flop
+Seat 6: Jhonybegoooddd showed [Qh Jh] and won 142980.00 with a pair of Jacks [Jh Jc Qh Tc 5h]
+Seat 7: Luckydog22 showed [As Qd] and lost with a high card, Ace high [As Qd Jc Tc 5h]
+Seat 8: PotNoodle99912 folded on the Pre-Flop and did not bet
+Seat 9: WolvieTK folded on the Pre-Flop and did not bet
+
+Game Hand #660501877 - Tournament #23315614 - Holdem(No Limit) - Level 4 (750.00/1500.00)- 2021/01/12 22:26:03 UTC
+Table '2' 9-max Seat #9 is the button
+Seat 1: meatbro (25200.00)
+Seat 2: LacunaInc (30000.00)
+Seat 3: Diamond JJ (30000.00)
+Seat 5: PhilZcrusher (24445.00)
+Seat 6: PotNoodle99912 (38940.00)
+Seat 7: holysun1 (26950.00)
+Seat 8: Sgt. Fury (36300.00)
+Seat 9: drail0073 (31250.00)
+meatbro posts ante 150.00
+LacunaInc posts ante 150.00
+Diamond JJ posts ante 150.00
+PhilZcrusher posts ante 150.00
+PotNoodle99912 posts ante 150.00
+holysun1 posts ante 150.00
+Sgt. Fury posts ante 150.00
+drail0073 posts ante 150.00
+meatbro posts the small blind 750.00
+LacunaInc posts the big blind 1500.00
+*** HOLE CARDS ***
+Main pot 1200.00
+Dealt to PotNoodle99912 [5d Qd]
+Diamond JJ calls 1500.00
+PhilZcrusher folds
+PotNoodle99912 folds
+holysun1 raises 6000.00 to 6000.00
+Sgt. Fury raises 36150.00 to 36150.00 and is all-in
+drail0073 calls 31100.00 and is all-in
+meatbro calls 24300.00 and is all-in
+LacunaInc calls 28350.00 and is all-in
+Diamond JJ calls 28350.00 and is all-in
+holysun1 calls 20800.00 and is all-in
+Uncalled bet (5050.00) returned to Sgt. Fury
+*** FLOP *** [3s 7d 2d]
+Main pot 151500.00
+Side pot(1) 8750.00
+Side pot(2) 12200.00
+Side pot(3) 2500.00
+*** TURN *** [3s 7d 2d] [9s]
+Main pot 151500.00
+Side pot(1) 8750.00
+Side pot(2) 12200.00
+Side pot(3) 2500.00
+*** RIVER *** [3s 7d 2d 9s] [Th]
+Main pot 151500.00
+Side pot(1) 8750.00
+Side pot(2) 12200.00
+Side pot(3) 2500.00
+*** SHOW DOWN ***
+Main pot 151500.00
+Side pot(1) 8750.00
+Side pot(2) 12200.00
+Side pot(3) 2500.00
+meatbro shows [Kc Ad] (a high card, Ace high [Ad Kc Th 9s 7d])
+LacunaInc shows [As 9h] (a pair of Nines [9s 9h As Th 7d])
+Diamond JJ shows [Tc Td] (three of a kind, Set of Tens [Th Td Tc 9s 7d])
+holysun1 shows [Jc Jd] (a pair of Jacks [Jd Jc Th 9s 7d])
+Sgt. Fury shows [Qc Qs] (a pair of Queens [Qs Qc Th 9s 7d])
+drail0073 shows [7h 7c] (three of a kind, Set of Sevens [7h 7d 7c Th 9s])
+Diamond JJ collected 151500.00 from main pot
+Diamond JJ collected 8750.00 from side pot-1
+Diamond JJ collected 12200.00 from side pot-2
+drail0073 collected 2500.00 from side pot-3
+*** SUMMARY ***
+Total pot 174950.00
+Board [3s 7d 2d 9s Th]
+Seat 1: meatbro (small blind) showed [Kc Ad] and lost with a high card, Ace high [Ad Kc Th 9s 7d]
+Seat 2: LacunaInc (big blind) showed [As 9h] and lost with a pair of Nines [9s 9h As Th 7d]
+Seat 3: Diamond JJ showed [Tc Td] and won 172450.00 with three of a kind, Set of Tens [Th Td Tc 9s 7d]
+Seat 5: PhilZcrusher folded on the Pre-Flop and did not bet
+Seat 6: PotNoodle99912 folded on the Pre-Flop and did not bet
+Seat 7: holysun1 showed [Jc Jd] and lost with a pair of Jacks [Jd Jc Th 9s 7d]
+Seat 8: Sgt. Fury showed [Qc Qs] and lost with a pair of Queens [Qs Qc Th 9s 7d]
+Seat 9: drail0073 (button) showed [7h 7c] and won 2500.00 with three of a kind, Set of Sevens [7h 7d 7c Th 9s]
+
