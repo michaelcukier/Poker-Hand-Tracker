@@ -2,7 +2,7 @@
 from .level import level
 
 
-def get_side_pot_n_size_bb(hand, n):
+def side_pot_n_size_bb(hand, n):
     current_level_big_blind = float(str(level(hand)).split('/')[1].replace(')', ''))
     for line in hand.split('\n'):
         if ('from side pot-' + str(n)) in line:

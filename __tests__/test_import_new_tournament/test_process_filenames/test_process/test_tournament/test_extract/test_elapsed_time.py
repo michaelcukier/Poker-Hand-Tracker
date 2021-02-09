@@ -1,13 +1,21 @@
-from datetime import datetime
-from process.hands.Hand.Hand import Hand
+
+import unittest
+from import_new_tournament.process_filenames.process.tournament.extract.elapsed_time import elapsed_time
+from import_new_tournament.process_filenames.process.hands.Hand.Hand import Hand
 
 
-def elapsed_time(first_hand: Hand, last_hand: Hand) -> int:
+class test(unittest.TestCase):
+    def test_elapsed_time(self):
 
-    last_hand_time = datetime.strptime(last_hand.time.replace('/', '-'), '%Y-%m-%d %H:%M:%S UTC')
-    first_hand_time = datetime.strptime(first_hand.time.replace('/', '-'), '%Y-%m-%d %H:%M:%S UTC')
+        first_hand = Hand(hand_txt='x')
+        first_hand.time = '2020/12/17 22:00:00 UTC'
 
-    duration = last_hand_time - first_hand_time
-    duration_in_mn = duration.total_seconds()/60
+        last_hand = Hand(hand_txt='y')
+        last_hand.time = '2020/12/17 22:23:00 UTC'
 
-    return round(duration_in_mn)
+        self.assertEqual(
+            elapsed_time(
+                first_hand=first_hand,
+                last_hand=last_hand),
+            23
+        )
