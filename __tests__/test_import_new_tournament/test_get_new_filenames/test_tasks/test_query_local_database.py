@@ -1,58 +1,48 @@
-# from utils.run_sql_command import run_sql_command
-
 
 import unittest
 
+from utils.create_fake_database.create_fake_database import CreateFakeDatabase
+from import_new_tournament.get_new_filenames.tasks.query_local_database import query_local_database
 
-# from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
-# from import_new_tournament.get_new_filenames.tasks.query_local_filesystem import query_local_filesystem
-
-
-from utils_and_test_data.create_fake_database.create_fake_database import CreateFakeDatabase
 
 class test(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
         cls.database = CreateFakeDatabase(
-            db_name='myDB',
+            db_name='testDB',
             table_name='tournaments',
-            columns_labels=['buyin', 'prize', 'lol'],
+            columns_labels=['ID'],
             data=[
-                ['12', 'row1 col2', 'row1 col3'],
-                ['row2 col1', 'row2 col2', 'row2 col3'],
-                ['row3 col1', 'row3 col2', 'row3 col3'],
+                ['23889488']
             ])
 
-    def test_query_local_database(self):
-        pass
-        # files = query_local_filesystem(FAKE_HAND_HISTORY_FOLDER)
-        #
-        # self.assertEqual(
-        #     len(files),
-        #     12)
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.database.destroy()
 
-#
-#
-#
-# def query_local_database(filenames: list) -> list:
-#     '''
-#     remove filenames already in the db
-#     '''
-#
-#     def extract_id_from_title(title: str):
-#         return title.split('SITGOID-G')[1].split(' TN')[0].split('T')[0]
-#
-#     hh_in_db = run_sql_command('''
-#         SELECT
-#         ID
-#         FROM
-#         tournaments
-#     ''', unique_items=True)
-#
-#     filtered = []
-#     for file_name in filenames:
-#         tournament_id = extract_id_from_title(file_name)
-#         if tournament_id not in hh_in_db:
-#             filtered.append(file_name)
-#     return filtered
+    def test_query_local_database(self):
+        new_filenames = [
+            "HH20210112 SITGOID-G23315209T1 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
+            "HH20210112 SITGOID-G23315209T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
+            "HH20210122 SITGOID-G23889488T1 TN-$3 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
+            "HH20210122 SITGOID-G23889488T2 TN-$3 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
+            "HH20201217 SITGOID-G23140753T4 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"
+        ]
+
+        files = query_local_database(
+            filenames=new_filenames,
+            database_file_path='./testDB.db'
+        )
+
+        # since there's "23889488" in the database,
+        # should return 5-2=3 elements from above list
+        self.assertEqual(len(files), 3)
+        self.assertCountEqual(
+            [
+                "HH20210112 SITGOID-G23315209T1 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
+                "HH20210112 SITGOID-G23315209T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
+                "HH20201217 SITGOID-G23140753T4 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"
+            ],
+            files
+        )

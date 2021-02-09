@@ -1,6 +1,5 @@
 import sqlite3
 import contextlib
-# from GLOBAL_VARIABLES import DATABASE_LOCATION
 
 
 def run_sql_command(query, database_file_path, unique_items=False):

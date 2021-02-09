@@ -14,7 +14,7 @@
 * when all that is done, implement a new feature in db_api 
 using branches and automated testing (CI)
 
-
+* set up CLI
 
 ---------
 
