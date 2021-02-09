@@ -1,14 +1,18 @@
-from GLOBAL_VARIABLES import TOURNAMENTS_TO_EXTRACT
+
+import unittest
+from import_new_tournament.get_new_filenames.tasks.remove_untracked_tournaments import remove_untracked_tournaments
+from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
+from os import listdir
+from os.path import isfile, join
 
 
-def remove_untracked_tournaments(filenames: list) -> list:
-    '''
-    remove filenames that aren't tracked
-    '''
+class test(unittest.TestCase):
 
-    filtered = []
-    for file_name in filenames:
-        for tourney in TOURNAMENTS_TO_EXTRACT.keys():
-            if tourney in file_name:
-                filtered.append(file_name)
-    return filtered
+    def test_remove_untracked_tournament(self):
+        new_filenames = [f for f in listdir(FAKE_HAND_HISTORY_FOLDER) if isfile(join(FAKE_HAND_HISTORY_FOLDER, f))]
+        new_filenames.append("blob")
+        files = remove_untracked_tournaments(new_filenames)
+        self.assertEqual(
+            len(files),
+            9
+        )
