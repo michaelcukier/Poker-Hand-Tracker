@@ -1,6 +1,6 @@
 
 import unittest
-from import_new_tournament.process_hh_files.process.hands.extract.tournament_id import tournament_id
+from import_new_tournaments.process_hh_files.process.hands.extract.tournament_id import tournament_id
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 from os import listdir
 from os.path import isfile, join

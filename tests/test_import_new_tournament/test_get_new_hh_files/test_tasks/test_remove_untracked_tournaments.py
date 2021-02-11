@@ -1,6 +1,6 @@
 
 import unittest
-from import_new_tournament.get_new_hh_files.tasks.remove_untracked_tournaments import remove_untracked_tournaments
+from import_new_tournaments.get_new_hh_files.tasks.remove_untracked_tournaments import remove_untracked_tournaments
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 from os import listdir
 from os.path import isfile, join
@@ -14,5 +14,4 @@ class test(unittest.TestCase):
         files = remove_untracked_tournaments(new_filenames)
         self.assertEqual(
             len(files),
-            9
-        )
+            10)

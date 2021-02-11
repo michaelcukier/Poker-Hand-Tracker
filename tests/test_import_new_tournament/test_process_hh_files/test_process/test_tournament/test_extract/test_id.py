@@ -1,3 +1,15 @@
 
-def id(title: str) -> int:
-    return int(title.split('SITGOID-G')[1].split(' TN')[0].split('T')[0])
+
+from import_new_tournaments.process_hh_files.process.tournament.extract.id import id
+import unittest
+
+
+class test(unittest.TestCase):
+    def test_id(self):
+
+        fake_tournament_title = "HH20210112 SITGOID-G23315209T1 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"
+
+        self.assertEqual(
+            id(fake_tournament_title),
+            23315209
+        )

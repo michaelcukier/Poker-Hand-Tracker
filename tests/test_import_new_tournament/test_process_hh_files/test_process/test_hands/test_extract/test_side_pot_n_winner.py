@@ -1,16 +1,16 @@
 
 import unittest
-from import_new_tournament.process_hh_files.process.hands.extract.side_pot_n_winner import side_pot_n_winner
+from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_winner import side_pot_n_winner
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 from utils.get_hands_in_list import get_hands_in_list
 
 
 class test(unittest.TestCase):
     def test_side_pot_n_winner(self):
-        hands = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, ['hh_for_side_pot_test.txt'])
+        hands = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, ["HH20210112 SITGOID-G99999999T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0 ---- for side pot.txt"])
 
         expected_side_pot_1_winner = [
-            "no-side-pot",
+            None,
             "Bubbazinitty",
             "slbetters",
             "GABI22",
@@ -18,18 +18,18 @@ class test(unittest.TestCase):
         ]
 
         expected_side_pot_2_winner = [
-            "no-side-pot",
-            "no-side-pot",
-            "no-side-pot",
-            "no-side-pot",
+            None,
+            None,
+            None,
+            None,
             "Diamond JJ"
         ]
 
         expected_side_pot_3_winner = [
-            "no-side-pot",
-            "no-side-pot",
-            "no-side-pot",
-            "no-side-pot",
+            None,
+            None,
+            None,
+            None,
             "drail0073"
         ]
 

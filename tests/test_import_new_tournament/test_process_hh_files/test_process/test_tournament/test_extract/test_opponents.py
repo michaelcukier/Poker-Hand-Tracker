@@ -1,23 +1,27 @@
-from GLOBAL_VARIABLES import PLAYER_NAME
-import copy
+import unittest
+
+from import_new_tournaments.process_hh_files.process.tournament.extract.opponents import opponents
+from GLOBAL_VARIABLES import FAKE_TOURNAMENT_SUMMARY_FOLDER
 
 
-def opponents(parent_folder_ts: str, ts_filename: str) -> list:
-    if ts_filename is None:
-        return []
+class test(unittest.TestCase):
+    def test_opponents(self):
 
-    # open ts
-    with open(parent_folder_ts + ts_filename, 'r') as f:
-        data = f.read()
-        ts = eval(copy.deepcopy(data))
+        parent_folder = FAKE_TOURNAMENT_SUMMARY_FOLDER
+        ts_filename = 'TS20210122 T23889488 E211608095 NL Hold’em $3.00 + $0.30.ots'
 
-    opponents = []
-    for opp in ts['tournament_finishes_and_winnings']:
-        opponents.append(opp['player_name'])
-
-    opp_no_duplicates = list(dict.fromkeys(opponents))
-
-    opp_no_duplicates.remove(PLAYER_NAME)
-
-    return opp_no_duplicates
-
+        self.assertCountEqual(
+            opponents(parent_folder, ts_filename),
+            ['MGMNHDaYu',
+             'GetChu1',
+             'DenTurbo',
+             'reeseuave24',
+             'mjitri12',
+             'Iconoclast63',
+             'Lexthenext',
+             'DmexicanPooh',
+             'DubJ1313',
+             'CoachTom58',
+             'YakAttack904',
+             'Fiend4poker',
+             'Snow88man'])

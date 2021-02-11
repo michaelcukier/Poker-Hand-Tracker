@@ -1,13 +1,13 @@
 
-from process.tournament.extract.hands import hands
-from process.tournament.extract.id import id
-from process.tournament.extract.price import price
-from process.tournament.extract.finish_time import finish_time
-from process.tournament.extract.elapsed_time import elapsed_time
-from process.tournament.extract.prize import prize
-from process.tournament.extract.position import position
-from process.tournament.extract.opponents import opponents
-from process.tournament.extract.nb_of_participants import nb_of_participants
+from import_new_tournaments.process_hh_files.process.tournament.extract.hands import hands
+from import_new_tournaments.process_hh_files.process.tournament.extract.id import id
+from import_new_tournaments.process_hh_files.process.tournament.extract.price import price
+from import_new_tournaments.process_hh_files.process.tournament.extract.finish_time import finish_time
+from import_new_tournaments.process_hh_files.process.tournament.extract.elapsed_time import elapsed_time
+from import_new_tournaments.process_hh_files.process.tournament.extract.prize import prize
+from import_new_tournaments.process_hh_files.process.tournament.extract.position import position
+from import_new_tournaments.process_hh_files.process.tournament.extract.opponents import opponents
+from import_new_tournaments.process_hh_files.process.tournament.extract.nb_of_participants import nb_of_participants
 
 from utils.get_hands_in_list import get_hands_in_list
 

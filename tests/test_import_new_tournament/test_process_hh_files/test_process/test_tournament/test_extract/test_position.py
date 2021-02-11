@@ -1,17 +1,16 @@
-from GLOBAL_VARIABLES import PLAYER_NAME
-import copy
+
+import unittest
+
+from import_new_tournaments.process_hh_files.process.tournament.extract.position import position
+from GLOBAL_VARIABLES import FAKE_TOURNAMENT_SUMMARY_FOLDER
 
 
-def position(parent_folder_ts: str, ts_filename: str):
-    # check if no tourney summary
-    if ts_filename is None:
-        return 0
+class test(unittest.TestCase):
+    def test_position(self):
 
-    # open ts
-    with open(parent_folder_ts + ts_filename, 'r') as f:
-        data = f.read()
-        ts = eval(copy.deepcopy(data))
+        parent_folder = FAKE_TOURNAMENT_SUMMARY_FOLDER
+        ts_filename = 'TS20210122 T23889488 E211608095 NL Hold’em $3.00 + $0.30.ots'
 
-    for player in ts['tournament_finishes_and_winnings']:
-        if player['player_name'] == PLAYER_NAME:
-            return player['finish_position']
+        self.assertEqual(
+            position(parent_folder, ts_filename),
+            12)

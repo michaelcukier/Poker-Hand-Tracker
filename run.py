@@ -3,7 +3,7 @@
 from GLOBAL_VARIABLES import HAND_HISTORY_FOLDER, TOURNEY_SUMMARY_FOLDER, DATABASE_LOCATION
 
 # 1- get the new filenames
-from import_new_tournament.get_new_hh_files.get_new_filenames import get_new_filenames
+from import_new_tournaments.get_new_hh_files.get_new_filenames import get_new_filenames
 new_tourneys_filenames = get_new_filenames(
     HAND_HISTORY_FOLDER,
     TOURNEY_SUMMARY_FOLDER,
@@ -11,7 +11,7 @@ new_tourneys_filenames = get_new_filenames(
 
 
 # 2- process the filenames
-from process_filenames import process_filenames
+from import_new_tournaments.process_hh_files.process_filenames import process_filenames
 processed_tournaments = process_filenames(
     new_tourneys_filenames,
     parent_folder_hand_history=HAND_HISTORY_FOLDER,

@@ -1,5 +1,7 @@
-from TournamentFiles.TournamentFiles import TournamentFiles
+# from .TournamentFiles.TournamentFiles import TournamentFiles
 from utils.extract_id_from_title import extract_id_from_title
+
+from import_new_tournaments.get_new_hh_files.TournamentFiles.TournamentFiles import TournamentFiles
 
 def group_filenames_by_id(filenames: list) -> list:
     '''

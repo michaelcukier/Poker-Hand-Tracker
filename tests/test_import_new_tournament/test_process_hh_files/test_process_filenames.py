@@ -1,5 +1,5 @@
 
-from process.tournament.Tournament.Tournament import Tournament
+from import_new_tournaments.process_hh_files.process.tournament.Tournament.Tournament import Tournament
 
 
 def process_filenames(tournamentFilenamesList: list, parent_folder_hand_history: str, parent_folder_tournament_summary: str) -> list:

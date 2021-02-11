@@ -2,7 +2,7 @@
 
 
 import unittest
-from import_new_tournament.process_hh_files.process.hands.extract.main_pot_winner import main_pot_winner
+from import_new_tournaments.process_hh_files.process.hands.extract.main_pot_winner import main_pot_winner
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 from os import listdir
 from os.path import isfile, join

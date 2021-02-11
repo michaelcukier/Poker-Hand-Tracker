@@ -2,14 +2,14 @@ import unittest
 
 
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER, FAKE_TOURNAMENT_SUMMARY_FOLDER
-from import_new_tournament.get_new_hh_files.TournamentFiles.TournamentFiles import TournamentFiles
+from import_new_tournaments.get_new_hh_files.TournamentFiles.TournamentFiles import TournamentFiles
 from os import listdir
 
 from os.path import isfile, join
 
 from utils.extract_id_from_title import extract_id_from_title
 
-from import_new_tournament.get_new_hh_files.tasks.get_tournament_summaries_and_re_entries import get_tournament_summaries_and_re_entries
+from import_new_tournaments.get_new_hh_files.tasks.get_tournament_summaries_and_re_entries import get_tournament_summaries_and_re_entries
 
 
 class test(unittest.TestCase):
@@ -35,6 +35,7 @@ class test(unittest.TestCase):
             "TS20210112 T23315209 E206991272 NL Hold’em $1.50 + $0.15.ots",
             None,
             "TS20210122 T23889488 E211613053 NL Hold’em $3.00 + $0.30.ots",
+            None,
             "TS20210112 T23315209 E206991272 NL Hold’em $1.50 + $0.15.ots",
         ]
 
@@ -47,10 +48,12 @@ class test(unittest.TestCase):
             2,
             1,
             2,
+            1,
             2,
         ]
 
         for idx, o in enumerate(out):
+            # print(o.tournament_summary_filename, o.re_entries, idx)
             self.assertEqual(o.re_entries, re_entries[idx])
             self.assertEqual(o.tournament_summary_filename, ts[idx])
 

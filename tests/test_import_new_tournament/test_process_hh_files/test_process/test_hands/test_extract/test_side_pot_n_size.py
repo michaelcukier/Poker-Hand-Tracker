@@ -1,7 +1,7 @@
 
 
 import unittest
-from import_new_tournament.process_hh_files.process.hands.extract.side_pot_n_size_bb import side_pot_n_size_bb
+from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_size_bb import side_pot_n_size_bb
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 from os import listdir
 from os.path import isfile, join
@@ -10,7 +10,7 @@ from utils.get_hands_in_list import get_hands_in_list
 
 class test(unittest.TestCase):
     def test_side_pot_n_size_bb(self):
-        hands = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, ['hh_for_side_pot_test.txt'])
+        hands = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, ["HH20210112 SITGOID-G99999999T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0 ---- for side pot.txt"])
 
         expected_side_pot_1_size_bb = [
             0,

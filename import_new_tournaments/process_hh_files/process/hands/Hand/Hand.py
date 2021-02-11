@@ -1,16 +1,16 @@
 
-from process.hands.extract.time import time
-from process.hands.extract.level import level
-from process.hands.extract.my_cards import my_cards
-from process.hands.extract.board_cards import board_cards
-from process.hands.extract.tournament_id import tournament_id
-from process.hands.extract.id import get_id
-from process.hands.extract.starting_stack_size_bb import starting_stack_size_bb
+from import_new_tournaments.process_hh_files.process.hands.extract.time import time
+from import_new_tournaments.process_hh_files.process.hands.extract.level import level
+from import_new_tournaments.process_hh_files.process.hands.extract.my_cards import my_cards
+from import_new_tournaments.process_hh_files.process.hands.extract.board_cards import board_cards
+from import_new_tournaments.process_hh_files.process.hands.extract.tournament_id import tournament_id
+from import_new_tournaments.process_hh_files.process.hands.extract.id import get_id
+from import_new_tournaments.process_hh_files.process.hands.extract.starting_stack_size_bb import starting_stack_size_bb
 
-from process.hands.extract.side_pot_n_winner import side_pot_n_winner
-from process.hands.extract.main_pot_winner import main_pot_winner
-from process.hands.extract.side_pot_n_size_bb import side_pot_n_size_bb
-from process.hands.extract.main_pot_size_bb import main_pot_size_bb
+from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_winner import side_pot_n_winner
+from import_new_tournaments.process_hh_files.process.hands.extract.main_pot_winner import main_pot_winner
+from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_size_bb import side_pot_n_size_bb
+from import_new_tournaments.process_hh_files.process.hands.extract.main_pot_size_bb import main_pot_size_bb
 
 
 class Hand:

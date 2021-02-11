@@ -1,7 +1,7 @@
 
 import unittest
-from import_new_tournament.process_hh_files.process.tournament.extract.elapsed_time import elapsed_time
-from import_new_tournament.process_hh_files.process.hands.Hand.Hand import Hand
+from import_new_tournaments.process_hh_files.process.tournament.extract.elapsed_time import elapsed_time
+from import_new_tournaments.process_hh_files.process.hands.Hand.Hand import Hand
 
 
 class test(unittest.TestCase):

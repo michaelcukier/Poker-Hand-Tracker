@@ -1,9 +1,9 @@
 
 import unittest
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
-from import_new_tournament.get_new_hh_files.tasks.query_local_filesystem import query_local_filesystem
+from import_new_tournaments.get_new_hh_files.tasks.query_local_filesystem import query_local_filesystem
 
-from import_new_tournament.get_new_hh_files.TournamentFiles.TournamentFiles import TournamentFiles
+from import_new_tournaments.get_new_hh_files.TournamentFiles.TournamentFiles import TournamentFiles
 
 
 class test(unittest.TestCase):

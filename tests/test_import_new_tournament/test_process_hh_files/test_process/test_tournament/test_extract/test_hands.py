@@ -1,6 +1,6 @@
 
 import unittest
-from import_new_tournament.process_hh_files.process.tournament.extract.hands import hands
+from import_new_tournaments.process_hh_files.process.tournament.extract.hands import hands
 from utils.get_hands_in_list import get_hands_in_list
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 
@@ -8,7 +8,7 @@ from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 class test(unittest.TestCase):
     def test_hands(self):
 
-        hands_ = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, ['hh_for_side_pot_test.txt'])
+        hands_ = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, ["HH20210112 SITGOID-G99999999T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0 ---- for side pot.txt"])
         processed = hands(hands_)
 
         expected_times = [
@@ -59,14 +59,6 @@ class test(unittest.TestCase):
             660501877
         ]
 
-        expected_pot_sizes = [
-            15.0,
-            11.5,
-            11.2,
-            7.4,
-            26.0
-        ]
-
         expected_main_pot_winners = [
             "PotNoodle99912",
             "Ginijo",
@@ -100,7 +92,7 @@ class test(unittest.TestCase):
         ]
 
         expected_main_pot_sizes = [
-            None,
+            2.2,
             1.42,
             3.45,
             47.66,

@@ -12,6 +12,10 @@
     * add docstrings
     * write good documentation
 
+* for each hand save each player's name and his position,
+allows to remove the opponents table and can also plot
+heatmap of hands given position for a particular player
+
 * write script to dump hhs files
 
 * write script to run all tests and report back
@@ -159,6 +163,7 @@ Problems/trade-offs of current implementation:
 * adding a hand is somewhat slow (+- 2secs) because an API call has to be made
 * not following a particular design pattern
 * SQL design pattern breach: winner in hands table contains multiple items sometimes (side pots)
+* testing strategy is good but not optimal, if I change something in the hhs files in test gotta change everything
 
 
 Skills:
@@ -168,6 +173,7 @@ Skills:
 * SQL
 * documentation
 * plotting
+
 
 Why I did this project?
 * make more money playing this game

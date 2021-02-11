@@ -2,7 +2,7 @@ import unittest
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 from os import listdir
 from os.path import isfile, join
-from import_new_tournament.get_new_hh_files.tasks.group_filenames_by_id import group_filenames_by_id
+from import_new_tournaments.get_new_hh_files.tasks.group_filenames_by_id import group_filenames_by_id
 
 
 class test(unittest.TestCase):
@@ -16,7 +16,8 @@ class test(unittest.TestCase):
             23140753,
             23140119,
             23315209,
-            23140238
+            23140238,
+            99999999
         ]
 
         hh_amount = [
@@ -24,6 +25,7 @@ class test(unittest.TestCase):
             3,
             1,
             2,
+            1,
             1
         ]
 

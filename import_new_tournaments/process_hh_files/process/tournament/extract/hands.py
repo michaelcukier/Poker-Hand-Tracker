@@ -1,5 +1,5 @@
 
-from process.hands.Hand.Hand import Hand
+from import_new_tournaments.process_hh_files.process.hands.Hand.Hand import Hand
 
 
 def hands(hands: list) -> list:
