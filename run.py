@@ -18,7 +18,13 @@ processed_tournaments = process_filenames(
     parent_folder_tournament_summary=TOURNEY_SUMMARY_FOLDER)
 
 
-print(len(processed_tournaments))
+# 3- store the tournaments
+from import_new_tournaments.store_processed_files_in_db.store_processed_files_in_db import store_processed_files_in_db
+print('adding', len(processed_tournaments), 'new tournaments')
+for t in processed_tournaments:
+    store_processed_files_in_db(t, database_file_path=DATABASE_LOCATION)
+
+
 
 #
 # # 2- process

@@ -1,80 +1,46 @@
 
-from import_new_tournaments.process_hh_files.process.tournament.extract.hands import hands
-from import_new_tournaments.process_hh_files.process.tournament.extract.id import id
-from import_new_tournaments.process_hh_files.process.tournament.extract.price import price
-from import_new_tournaments.process_hh_files.process.tournament.extract.finish_time import finish_time
-from import_new_tournaments.process_hh_files.process.tournament.extract.elapsed_time import elapsed_time
-from import_new_tournaments.process_hh_files.process.tournament.extract.prize import prize
-from import_new_tournaments.process_hh_files.process.tournament.extract.position import position
-from import_new_tournaments.process_hh_files.process.tournament.extract.opponents import opponents
-from import_new_tournaments.process_hh_files.process.tournament.extract.nb_of_participants import nb_of_participants
-
-from utils.get_hands_in_list import get_hands_in_list
+import unittest
+from import_new_tournaments.process_hh_files.process.tournament.Tournament.Tournament import Tournament
+from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER, FAKE_TOURNAMENT_SUMMARY_FOLDER
 
 
-class Tournament:
-    def __init__(self,
-                 hand_history_filenames: list,
-                 tournament_summary_filename: str,
-                 re_entries: int,
-                 parent_folder_hand_history: str,
-                 parent_folder_tournament_summary: str):
+class test(unittest.TestCase):
+    def test_Tournament(self):
 
-        self.hand_history_filenames = hand_history_filenames
-        self.tournament_summary_filename = tournament_summary_filename
-        self.re_entries = re_entries
-        self.parent_folder_hand_history = parent_folder_hand_history
-        self.parent_folder_tournament_summary = parent_folder_tournament_summary
+        t = Tournament(
+            hand_history_filenames=["HH20201217 SITGOID-G23140753T4 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"],
+            tournament_summary_filename="TS20201217 T23140753 E197540971 NL Hold’em $0.50 + $0.05.ots",
+            re_entries=1,
+            parent_folder_hand_history=FAKE_HAND_HISTORY_FOLDER,
+            parent_folder_tournament_summary=FAKE_TOURNAMENT_SUMMARY_FOLDER)
 
-        self.hands = None
-        self.id = None
-        self.price = None
-        self.finish_time = None
-        self.elapsed_time = None
-        self.prize = None
-        self.position = None
-        self.opponents = None
-        self.nb_of_participants = None
+        t.build_tournament()
 
-    def build_tournament(self):
-        self._get_hands()
-        self._get_id()
-        self._get_price()
-        self._get_finish_time()
-        self._get_elapsed_time()
-        self._get_prize()
-        self._get_position()
-        self._get_opponents()
-        self._get_nb_of_participants()
+        self.assertEqual(t.elapsed_time, 1)
+        self.assertEqual(t.finish_time, '2020/12/17 22:17:10 UTC')
+        self.assertEqual(t.id, 23140753)
+        self.assertEqual(t.nb_of_participants, 20)
+        self.assertEqual(t.opponents,
+                         [
+                             'twomil',
+                             'rldes',
+                             'sanctuary',
+                             'KINGGS',
+                             'Jhop55',
+                             'Mojibest',
+                             'Henry1953',
+                             'Burn Card',
+                             'bacchus5555',
+                             'WBRoy',
+                             'OffMyMedz',
+                             'Naruba80',
+                             'Reno-Randy',
+                             'slambamhappy',
+                             'royal abe',
+                             'AlpacaGuy',
+                             'JaumduCaminhao',
+                             'masterluke0829'])
+        self.assertEqual(t.position, 12)
+        self.assertEqual(t.price, 0.55)
+        self.assertEqual(t.prize, 0)
 
-
-    def _get_hands(self):
-        self.hands = get_hands_in_list(self.parent_folder_hand_history, self.hand_history_filenames)
-        self.hands = hands(self.hands)
-
-    def _get_id(self):
-        self.id = id(self.hand_history_filenames[0])
-
-    def _get_price(self):
-        self.price = price(self.hand_history_filenames[0])
-
-    def _get_finish_time(self):
-        last_hand = self.hands[-1]
-        self.finish_time = finish_time(last_hand)
-
-    def _get_elapsed_time(self):
-        first_hand = self.hands[0]
-        last_hand = self.hands[-1]
-        self.elapsed_time = elapsed_time(first_hand, last_hand)
-
-    def _get_prize(self):
-        self.prize = prize(self.parent_folder_tournament_summary, self.tournament_summary_filename)
-
-    def _get_position(self):
-        self.position = position(self.parent_folder_tournament_summary, self.tournament_summary_filename)
-
-    def _get_opponents(self):
-        self.opponents = opponents(self.parent_folder_tournament_summary, self.tournament_summary_filename)
-
-    def _get_nb_of_participants(self):
-        self.nb_of_participants = nb_of_participants(self.parent_folder_tournament_summary, self.tournament_summary_filename)
