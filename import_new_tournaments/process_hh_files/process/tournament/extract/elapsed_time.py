@@ -2,6 +2,7 @@ from datetime import datetime
 from import_new_tournaments.process_hh_files.process.hands.Hand.Hand import Hand
 
 
+
 def elapsed_time(first_hand: Hand, last_hand: Hand) -> int:
     """
     Extracts the entire time spent on a tournament
