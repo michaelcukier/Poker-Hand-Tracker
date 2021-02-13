@@ -1,7 +1,7 @@
 
 
-from helpers.run_sql_command import run_sql_command
-from helpers.make_line_plot import make_line_plot
+from utils.run_sql_command import run_sql_command
+from utils.make_line_plot import make_line_plot
 
 
 def plot_chips_won_lost_for_tournament(tourney_id, width):

@@ -1,6 +1,6 @@
 
 from import_new_tournaments.process_hh_files.process.tournament.extract.hands import hands
-from import_new_tournaments.process_hh_files.process.tournament.extract.id import id
+from import_new_tournaments.process_hh_files.process.tournament.extract.id import get_id
 from import_new_tournaments.process_hh_files.process.tournament.extract.price import price
 from import_new_tournaments.process_hh_files.process.tournament.extract.finish_time import finish_time
 from import_new_tournaments.process_hh_files.process.tournament.extract.elapsed_time import elapsed_time
@@ -54,7 +54,7 @@ class Tournament:
         self.hands = hands(self.hands)
 
     def _get_id(self):
-        self.id = id(self.hand_history_filenames[0])
+        self.id = get_id(self.hand_history_filenames[0])
 
     def _get_price(self):
         self.price = price(self.hand_history_filenames[0])

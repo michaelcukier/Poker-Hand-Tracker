@@ -5,25 +5,13 @@
 
 
 
-* after refactoring everything.... :
-    * create testing database of .txt
-    * refactor tests with mocking
+
+* add docstrings
     
-    * add docstrings
-    * write good documentation
-
-* for each hand save each player's name and his position,
-allows to remove the opponents table and can also plot
-heatmap of hands given position for a particular player
-
-* write script to dump hhs files
-
-* write script to run all tests and report back
+* set up CLI
 
 * when all that is done, implement a new feature in db_api 
 using branches and automated testing (CI)
-
-* set up CLI
 
 ---------
 

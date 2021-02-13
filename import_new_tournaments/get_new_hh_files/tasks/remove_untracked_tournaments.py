@@ -2,9 +2,15 @@ from GLOBAL_VARIABLES import TOURNAMENTS_TO_EXTRACT
 
 
 def remove_untracked_tournaments(filenames: list) -> list:
-    '''
-    remove filenames that aren't tracked
-    '''
+    """
+    Removes filenames that aren't tracked
+
+            Parameters:
+                    filenames (list): tournament files names
+
+            Returns:
+                    filtered (list): tournament files names
+    """
 
     filtered = []
     for file_name in filenames:

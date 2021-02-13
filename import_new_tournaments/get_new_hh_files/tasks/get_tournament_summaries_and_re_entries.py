@@ -1,4 +1,3 @@
-
 from os import listdir
 import copy
 
@@ -6,13 +5,23 @@ import copy
 def get_tournament_summaries_and_re_entries(
         tournament_files: list,
         TOURNAMENT_SUMMARY_FOLDER: str) -> list:
+    """
+    Returns a list of TournamentFiles with the values of tournament_summary and re_entries set.
 
-    '''
-    extracts the tourney summary from filesystem into a dict
-    ! nb of process summaries found for a particular process = nb of re-entries
-    '''
+            Parameters:
+                    tournament_files (List[TournamentFiles]): a list of TournamentFiles
+                    TOURNAMENT_SUMMARY_FOLDER (str): the tournament summary parent folder
+
+            Returns:
+                    tournament_files (list): a list of TournamentFiles classes
+    """
 
     def find_best_summary_when_multiple_filenames(summary_file_name: list):
+        """
+
+        :param summary_file_name:
+        :return:
+        """
         all = {}
         for file in summary_file_name:
             with open(TOURNAMENT_SUMMARY_FOLDER + file, 'r') as f:
@@ -22,6 +31,11 @@ def get_tournament_summaries_and_re_entries(
         return max(all, key=all.get)
 
     def get_tournament_summary_filename(tournament_summaries: list) -> list or None:
+        """
+
+        :param tournament_summaries:
+        :return:
+        """
         if len(tournament_summaries) == 0:
             return None
         else:
@@ -31,6 +45,11 @@ def get_tournament_summaries_and_re_entries(
                 return find_best_summary_when_multiple_filenames(tournament_summaries)
 
     def get_re_entries(tournament_summaries: list) -> int:
+        """
+
+        :param tournament_summaries:
+        :return:
+        """
         nb_of_re_entries = len(tournament_summaries)
         if nb_of_re_entries == 0:
             # if there's no process summary, there is 1 re-entry by default
@@ -45,4 +64,3 @@ def get_tournament_summaries_and_re_entries(
         t_file.set_tournament_summary_filename(tournament_summary)
 
     return tournament_files
-

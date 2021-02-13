@@ -1,12 +1,17 @@
-# from .TournamentFiles.TournamentFiles import TournamentFiles
 from utils.extract_id_from_title import extract_id_from_title
-
 from import_new_tournaments.get_new_hh_files.TournamentFiles.TournamentFiles import TournamentFiles
 
+
 def group_filenames_by_id(filenames: list) -> list:
-    '''
-    group remaining filenames and create a dict: {tourney_ID: [filename1, filename2, ...]}
-    '''
+    """
+    Takes a list of tournament files names and creates a TournamentFiles class from them
+
+            Parameters:
+                    filenames (List[str]): a list of tournament files names
+
+            Returns:
+                    tournament_files (list): a list of TournamentFiles classes
+    """
 
     filenames_classes = {}
     for file_name in filenames:
