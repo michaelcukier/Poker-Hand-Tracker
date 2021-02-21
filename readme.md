@@ -1,4 +1,6 @@
 
+* fix PotNoodle99912 will be allowed to play after the button pb
+
 * % of player stack invested in each hand
     
 * more testing, look into coverage and try to get 100%. 

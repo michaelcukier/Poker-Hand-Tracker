@@ -1,14 +1,13 @@
 import click
 from GLOBAL_VARIABLES import DATABASE_LOCATION, FOLDER_PLOT_DUMP
-from db_api.plots.plot_money_won_lost_per_buyin import plot_money_won_lost
+from db_api.plots.money_graph import money_graph
 import subprocess
 
 
-@click.command()
+@click.command(short_help='Creates a money graph | optional: buyin (float)')
 @click.argument('buyin', required=False, default=None)
 def show_money_graph(buyin):
-    '''Creates a money graph | optional: buyin (float)'''
-    plot_name = plot_money_won_lost(
+    plot_name = money_graph(
         sigma=10,
         save_to=FOLDER_PLOT_DUMP,
         database_file_path=DATABASE_LOCATION,
