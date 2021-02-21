@@ -26,11 +26,11 @@ for t in processed_tournaments:
     store_processed_files_in_db(t, database_file_path=DATABASE_LOCATION)
 
 
-# # play
-# from db_api.plots.money_won_lost_per_buyin.plot_money_won_lost_per_buyin import plot_money_won_lost
-#
-# plot_money_won_lost(
-#     sigma=13,
-#     all_buyins=True,
-#     database=DATABASE_LOCATION
-# )
+# play
+from db_api.plots.money_won_lost_per_buyin.plot_money_won_lost_per_buyin import plot_money_won_lost
+
+plot_money_won_lost(
+    sigma=13,
+    all_buyins=True,
+    database=DATABASE_LOCATION
+)

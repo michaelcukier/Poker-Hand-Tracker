@@ -3,6 +3,16 @@ import copy
 
 
 def opponents(parent_folder_ts: str, ts_filename: str) -> list:
+    """
+    Extracts the names of the players in a tournament
+
+            Parameters:
+                    parent_folder_ts (str): the parent folder where the tournament summary file is located
+                    ts_filename (str): the name of the tournament summary file
+
+            Returns:
+                    opp_no_duplicates (list): a list of players names
+    """
     if ts_filename is None:
         return []
 

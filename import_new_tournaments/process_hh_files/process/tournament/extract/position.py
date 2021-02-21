@@ -2,7 +2,18 @@ from GLOBAL_VARIABLES import PLAYER_NAME
 import copy
 
 
-def position(parent_folder_ts: str, ts_filename: str):
+def position(parent_folder_ts: str, ts_filename: str) -> int:
+    """
+    Extracts the finish position
+
+            Parameters:
+                    parent_folder_ts (str): the parent folder where the tournament summary file is located
+                    ts_filename (str): the name of the tournament summary file
+
+            Returns:
+                    finish_pos (int): the finish position
+    """
+
     # check if no tourney summary
     if ts_filename is None:
         return 0
@@ -14,4 +25,5 @@ def position(parent_folder_ts: str, ts_filename: str):
 
     for player in ts['tournament_finishes_and_winnings']:
         if player['player_name'] == PLAYER_NAME:
-            return player['finish_position']
+            finish_pos = player['finish_position']
+            return finish_pos

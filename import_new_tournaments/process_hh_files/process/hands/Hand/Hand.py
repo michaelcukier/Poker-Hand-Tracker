@@ -15,8 +15,7 @@ from import_new_tournaments.process_hh_files.process.hands.extract.main_pot_size
 
 class Hand:
     """
-    A class that represents a single hand and the
-    methods used to build it
+    A class that represents a single hand and the methods used to build it
 
     ...
 
@@ -24,34 +23,49 @@ class Hand:
     ----------
     hand_txt : str
         a hand history raw text
+
     time : str
         the time when the hand started
+
     level : str
         the blind level
+
     my_cards : str
         the player's 2 hole cards
+
     board_cards : str
         the community cards
+
     tournament_id : int
         the tournament ID of the hand
+
     id : str
         the unique ID of the hand
+
     starting_stack_size_bb : float
         the stack size at the beginning of the hand in big blinds
+
     main_pot_winner : str
         the name of the main pot winner
+
     side_pot_1_winner: str
         the name of side pot #1 winner
+
     side_pot_2_winner: str
         the name of side pot #2 winner
+
     side_pot_3_winner: str
         the name of side pot #3 winner
+
     main_pot_size_bb : float
         the size of the main pot in big blinds
+
     side_pot_1_size_bb = None
         the size of the side pot #1 in big blinds
+
     side_pot_2_size_bb = None
         the size of the side pot #2 in big blinds
+
     side_pot_3_size_bb = None
         the size of the side pot #3 in big blinds
     """

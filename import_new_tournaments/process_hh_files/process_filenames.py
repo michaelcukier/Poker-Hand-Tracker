@@ -3,6 +3,18 @@ from .process.tournament.Tournament.Tournament import Tournament
 
 
 def process_filenames(tournamentFilenamesList: list, parent_folder_hand_history: str, parent_folder_tournament_summary: str) -> list:
+    """
+    Wrapper function that returns the processed tournaments
+
+            Parameters:
+                    tournamentFilenamesList (list): list of tournaments filenames to process
+                    parent_folder_hand_history (str): parent folder of the tournament hand history files
+                    parent_folder_tournament_summary (str): parent folder of the tournament summary files
+
+            Returns:
+                    processed (list[Tournament]): a list of Tournament classes
+    """
+
     processed = []
 
     for t in tournamentFilenamesList:

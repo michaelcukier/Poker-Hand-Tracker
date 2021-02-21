@@ -5,7 +5,7 @@ from ..process_hh_files.process.tournament.Tournament.Tournament import Tourname
 def store_processed_files_in_db(tournament: Tournament, database_file_path: str):
 
     """
-    Stores the Tournaments and Hands classes in the SQL database
+    Stores a Tournament class in the SQL database
 
             Parameters:
                     tournament (Tournament): a fully-processed tournament

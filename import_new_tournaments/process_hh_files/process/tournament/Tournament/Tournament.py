@@ -14,6 +14,42 @@ from utils.get_hands_in_list import get_hands_in_list
 
 
 class Tournament:
+    """
+    A class that represents a single tournament and the methods used to build it
+
+    ...
+
+    Attributes
+    ----------
+    hands : list
+        a list containing all the Hand classes
+
+    id: int
+        the ID of the tournament
+
+    price: float
+        the entry price of the tournament
+
+    finish_time: str
+        the UTC time when the tournament finished
+
+    elapsed_time: int
+        the time from start to finish in minutes
+
+    prize: float
+        the money won playing the tournament
+
+    position: int
+        the finish position
+
+    opponents: list
+        the list of opponents' name
+
+    nb_of_participants: int
+        the number of participants
+
+    """
+
     def __init__(self,
                  hand_history_filenames: list,
                  tournament_summary_filename: str,
