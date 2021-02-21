@@ -14,6 +14,7 @@ def main():
     pass
 
 
+
 main.add_command(update_db)
 main.add_command(show_money_graph)
 main.add_command(show_reg_time_and_pos)
