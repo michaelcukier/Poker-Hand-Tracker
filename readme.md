@@ -1,101 +1,3 @@
-### HYPER IMPORTANT #####
-
-
-
-
-
-
-
-* add docstrings
-    
-* set up CLI
-
-* when all that is done, implement a new feature in db_api 
-using branches and automated testing (CI)
-
----------
-
-
-
-
-
-
-
-
-
-
-hhs = get_new_hhs()
-for hh in get_new_hhs():
-    tournament = Tournament(hh)
-    hands = Hands(hh)
-    opponents = Opponents(hh)
-
-
-workflow:
-
-
-* while developing this app, I select 20 tournaments and 
-their corresponding files (it'll be about 60 then, with the hhs and tourney sums).
-I do all my tests on these 20 tourneys, including plotting and shit. 
-
-* at the same time, I create a small script that copy/paste the new tournaments files 
-(the ones I play every day) and dumps them in this "HHS_DUMP" folder. 
-
-* in the end, when I feel like this project is near completion, I can safely change
-the source folder from FAKE_DATA to HHS_DUMP and everything should work properly. 
-
-* UP-TO-DATE DB  --->  26/01 (check github)
-
-Use Classes instead of dictionary to deal with the hhs import to the db. something like:
-* (see comment) https://www.reddit.com/r/Python/comments/4lz80o/whats_the_best_way_to_implement_the_collection/
-
-
-========
-
-basic architecture?
-
--- /hh_importer/: module that takes in .txt files from a specified folder, process them into
-an array of Hands, Opponents and Tournaments classes and store them in an SQL db. 
------- /tests/
-
--- /db_api/: module that exposes easy-to-use APIs to explore the database and returns .json
------- /tests/
-
--- GLOBAL_VARIABLES.py
--- RUN.py: 
-
-========
-
-+ BUILDER DESIGN PATTERN
-* https://refactoring.guru/design-patterns/builder/python/example
-
-+ MODERN TDD
-* https://testdriven.io/blog/modern-tdd/
-* pytest book
-
-+ CIRCLECI for CI
-* https://www.youtube.com/watch?v=CB7vnoXI0pE
-
-+ folder structure, license and stuff
-* https://docs.python-guide.org/writing/structure/
-
-+ read and pick from: https://docs.python-guide.org/
-
-========
-BUT BEFORE THIS, LEARN HOW TO DO UNIT-TESTS + USING GIT AND FUNCTIONAL TESTS PROPERLY:
-- how to do functional tests?
-- better testing tools than UnitTests ?!
-- USING GIT PROPERLY WITH BRANCHES 
-- implement CI/CD
-- use of __init__.py for module stuf?
-- figure out coverage
-- How to organize my tests? folders and stuff? where to put my files?
-- LEARN ABOUT DESIGN PATTERNS 
-- LEARN TO CREATE MODULES INSTEAD OF DOING from.abcde.abcde import abcde ?!
-- LEARN TO CREATE SOFTWARE ARCHITECUTURE DIAGRAMS: https://c4model.com/
-
-
-# ---------------------------------------------------------------------
 
 * % of player stack invested in each hand
     
@@ -109,11 +11,7 @@ BUT BEFORE THIS, LEARN HOW TO DO UNIT-TESTS + USING GIT AND FUNCTIONAL TESTS PRO
  
 * create db apis to generate JSON data OR plot image path :
 
-    [txt] total rake payed per tracked tourney
-    [txt] get number of games played per tracked tourney
-    [txt] get avg prize and profit per tracked tourney
-    [txt] get lifetime win/loss per tracked tourney
-    [plot] get % of cash per tracked tourney
+    [plot] histogram: % of cash per tracked tourney
     [plot] find the most common money spot: extract the hands where I won the pot, and categorize them (coolers, PFAI, ..). 
            Aggregate the number of chips won and make pie chart + figure out % of stack invested in a hand
     [DONE] [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
@@ -121,7 +19,11 @@ BUT BEFORE THIS, LEARN HOW TO DO UNIT-TESTS + USING GIT AND FUNCTIONAL TESTS PRO
     [DONE] [plot] plot $ won/lost per buyin sharkscope style
     [DONE] [plot] plot chips won/lost during tournament x
     [plot] plot chips won across ALL hands
+    [plot] Hand chart heatmap for particular player and position
 
+    [table] get number of games played per tracked tourney
+    [table] get lifetime win/loss per tracked tourney
+    [table] get avg prize and profit per tracked tourney
     [table] show all opponents sorted by most seen first 
     [table] show all n tournaments   
     params: all time / last n sng | sort by [most recent, highest prizes]
@@ -130,8 +32,7 @@ BUT BEFORE THIS, LEARN HOW TO DO UNIT-TESTS + USING GIT AND FUNCTIONAL TESTS PRO
     [table] show all hands from tournament x 
     [table] show equity of my hand vs others when allin before river
 
-* create note-taking db and api
-* rewrite this doc
+
 _______
 
 

@@ -7,6 +7,7 @@ import subprocess
 @click.command()
 @click.argument('buyin', required=False, default=None)
 def show_money_graph(buyin):
+    '''Creates a money graph | optional: buyin (float)'''
     plot_name = plot_money_won_lost(
         sigma=10,
         save_to=FOLDER_PLOT_DUMP,
