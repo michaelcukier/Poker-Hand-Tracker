@@ -7,12 +7,7 @@ from cli_commands.show_reg_time_and_pos import show_reg_time_and_pos
 from cli_commands.show_profit_rate import show_profit_rate
 from cli_commands.show_chip_graph import show_chip_graph
 from cli_commands.show_last_n_tournaments import show_last_n_tournaments
-import rich
-import io
-
-
 from prettytable import PrettyTable, ALL
-
 
 
 class RichGroup(click.Group):
@@ -29,12 +24,11 @@ class RichGroup(click.Group):
         t.add_row(['show-last-n-tournaments', 'table', 'required: n (int)', 'Shows the last n tournaments'])
         print(t)
 
+
 @click.group(cls=RichGroup)
 def main():
+    click.clear()
     pass
-
-
-
 
 
 main.add_command(update_db)
