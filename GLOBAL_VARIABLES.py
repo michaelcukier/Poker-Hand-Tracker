@@ -10,3 +10,4 @@ TOURNAMENTS_TO_EXTRACT = {
 DATABASE_LOCATION = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/db.db'
 FAKE_HAND_HISTORY_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/tests/utils/fake_tournament_data/handHistory/' + PLAYER_NAME + '/'
 FAKE_TOURNAMENT_SUMMARY_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/tests/utils/fake_tournament_data/TournamentSummary/' + PLAYER_NAME + '/'
+FOLDER_PLOT_DUMP = "/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/plots_dump/"

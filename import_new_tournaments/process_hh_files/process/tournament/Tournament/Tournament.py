@@ -1,5 +1,5 @@
 
-from import_new_tournaments.process_hh_files.process.tournament.extract.hands import hands
+from import_new_tournaments.process_hh_files.process.tournament.extract.hands import *
 from import_new_tournaments.process_hh_files.process.tournament.extract.id import get_id
 from import_new_tournaments.process_hh_files.process.tournament.extract.price import price
 from import_new_tournaments.process_hh_files.process.tournament.extract.finish_time import finish_time
@@ -10,7 +10,7 @@ from import_new_tournaments.process_hh_files.process.tournament.extract.opponent
 from import_new_tournaments.process_hh_files.process.tournament.extract.nb_of_participants import nb_of_participants
 
 
-from utils.get_hands_in_list import get_hands_in_list
+# from utils.get_hands_in_list import get_hands_in_list
 
 
 class Tournament:
@@ -87,7 +87,8 @@ class Tournament:
 
     def _get_hands(self):
         self.hands = get_hands_in_list(self.parent_folder_hand_history, self.hand_history_filenames)
-        self.hands = hands(self.hands)
+        self.hands = remove_hands_player_not_playing(self.hands)
+        self.hands = process_hands(self.hands)
 
     def _get_id(self):
         self.id = get_id(self.hand_history_filenames[0])

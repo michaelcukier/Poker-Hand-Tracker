@@ -34,7 +34,7 @@ def store_processed_files_in_db(tournament: Tournament, database_file_path: str)
     for hand in tournament.hands:
         run_sql_command(
             "INSERT INTO "
-            "hands (`tourney_id`, `time`, `my_cards`, `board_cards`, `hand_id`, `Stack size at start of hand`, `Winner (Main Pot)`,`Winner (Side Pot #1)`, `Winner (Side Pot #2)`, `Winner (Side Pot #3)`, `Pot Size (Main Pot)`, `Pot Size (Side Pot #1)`, `Pot Size (Side Pot #2)`, `Pot Size (Side Pot #3)`, `level`, `hand_txt`) "
+            "hands (`tourney_id`, `time`, `my_cards`, `board_cards`, `hand_id`, `stack_size`, `Winner (Main Pot)`,`Winner (Side Pot #1)`, `Winner (Side Pot #2)`, `Winner (Side Pot #3)`, `Pot Size (Main Pot)`, `Pot Size (Side Pot #1)`, `Pot Size (Side Pot #2)`, `Pot Size (Side Pot #3)`, `level`, `hand_txt`) "
             "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
                 hand.tournament_id,
                 hand.time,
