@@ -5,7 +5,7 @@ from import_new_tournaments.process_hh_files.process_filenames import process_fi
 from import_new_tournaments.store_processed_files_in_db.store_processed_files_in_db import store_processed_files_in_db
 
 
-@click.command(short_help='Updates the database with new tournaments')
+@click.command()
 def update_db():
     # 1- get the new filenames
     new_tourneys_filenames = get_new_filenames(

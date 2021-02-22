@@ -4,7 +4,7 @@ from db_api.plots.money_graph import money_graph
 import subprocess
 
 
-@click.command(short_help='Creates a money graph | optional: buyin (float)')
+@click.command(short_help='[plot] Shows a money graph | optional: buyin (float)')
 @click.argument('buyin', required=False, default=None)
 def show_money_graph(buyin):
     plot_name = money_graph(

@@ -4,7 +4,7 @@ from db_api.plots.profit_rate import profit_rate
 import subprocess
 
 
-@click.command(short_help='Shows the evolution of the avg profit/tournament over time')
+@click.command()
 @click.argument('buyin', required=False, default=None)
 def show_profit_rate(buyin):
     plot_name = profit_rate(

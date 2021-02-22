@@ -4,7 +4,7 @@ from db_api.plots.chip_graph import chip_graph
 import subprocess
 
 
-@click.command(short_help='Shows the chip graph for a tournament')
+@click.command(short_help='[plot] Chip graph for a tournament | required: tournament id')
 @click.argument('tournament_id', required=True)
 @click.argument('width', required=True)
 def show_chip_graph(tournament_id, width):
