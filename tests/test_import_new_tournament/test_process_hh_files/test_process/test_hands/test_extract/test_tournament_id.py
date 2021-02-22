@@ -4,7 +4,7 @@ from import_new_tournaments.process_hh_files.process.hands.extract.tournament_id
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
 from os import listdir
 from os.path import isfile, join
-from utils.get_hands_in_list import get_hands_in_list
+from import_new_tournaments.process_hh_files.process.tournament.extract.hands import get_hands_in_list
 
 
 class test(unittest.TestCase):

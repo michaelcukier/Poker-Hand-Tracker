@@ -1,5 +1,20 @@
 
-* fix PotNoodle99912 will be allowed to play after the button pb
+* (later) gitignore the database
+
+* use holdem to create wrapper for blockers exploration. 
+Example:
+
+I have 99 on 78A, how often do I win compared to having any other hand?
+
+* which hands I'm winning / losing the most with?
+
+* which position is the most profitable given hand?
+
+* reporting table:
+Day | Nb of games played | Money spent | Money won | session length
+
+* which buyin is the most profitable to play? Calculate hourly rate 
+given random model (see github/pokerhud/core.py) and show table.
 
 * % of player stack invested in each hand
     

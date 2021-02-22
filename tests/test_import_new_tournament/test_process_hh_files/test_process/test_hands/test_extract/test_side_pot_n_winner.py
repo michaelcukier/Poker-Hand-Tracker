@@ -2,7 +2,7 @@
 import unittest
 from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_winner import side_pot_n_winner
 from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
-from utils.get_hands_in_list import get_hands_in_list
+from import_new_tournaments.process_hh_files.process.tournament.extract.hands import get_hands_in_list
 
 
 class test(unittest.TestCase):
