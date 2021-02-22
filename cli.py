@@ -41,3 +41,4 @@ main.add_command(show_last_n_tournaments)
 
 if __name__ == '__main__':
     main()
+
