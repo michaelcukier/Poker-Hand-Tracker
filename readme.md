@@ -13,14 +13,29 @@ params: all time / from last n sng | how many to get | sort_by [pot_size, level,
 
 _______
 
-
-### What is poker-hand-tracker ?
+Poker Hand Tracker
+=================
 
 This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc. 
 A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc. 
 It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see #Adding my own plots or table)
 
-### Installation
+Command Line Options
+--------------------
+
+	-h, --help            show this help message and exit
+	-b [card [card ...]], --board [card [card ...]]
+	                      Add board cards
+	-e, --exact           Find exact odds by enumerating every possible board
+	-n N                  Run N Monte Carlo simulations
+	-i INPUT, --input INPUT
+	                      Read hole cards and boards from an input file.
+	                      Commandline arguments for hole cards and board will be
+	                      ignored
+
+
+Installation
+--------------------
 
 1. Make sure `matplotlib`, `scipy`, `PrettyTable` and `Click` are all installed.
 
@@ -36,14 +51,14 @@ It has been built to make it easy to extend it and add your own plots or tables 
 * `HAND_HISTORY_FOLDER`: the absolute path where the hand histories files are located
 * `TOURNEY_SUMMARY_FOLDER`: the absolute path where the tournament summaries files are located
 * `TOURNAMENTS_TO_EXTRACT`: this one is slightly tricky. This is the list of tournaments you want to track, along with their buyins amount including rake. You need to find the common pattern between those filenames.
-For example, let's say you play SnGs and cash games, so you hand history folder look like this:
+For example, let's say you play SnGs and cash games, and you want to track the $3 and $6 SnGs you are playing. So you hand history folder look like this:
 
 ```
 ...
 HH20210223 SITGOID-G24121376T1 TN-$3 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
 HH20210223 SITGOID-G24121376T2 TN-$3 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
 HH20210223 SITGOID-G24120630T2 TN-$3 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
-... some cash game files
+... some cash game files ...
 HH20210223 SITGOID-G24113211T3 TN-$6 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
 HH20210223 SITGOID-G24113211T1 TN-$6 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
 ...
@@ -61,14 +76,12 @@ TOURNAMENTS_TO_EXTRACT = {
 }
 ```
 
-4. Now, if you run 
+4. Now, if you run `$ python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. You can then do
 
-    `$ python cli.py --help` 
-    
-    It should show you this table containing all the things you can do:
+    `$ python cli.py --help`
 
-
-### Create new plots / tables and deriving new insights
+Create new plots / tables and deriving new insights
+--------------------
 
 For example, let's say you want to see the amount of chips won / lost by position:
 
@@ -80,7 +93,8 @@ For example, let's say you want to see the amount of chips won / lost by positio
 ___
 
 
-### Folder structure and notes
+Folder structure and notes
+--------------------
 
 * I have use SQLite as my database of choice, for ease of use and easy debugging. I recommend using the excellent [DB Browser for SQLite](https://github.com/sqlitebrowser/sqlitebrowser) to be able to open the .db database file.
 * To make it easy to build the complex Hand and Tournament classes, I have used the Builder Design pattern.
@@ -114,7 +128,7 @@ Here is the folder structure:
     ├── /helpers/                         
 ```
 
-## Copyright
+Copyright
+--------------------
 
-
-Copyright (c) 2021 Michael Cukier. See LICENSE.txt for details.
+Copyright (c) 2021 Michael Cukier. See LICENSE for details.
