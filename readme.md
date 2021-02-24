@@ -1,11 +1,6 @@
 
 * (later) gitignore the database
 
-* use holdem to create wrapper for blockers exploration. 
-Example:
-
-I have 99 on 78A, how often do I win compared to having any other hand?
-
 * which hands I'm winning / losing the most with?
 
 * which position is the most profitable given hand?
@@ -28,7 +23,6 @@ given random model (see github/pokerhud/core.py) and show table.
  
 * create db apis to generate JSON data OR plot image path :
 
-    [plot] histogram: % of cash per tracked tourney
     [plot] find the most common money spot: extract the hands where I won the pot, and categorize them (coolers, PFAI, ..). 
            Aggregate the number of chips won and make pie chart + figure out % of stack invested in a hand
     [DONE] [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
@@ -70,7 +64,7 @@ Problems/trade-offs of current implementation:
 * not following a particular design pattern
 * SQL design pattern breach: winner in hands table contains multiple items sometimes (side pots)
 * testing strategy is good but not optimal, if I change something in the hhs files in test gotta change everything
-
+* saving the entire hand history in the database?
 
 Skills:
 * testing 

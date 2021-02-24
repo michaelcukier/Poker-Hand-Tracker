@@ -1,4 +1,3 @@
-
 import click
 
 from cli_commands.update_db import update_db
@@ -7,6 +6,8 @@ from cli_commands.show_reg_time_and_pos import show_reg_time_and_pos
 from cli_commands.show_profit_rate import show_profit_rate
 from cli_commands.show_chip_graph import show_chip_graph
 from cli_commands.show_last_n_tournaments import show_last_n_tournaments
+from cli_commands.show_buyin_report import show_report_by_buyin
+
 from prettytable import PrettyTable, ALL
 
 
@@ -22,6 +23,7 @@ class RichGroup(click.Group):
         t.add_row(['show-chip-graph', 'plot', 'required: tournament ID (int)', 'Shows the chip graph for a tournament'])
         t.add_row(['', '', '', ''])
         t.add_row(['show-last-n-tournaments', 'table', 'required: n (int)', 'Shows the last n tournaments'])
+        t.add_row(['show-report-by-buyin', 'table', 'None', 'Shows statistics about each buy-in'])
         print(t)
 
 
@@ -37,6 +39,7 @@ main.add_command(show_reg_time_and_pos)
 main.add_command(show_profit_rate)
 main.add_command(show_chip_graph)
 main.add_command(show_last_n_tournaments)
+main.add_command(show_report_by_buyin)
 
 
 if __name__ == '__main__':

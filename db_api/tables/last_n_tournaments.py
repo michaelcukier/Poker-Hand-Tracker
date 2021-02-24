@@ -23,7 +23,7 @@ def last_n_tournaments(n: int, database_file_path: str) -> PrettyTable:
         FROM 
             tournaments 
         ORDER BY 
-            finished_time desc
+            finished_time DESC
         LIMIT 
             {0}
     '''.format(str(n))
@@ -33,7 +33,7 @@ def last_n_tournaments(n: int, database_file_path: str) -> PrettyTable:
         unique_items=False,
         database_file_path=database_file_path)
 
-    t = PrettyTable(['ID','When', 'Buyin', 'Prize', 'Position', 'Duration (mn)'])
+    t = PrettyTable(['ID', 'When', 'Buyin', 'Prize', 'Position', 'Duration (mn)'])
 
     for ID, finished_time, price, prize, position, elapsed_time, Entries in data:
 
