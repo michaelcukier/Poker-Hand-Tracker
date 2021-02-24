@@ -1,11 +1,6 @@
 
 * (later) gitignore the database
 
-* use holdem to create wrapper for blockers exploration. 
-Example:
-
-I have 99 on 78A, how often do I win compared to having any other hand?
-
 * which hands I'm winning / losing the most with?
 
 * which position is the most profitable given hand?
