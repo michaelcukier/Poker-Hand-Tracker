@@ -1,95 +1,96 @@
-
-* (later) gitignore the database
-
-* which hands I'm winning / losing the most with?
-
-* which position is the most profitable given hand?
-
-* reporting table:
-Day | Nb of games played | Money spent | Money won | session length
-
-* which buyin is the most profitable to play? Calculate hourly rate 
-given random model (see github/pokerhud/core.py) and show table.
-
-* % of player stack invested in each hand
-    
-* more testing, look into coverage and try to get 100%. 
-  add coverage logos in the github readme
-
-* create public version without the tracker link generator and 
-  without my own stuff in global variable
-
-* create helpers/convert_json_to_pretty_table.py 
  
-* create db apis to generate JSON data OR plot image path :
-
-    [plot] find the most common money spot: extract the hands where I won the pot, and categorize them (coolers, PFAI, ..). 
-           Aggregate the number of chips won and make pie chart + figure out % of stack invested in a hand
-    [DONE] [plot] rate of profit/game plot: does the profit/game increases or decreases over time?
-    [DONE] [plot] relationship between position and first hand's level: does regging early improve my chances of winning?
-    [DONE] [plot] plot $ won/lost per buyin sharkscope style
-    [DONE] [plot] plot chips won/lost during tournament x
-    [plot] plot chips won across ALL hands
-    [plot] Hand chart heatmap for particular player and position
-
-    [table] get number of games played per tracked tourney
-    [table] get lifetime win/loss per tracked tourney
-    [table] get avg prize and profit per tracked tourney
-    [table] show all opponents sorted by most seen first 
-    [table] show all n tournaments   
-    params: all time / last n sng | sort by [most recent, highest prizes]
-    [table] show all n hands   
-    params: all time / from last n sng | how many to get | type | sort_by [pot_size, level]
-    [table] show all hands from tournament x 
-    [table] show equity of my hand vs others when allin before river
+ 
+* create setup.py, script which creates the database 
+ 
+* plots/tables to do:
+[plot] Hand chart heatmap for particular player and position
+[table] show all opponents sorted by most seen first 
+[table] show all n tournaments sort by [most recent, highest prizes]
+[table] show all n hands   
+params: all time / from last n sng | how many to get | sort_by [pot_size, level, hand]
+[table] show all hands from tournament x 
 
 
 _______
 
 
-Challenges and solutions:
-* finding a way to architect this app while remaining flexible
-* finding an appropriate testing strategy
-* dealing with missing tourney summaries
-* dealing with hand histories split into multiple files
-* i dont know what this app's gonna be, so better to create an API to access the DB that always returns JSON data OR path to plot image
-* the goal of this program is to have an easy-to-use API that 1) updates the database and 2) allows me to answer questions about the data in this db. However I don't know all of those questions, so I built this app always coming back to the data import when I needed more informations I didnt extracted already
-* its very hard and tiring to look at data, so I reverse-engineering a website where you can upload your hand history and it replays it.
-* clear separations of tasks in folder/files/functions, fully tested and 0 code repetition. 
+### What is poker-hand-tracker ?
+
+This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc. 
+A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc. 
+It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see #Adding my own plots or table)
+
+### Installation
+
+1. Make sure `matplotlib`, `scipy`, `PrettyTable` and `Click` are all installed.
+
+2. Download this folder, and run
+
+    `$ python cli.py setup`
+
+    This will set up the database with the appropriate schema.
+
+3. Open `GLOBAL_VARIABLES.py` and write this for the 4 variables:
+
+* `PLAYER_NAME`: your playing username 
+* `HAND_HISTORY_FOLDER`: the absolute path where the hand histories files are located
+* `TOURNEY_SUMMARY_FOLDER`: the absolute path where the tournament summaries files are located
+* `TOURNAMENTS_TO_EXTRACT`: this one is slightly tricky. This is the list of tournaments you want to track, along with their buyins amount including rake. You need to find the common pattern between those filenames.
+For example, let's say you play SnGs and cash games, so you hand history folder look like this:
+
+```
+...
+HH20210223 SITGOID-G24121376T1 TN-$3 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
+HH20210223 SITGOID-G24121376T2 TN-$3 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
+HH20210223 SITGOID-G24120630T2 TN-$3 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
+... some cash game files
+HH20210223 SITGOID-G24113211T3 TN-$6 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
+HH20210223 SITGOID-G24113211T1 TN-$6 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt
+...
+```
+
+The common pattern for the $3's could be `$3 Hold'Em Turbo - On Demand` for example. If you just write `$3` for example it will not work, 
+since there's probably other files in this folder that have `$3` in their name but are not $3 SnGs. So for me, playing the 0.55, 1.65, 3.3 and 6.6 buy-in levels, this variable was always set to:
+
+```python
+TOURNAMENTS_TO_EXTRACT = {
+    "$0{FULLSTOP}50 Hold'Em Turbo": 0.55,
+    "$1{FULLSTOP}50 Hold'Em Turbo": 1.65,
+    "$3 Hold'Em Turbo - On Demand": 3.30,
+    "$6 Hold'Em Turbo - On Demand": 6.60
+}
+```
+
+4. Now, if you run 
+
+    `$ python cli.py --help` 
+    
+    It should show you this table containing all the things you can do:
 
 
-Problems/trade-offs of current implementation:
-* hand histories get auto deleted after 30 days, so the data I didnt extract "on time" is lost.
-* adding a hand is somewhat slow (+- 2secs) because an API call has to be made
-* not following a particular design pattern
-* SQL design pattern breach: winner in hands table contains multiple items sometimes (side pots)
-* testing strategy is good but not optimal, if I change something in the hhs files in test gotta change everything
-* saving the entire hand history in the database?
+### Create new plots / tables and deriving new insights
 
-Skills:
-* testing 
-* data pipeline testing/building
-* data exploration and understanding: there was tons of irrelevant hands where im not playing (fold pre), there were tournaments where the HH summary wasn't saved at all (missing data). 
-* SQL
-* documentation
-* plotting
+For example, let's say you want to see the amount of chips won / lost by position:
+
+1. Create a script that queries the SQL database and displays it in a table form (see `/db_api/` for example).
+2. Create a new file in `cli_commands` containing the CLI script that gets run when the command is called from the terminal. You can use this a wrapper, so if you have one command that does something, another that does something else and a third one that combines everything, you can wrap them up here.
+3. Finally update `cli.py` to use that new script from the CLI for convenience
 
 
-Why I did this project?
-* make more money playing this game
-* show off skills to employers
-* have fun building a project 
-_______
-
-### What is PokerHUDv2?
-
-This program automatically imports the hand histories from the raw .txt files into a .sqlite database. 
-It performs some transformations on those raw .txt files to extract the relevant data. It then conveniently exposes a Python API to explore this database and create plots, pretty-printable tables, etc. 
-
-### Folder structure
+___
 
 
-    run.py                                # 10-line python code to use this program
+### Folder structure and notes
+
+* I have use SQLite as my database of choice, for ease of use and easy debugging. I recommend using the excellent [DB Browser for SQLite](https://github.com/sqlitebrowser/sqlitebrowser) to be able to open the .db database file.
+* To make it easy to build the complex Hand and Tournament classes, I have used the Builder Design pattern.
+* I do not intend to compete in any way with the major commercial poker trackers when I built this project. I did it for fun, and to practice a variety of skills. Use this tool if you know how to code and want to derive interesting stats about your play with SQL/Python, but don't want to build the database code to do so.
+* I play on ACR, so it is using the ACR hand histories and the tournament summaries files. It should not be hard to port this tool to be used with other sites like PokerStars.
+* This is built for tournaments and SnGs and I never used it for cash games. But you should also be able to port this code easily if you want to track cash games. 
+
+Here is the folder structure:
+```
+    cli.py                                # 
     
     ├── /__tests__/     
     
@@ -111,7 +112,8 @@ It performs some transformations on those raw .txt files to extract the relevant
         ├── /summaries/                   # 
         
     ├── /helpers/                         
+```
 
+## Copyright
 
-### How to use
-
+Copyright (c) 2021 Michael Cukier. See LICENSE.txt for details.
