@@ -1,5 +1,5 @@
 Game Hand #624700000 - Tournament #23123480 - Holdem(No Limit) - Level 5 (1000.00/2000.00)- 2020/12/15 21:20:06 UTC
-Table '1' 9-max Seat #5 is the button
+Table '1' 9-max Seat #6 is the button
 Seat 1: Didlo1987 (36850.00)
 Seat 2: yaya12 (28150.00)
 Seat 3: Sgt. Fury (105161.00)
@@ -98,7 +98,7 @@ Seat 8: Vadims folded on the Pre-Flop and did not bet
 Seat 9: Lovecraft2020 folded on the Pre-Flop and did not bet
 
 Game Hand #624752872 - Tournament #23123480 - Holdem(No Limit) - Level 13 (4500.00/9000.00)- 2020/12/15 22:07:47 UTC
-Table '1' 9-max Seat #5 is the button
+Table '1' 9-max Seat #6 is the button
 Seat 1: Didlo1987 (258280.00)
 Seat 2: slbetters (102042.00)
 Seat 3: Bubbazinitty (64636.00)

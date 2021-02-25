@@ -1,4 +1,3 @@
-
 from import_new_tournaments.process_hh_files.process.hands.extract.time import time
 from import_new_tournaments.process_hh_files.process.hands.extract.level import level
 from import_new_tournaments.process_hh_files.process.hands.extract.my_cards import my_cards
@@ -6,11 +5,13 @@ from import_new_tournaments.process_hh_files.process.hands.extract.board_cards i
 from import_new_tournaments.process_hh_files.process.hands.extract.tournament_id import tournament_id
 from import_new_tournaments.process_hh_files.process.hands.extract.id import get_id
 from import_new_tournaments.process_hh_files.process.hands.extract.starting_stack_size_bb import starting_stack_size_bb
-
 from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_winner import side_pot_n_winner
 from import_new_tournaments.process_hh_files.process.hands.extract.main_pot_winner import main_pot_winner
 from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_size_bb import side_pot_n_size_bb
 from import_new_tournaments.process_hh_files.process.hands.extract.main_pot_size_bb import main_pot_size_bb
+from import_new_tournaments.process_hh_files.process.hands.extract.nb_occupied_seats import nb_occupied_seats
+from import_new_tournaments.process_hh_files.process.hands.extract.table_type import table_type
+from import_new_tournaments.process_hh_files.process.hands.extract.position_player_name import position_player_name
 
 
 class Hand:
@@ -48,26 +49,38 @@ class Hand:
     main_pot_winner : str
         the name of the main pot winner
 
-    side_pot_1_winner: str
+    side_pot_1_winner: str or None
         the name of side pot #1 winner
 
-    side_pot_2_winner: str
+    side_pot_2_winner: str or None
         the name of side pot #2 winner
 
-    side_pot_3_winner: str
+    side_pot_3_winner: str or None
         the name of side pot #3 winner
 
     main_pot_size_bb : float
         the size of the main pot in big blinds
 
-    side_pot_1_size_bb = None
+    side_pot_1_size_bb = float or None
         the size of the side pot #1 in big blinds
 
-    side_pot_2_size_bb = None
+    side_pot_2_size_bb = float or None
         the size of the side pot #2 in big blinds
 
-    side_pot_3_size_bb = None
+    side_pot_3_size_bb = float or None
         the size of the side pot #3 in big blinds
+
+    nb_of_occupied_seats = int
+        the number of seated players at the table
+
+    table_type = str
+        the table type (eg: 9-max)
+
+    position_and_player = dict
+        dict containing each position (regardless of
+        how many players seated) as key and the name of
+        the player as value. If no player is seated at
+        position X, then position X is set to None.
     """
 
     def __init__(self, hand_txt):
@@ -87,6 +100,9 @@ class Hand:
         self.side_pot_1_size_bb = None
         self.side_pot_2_size_bb = None
         self.side_pot_3_size_bb = None
+        self.nb_occupied_seats = None
+        self.table_type = None
+        self.position_and_player = None
 
     def build_hand(self):
         self._get_time()
@@ -104,7 +120,9 @@ class Hand:
         self._get_side_pot_1_size_bb()
         self._get_side_pot_2_size_bb()
         self._get_side_pot_3_size_bb()
-
+        self._get_nb_occupied_seats()
+        self._get_table_type()
+        self._get_position_player_name()
 
     def _get_time(self):
         self.time = time(self.hand_txt)
@@ -150,3 +168,12 @@ class Hand:
 
     def _get_side_pot_3_size_bb(self):
         self.side_pot_3_size_bb = side_pot_n_size_bb(self.hand_txt, n=3)
+
+    def _get_nb_occupied_seats(self):
+        self.nb_occupied_seats = nb_occupied_seats(self.hand_txt)
+
+    def _get_table_type(self):
+        self.table_type = table_type(self.hand_txt)
+
+    def _get_position_player_name(self):
+        self.position_and_player = position_player_name(self.hand_txt)
