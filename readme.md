@@ -1,14 +1,16 @@
  
-* extract absolutely everything from the hand history
+* add preflop, flop, turn and river action
+
+* create small script to update the database with new fields
  
-* create setup.py, script which creates the database 
+* create setup.py, script which creates the database schema
  
 * plots/tables to do:
 [plot] Hand chart heatmap for particular player and position
 [table] show all opponents sorted by most seen first 
 [table] show all n tournaments sort by [most recent, highest prizes]
 [table] show all n hands   
-params: all time / from last n sng | how many to get | sort_by [pot_size, level, hand]
+params: all time / from last n sng | how many to get | sort_by [pot_size, level, hand, position, player_name]
 [table] show all hands from tournament x 
 
 
@@ -38,15 +40,15 @@ Command Line Options
 Installation
 --------------------
 
-1. Make sure `matplotlib`, `scipy`, `PrettyTable` and `Click` are all installed.
+Step 1 | Make sure `matplotlib`, `scipy`, `PrettyTable` and `Click` are all installed.
 
-2. Clone this repo, and run
+Step 2 | Clone this repo, and run
 
-    `$ python cli.py setup`
+    $ python cli.py setup
 
-    This will set up the database with the appropriate schema.
+This will set up the database with the appropriate schema.
 
-3. Open `GLOBAL_VARIABLES.py` and write this for the 4 variables:
+Step 3 | Open `GLOBAL_VARIABLES.py` and write this for the 4 variables:
 
 * `PLAYER_NAME`: your playing username 
 * `HAND_HISTORY_FOLDER`: the absolute path where the hand histories files are located
@@ -66,20 +68,17 @@ HH20210223 SITGOID-G24113211T1 TN-$6 Hold'Em Turbo - On Demand GAMETYPE-Hold'em 
 ```
 
 The common pattern for the $3's could be `$3 Hold'Em Turbo - On Demand` for example. If you just write `$3` for example it will not work, 
-since there's probably other files in this folder that have `$3` in their name but are not $3 SnGs. So for me, playing the 0.55, 1.65, 3.3 and 6.6 buy-in levels, this variable was always set to:
+since there's probably other files in this folder that have `$3` in their name but are not $3 SnGs. So for me, playing the $0.55, $1.65, $3.3 and $6.6 buy-in levels, this variable was always set to:
 
 ```python
 TOURNAMENTS_TO_EXTRACT = {
     "$0{FULLSTOP}50 Hold'Em Turbo": 0.55,
     "$1{FULLSTOP}50 Hold'Em Turbo": 1.65,
     "$3 Hold'Em Turbo - On Demand": 3.30,
-    "$6 Hold'Em Turbo - On Demand": 6.60
-}
+    "$6 Hold'Em Turbo - On Demand": 6.60}
 ```
 
- '4. Now, if you run `python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. When you go back to playing, you'll have to re-run this command and it will import only the new hand histories. You can then do
-
-    `$ python cli.py --help`
+Step 4 | Now, if you run `python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. When you go back to playing, you'll have to re-run this command and it will import only the new hand histories. You can then run `python cli.py --help` to see the things you can do.
 
 Create new plots / tables and deriving new insights
 --------------------
@@ -98,6 +97,7 @@ Folder structure and notes
 --------------------
 
 * I have use SQLite as my database of choice, for ease of use and easy debugging. I recommend using the excellent [DB Browser for SQLite](https://github.com/sqlitebrowser/sqlitebrowser) to be able to open the .db database file.
+* As per the license, the author is not responsible if you misuse this tool or lose your hand histories.
 * To make it easy to build the complex Hand and Tournament classes, I have used the Builder Design pattern.
 * I do not intend to compete in any way with the major commercial poker trackers when I built this project. I did it for fun, and to practice a variety of skills. Use this tool if you know how to code and want to derive interesting stats about your play with SQL/Python and don't want to build the database code to do so.
 * I play on ACR, so it is using the ACR hand histories and the tournament summaries files. It should not be hard to port this tool to be used with other sites like PokerStars.
