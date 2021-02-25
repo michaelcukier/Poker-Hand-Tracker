@@ -11,7 +11,7 @@ from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_si
 from import_new_tournaments.process_hh_files.process.hands.extract.main_pot_size_bb import main_pot_size_bb
 from import_new_tournaments.process_hh_files.process.hands.extract.nb_occupied_seats import nb_occupied_seats
 from import_new_tournaments.process_hh_files.process.hands.extract.table_type import table_type
-from import_new_tournaments.process_hh_files.process.hands.extract.position_player_name import position_player_name
+from import_new_tournaments.process_hh_files.process.hands.extract.positions_info import position_player_name
 
 
 class Hand:

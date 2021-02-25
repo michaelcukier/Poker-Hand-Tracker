@@ -59,14 +59,14 @@ class test(unittest.TestCase):
         self.assertEqual(myH.nb_occupied_seats, 5)
         self.assertEqual(myH.table_type, '9-max')
         self.assertEqual(myH.position_and_player,
-                         {'BTN': 'PotNoodle99912',
-                          'SB': 'rldes',
-                          'BB': 'bacchus5555',
-                          'UTG': 'WBRoy',
-                          'UTG+1': None,
-                          'MP': None,
-                          'MP+1': None,
-                          'MP+2': None,
-                          'CO': 'Naruba80'})
+             {'BTN': {'Name': 'PotNoodle99912', 'Stack': 18150.0, 'Cards': '4s Qs'},
+              'SB': {'Name': 'rldes', 'Stack': 20790.0, 'Cards': None},
+              'BB': {'Name': 'bacchus5555', 'Stack': 108315.0, 'Cards': 'Js Ad'},
+              'UTG': {'Name': 'WBRoy', 'Stack': 27000.0, 'Cards': None},
+              'UTG+1': {'Name': None, 'Stack': None, 'Cards': None},
+              'MP': {'Name': None, 'Stack': None, 'Cards': None},
+              'MP+1': {'Name': None, 'Stack': None, 'Cards': None},
+              'MP+2': {'Name': None, 'Stack': None, 'Cards': None},
+              'CO': {'Name': 'Naruba80', 'Stack': 29750.0, 'Cards': 'Ah Tc'}})
 
 
