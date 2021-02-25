@@ -1,4 +1,5 @@
  
+* extract absolutely everything from the hand history
  
 * create setup.py, script which creates the database 
  
@@ -18,7 +19,7 @@ Poker Hand Tracker
 
 This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc. 
 A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc. 
-It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see #Adding my own plots or table)
+It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see #Adding my own plots or table).
 
 Command Line Options
 --------------------
@@ -39,7 +40,7 @@ Installation
 
 1. Make sure `matplotlib`, `scipy`, `PrettyTable` and `Click` are all installed.
 
-2. Download this folder, and run
+2. Clone this repo, and run
 
     `$ python cli.py setup`
 
@@ -76,17 +77,17 @@ TOURNAMENTS_TO_EXTRACT = {
 }
 ```
 
-4. Now, if you run `$ python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. You can then do
+ '4. Now, if you run `python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. When you go back to playing, you'll have to re-run this command and it will import only the new hand histories. You can then do
 
     `$ python cli.py --help`
 
 Create new plots / tables and deriving new insights
 --------------------
 
-For example, let's say you want to see the amount of chips won / lost by position:
+For example, let's say you want to see the amount of chips won / lost by position. The entire hand history is also stored in the database, in the `hand_txt` section in case you want to access it directly. 
 
-1. Create a script that queries the SQL database and displays it in a table form (see `/db_api/` for example).
-2. Create a new file in `cli_commands` containing the CLI script that gets run when the command is called from the terminal. You can use this a wrapper, so if you have one command that does something, another that does something else and a third one that combines everything, you can wrap them up here.
+1. Create a script that queries the SQL database and displays it in a table form (see `/db_api/` for some examples).
+2. Create a new file in `cli_commands/` containing the CLI script that gets run when the command is called from the terminal. You can use this a wrapper, so if you have one command that does something, another that does something else and a third one that combines everything, you can wrap them up here.
 3. Finally update `cli.py` to use that new script from the CLI for convenience
 
 
@@ -98,7 +99,7 @@ Folder structure and notes
 
 * I have use SQLite as my database of choice, for ease of use and easy debugging. I recommend using the excellent [DB Browser for SQLite](https://github.com/sqlitebrowser/sqlitebrowser) to be able to open the .db database file.
 * To make it easy to build the complex Hand and Tournament classes, I have used the Builder Design pattern.
-* I do not intend to compete in any way with the major commercial poker trackers when I built this project. I did it for fun, and to practice a variety of skills. Use this tool if you know how to code and want to derive interesting stats about your play with SQL/Python, but don't want to build the database code to do so.
+* I do not intend to compete in any way with the major commercial poker trackers when I built this project. I did it for fun, and to practice a variety of skills. Use this tool if you know how to code and want to derive interesting stats about your play with SQL/Python and don't want to build the database code to do so.
 * I play on ACR, so it is using the ACR hand histories and the tournament summaries files. It should not be hard to port this tool to be used with other sites like PokerStars.
 * This is built for tournaments and SnGs and I never used it for cash games. But you should also be able to port this code easily if you want to track cash games. 
 
