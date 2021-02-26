@@ -1,8 +1,4 @@
- 
-* add preflop, flop, turn and river action
-
-* create small script to update the database with new fields
- 
+  
 * create setup.py, script which creates the database schema
  
 * plots/tables to do:

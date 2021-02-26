@@ -23,4 +23,4 @@ def update_db():
     for t in processed_tournaments:
         store_processed_files_in_db(t, database_file_path=DATABASE_LOCATION)
 
-    click.secho('NOT    Added ' + str(len(processed_tournaments)) + ' new tournaments', fg="blue", bold=True)
+    click.secho('Added ' + str(len(processed_tournaments)) + ' new tournaments', fg="blue", bold=True)

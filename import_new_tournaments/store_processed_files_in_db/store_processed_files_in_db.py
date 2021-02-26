@@ -34,8 +34,8 @@ def store_processed_files_in_db(tournament: Tournament, database_file_path: str)
     for hand in tournament.hands:
         run_sql_command(
             "INSERT INTO "
-            "hands (`tourney_id`, `time`, `my_cards`, `board_cards`, `hand_id`, `stack_size`, `Winner (Main Pot)`,`Winner (Side Pot #1)`, `Winner (Side Pot #2)`, `Winner (Side Pot #3)`, `Pot Size (Main Pot)`, `Pot Size (Side Pot #1)`, `Pot Size (Side Pot #2)`, `Pot Size (Side Pot #3)`, `level`, `hand_txt`, `BTN_player_name`, `SB_player_name`, `BB_player_name`, `UTG_player_name`, `UTGp1_player_name`, `MP_player_name`, `MPp1_player_name`, `MPp2_player_name`, `CO_player_name`, `BTN_stack`, `SB_stack`, `BB_stack`, `UTG_stack`, `UTGp1_stack`, `MP_stack`, `MPp1_stack`, `MPp2_stack`, `CO_stack`, `BTN_cards`, `SB_cards`, `BB_cards`, `UTG_cards`, `UTGp1_cards`, `MP_cards`, `MPp1_cards`, `MPp2_cards`, `CO_cards`) "
-            "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
+            "hands (`tourney_id`, `time`, `my_cards`, `board_cards`, `hand_id`, `stack_size`, `Winner (Main Pot)`,`Winner (Side Pot #1)`, `Winner (Side Pot #2)`, `Winner (Side Pot #3)`, `Pot Size (Main Pot)`, `Pot Size (Side Pot #1)`, `Pot Size (Side Pot #2)`, `Pot Size (Side Pot #3)`, `level`, `hand_txt`, `BTN_player_name`, `SB_player_name`, `BB_player_name`, `UTG_player_name`, `UTGp1_player_name`, `MP_player_name`, `MPp1_player_name`, `MPp2_player_name`, `CO_player_name`, `BTN_stack`, `SB_stack`, `BB_stack`, `UTG_stack`, `UTGp1_stack`, `MP_stack`, `MPp1_stack`, `MPp2_stack`, `CO_stack`, `BTN_cards`, `SB_cards`, `BB_cards`, `UTG_cards`, `UTGp1_cards`, `MP_cards`, `MPp1_cards`, `MPp2_cards`, `CO_cards`, `table_type`, `nb_occupied_seats`) "
+            "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
                 hand.tournament_id,
                 hand.time,
                 hand.my_cards,
@@ -78,6 +78,8 @@ def store_processed_files_in_db(tournament: Tournament, database_file_path: str)
                 hand.MP_cards,
                 hand.MPp1_cards,
                 hand.MPp2_cards,
-                hand.CO_cards
+                hand.CO_cards,
+                hand.table_type,
+                hand.nb_occupied_seats
             ),
             database_file_path)
