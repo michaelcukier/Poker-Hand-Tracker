@@ -80,6 +80,7 @@ class Hand:
         dict containing each position (regardless of
         how many players seated) as key and the name of
         the player, his stack size and his cards (if showdown).
+        this dict fills the position values
     """
 
     def __init__(self, hand_txt):
@@ -101,7 +102,36 @@ class Hand:
         self.side_pot_3_size_bb = None
         self.nb_occupied_seats = None
         self.table_type = None
-        self.position_info = None
+
+        self.BTN_player_name = None
+        self.SB_player_name = None
+        self.BB_player_name = None
+        self.UTG_player_name = None
+        self.UTGp1_player_name = None
+        self.MP_player_name = None
+        self.MPp1_player_name = None
+        self.MPp2_player_name = None
+        self.CO_player_name = None
+
+        self.BTN_stack = None
+        self.SB_stack = None
+        self.BB_stack = None
+        self.UTG_stack = None
+        self.UTGp1_stack = None
+        self.MP_stack = None
+        self.MPp1_stack = None
+        self.MPp2_stack = None
+        self.CO_stack = None
+
+        self.BTN_cards = None
+        self.SB_cards = None
+        self.BB_cards = None
+        self.UTG_cards = None
+        self.UTGp1_cards = None
+        self.MP_cards = None
+        self.MPp1_cards = None
+        self.MPp2_cards = None
+        self.CO_cards = None
 
     def build_hand(self):
         self._get_time()
@@ -175,4 +205,33 @@ class Hand:
         self.table_type = table_type(self.hand_txt)
 
     def _get_position_info(self):
-        self.position_info = position_info(self.hand_txt)
+        _position_info = position_info(self.hand_txt)
+        self.BTN_player_name = _position_info['BTN']['Name']
+        self.SB_player_name = _position_info['SB']['Name']
+        self.BB_player_name = _position_info['BB']['Name']
+        self.UTG_player_name = _position_info['UTG']['Name']
+        self.UTGp1_player_name = _position_info['UTG+1']['Name']
+        self.MP_player_name = _position_info['MP']['Name']
+        self.MPp1_player_name = _position_info['MP+1']['Name']
+        self.MPp2_player_name = _position_info['MP+2']['Name']
+        self.CO_player_name = _position_info['CO']['Name']
+
+        self.BTN_stack = _position_info['BTN']['Stack']
+        self.SB_stack = _position_info['SB']['Stack']
+        self.BB_stack = _position_info['BB']['Stack']
+        self.UTG_stack = _position_info['UTG']['Stack']
+        self.UTGp1_stack = _position_info['UTG+1']['Stack']
+        self.MP_stack = _position_info['MP']['Stack']
+        self.MPp1_stack = _position_info['MP+1']['Stack']
+        self.MPp2_stack = _position_info['MP+2']['Stack']
+        self.CO_stack = _position_info['CO']['Stack']
+
+        self.BTN_cards = _position_info['BTN']['Cards']
+        self.SB_cards = _position_info['SB']['Cards']
+        self.BB_cards = _position_info['BB']['Cards']
+        self.UTG_cards = _position_info['UTG']['Cards']
+        self.UTGp1_cards = _position_info['UTG+1']['Cards']
+        self.MP_cards = _position_info['MP']['Cards']
+        self.MPp1_cards = _position_info['MP+1']['Cards']
+        self.MPp2_cards = _position_info['MP+2']['Cards']
+        self.CO_cards = _position_info['CO']['Cards']

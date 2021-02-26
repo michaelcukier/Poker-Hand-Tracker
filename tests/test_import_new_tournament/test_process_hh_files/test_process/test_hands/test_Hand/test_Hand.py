@@ -32,7 +32,34 @@ class test(unittest.TestCase):
             "time",
             "tournament_id",
             "table_type",
-            "position_info"]
+            'BTN_player_name',
+            'SB_player_name',
+            'BB_player_name',
+            'UTG_player_name',
+            'UTGp1_player_name',
+            'MP_player_name',
+            'MPp1_player_name',
+            'MPp2_player_name',
+            'CO_player_name',
+            'BTN_stack',
+            'SB_stack',
+            'BB_stack',
+            'UTG_stack',
+            'UTGp1_stack',
+            'MP_stack',
+            'MPp1_stack',
+            'MPp2_stack',
+            'CO_stack',
+            'BTN_cards',
+            'SB_cards',
+            'BB_cards',
+            'UTG_cards',
+            'UTGp1_cards',
+            'MP_cards',
+            'MPp1_cards',
+            'MPp2_cards',
+            'CO_cards'
+        ]
 
         all_attributes = []
         for attribute in dir(myH):
@@ -58,15 +85,35 @@ class test(unittest.TestCase):
         self.assertEqual(myH.side_pot_3_size_bb, 0)
         self.assertEqual(myH.nb_occupied_seats, 5)
         self.assertEqual(myH.table_type, '9-max')
-        self.assertEqual(myH.position_info,
-             {'BTN': {'Name': 'PotNoodle99912', 'Stack': 18150.0, 'Cards': '4s Qs'},
-              'SB': {'Name': 'rldes', 'Stack': 20790.0, 'Cards': None},
-              'BB': {'Name': 'bacchus5555', 'Stack': 108315.0, 'Cards': 'Js Ad'},
-              'UTG': {'Name': 'WBRoy', 'Stack': 27000.0, 'Cards': None},
-              'UTG+1': {'Name': None, 'Stack': None, 'Cards': None},
-              'MP': {'Name': None, 'Stack': None, 'Cards': None},
-              'MP+1': {'Name': None, 'Stack': None, 'Cards': None},
-              'MP+2': {'Name': None, 'Stack': None, 'Cards': None},
-              'CO': {'Name': 'Naruba80', 'Stack': 29750.0, 'Cards': 'Ah Tc'}})
+
+        self.assertEqual(myH.BTN_player_name, 'PotNoodle99912')
+        self.assertEqual(myH.SB_player_name, 'rldes')
+        self.assertEqual(myH.BB_player_name, 'bacchus5555')
+        self.assertEqual(myH.UTG_player_name, 'WBRoy')
+        self.assertEqual(myH.UTGp1_player_name, None)
+        self.assertEqual(myH.MP_player_name, None)
+        self.assertEqual(myH.MPp1_player_name, None)
+        self.assertEqual(myH.MPp2_player_name, None)
+        self.assertEqual(myH.CO_player_name, 'Naruba80')
+
+        self.assertEqual(myH.BTN_stack, 18150.0)
+        self.assertEqual(myH.SB_stack, 20790.0)
+        self.assertEqual(myH.BB_stack, 108315.0)
+        self.assertEqual(myH.UTG_stack, 27000.0)
+        self.assertEqual(myH.UTGp1_stack, None)
+        self.assertEqual(myH.MP_stack, None)
+        self.assertEqual(myH.MPp1_stack, None)
+        self.assertEqual(myH.MPp2_stack, None)
+        self.assertEqual(myH.CO_stack, 29750.0)
+
+        self.assertEqual(myH.BTN_cards, '4s Qs')
+        self.assertEqual(myH.SB_cards, None)
+        self.assertEqual(myH.BB_cards, 'Js Ad')
+        self.assertEqual(myH.UTG_cards, None)
+        self.assertEqual(myH.UTGp1_cards, None)
+        self.assertEqual(myH.MP_cards, None)
+        self.assertEqual(myH.MPp1_cards, None)
+        self.assertEqual(myH.MPp2_cards, None)
+        self.assertEqual(myH.CO_cards, 'Ah Tc')
 
 

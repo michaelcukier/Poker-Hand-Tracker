@@ -19,11 +19,8 @@ def update_db():
         parent_folder_hand_history=HAND_HISTORY_FOLDER,
         parent_folder_tournament_summary=TOURNEY_SUMMARY_FOLDER)
 
-    # # 3- store the tournaments
-    # for t in processed_tournaments:
-    #     store_processed_files_in_db(t, database_file_path=DATABASE_LOCATION)
+    # 3- store the tournaments
+    for t in processed_tournaments:
+        store_processed_files_in_db(t, database_file_path=DATABASE_LOCATION)
 
     click.secho('NOT    Added ' + str(len(processed_tournaments)) + ' new tournaments', fg="blue", bold=True)
-
-
-update_db()
