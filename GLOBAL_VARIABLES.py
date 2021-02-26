@@ -13,5 +13,5 @@ DATABASE_LOCATION = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv
 # don't edit those:
 TEST_RANDOM_HAND_HISTORIES_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/tests/utils/fake_tournament_data/random_hhs_and_ts/handHistory/' + PLAYER_NAME + '/'
 TEST_RANDOM_FAKE_TOURNAMENT_SUMMARIES_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/tests/utils/fake_tournament_data/random_hhs_and_ts/TournamentSummary/' + PLAYER_NAME + '/'
-TEST_HH_FOR_POS_AND_PLR_NAME_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/tests/utils/fake_tournament_data/hh_for_pos_and_plr_name/'
+TEST_HH_FOR_POS_AND_PLR_NAME_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/tests/utils/fake_tournament_data/hh_for_position_info/'
 TEST_HH_FOR_SIDE_POTS_FOLDER = '/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/tests/utils/fake_tournament_data/hh_for_side_pot/'

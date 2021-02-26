@@ -1,4 +1,4 @@
-Game Hand #712008727 - Tournament #24095328 - Holdem(No Limit) - Level 9 (2500.00/5000.00)- 2021/02/20 18:46:52 UTC
+hands = ['''Game Hand #712008727 - Tournament #24095328 - Holdem(No Limit) - Level 9 (2500.00/5000.00)- 2021/02/20 18:46:52 UTC
 Table '3' 9-max Seat #2 is the button
 Seat 1: MateusVR (146796.00)
 Seat 2: PotNoodle99912 (155072.00)
@@ -54,9 +54,9 @@ Seat 5: What_Truth showed [Ad Tc] and lost with a pair of Eights [8s 8h Ad Tc 9c
 Seat 6: VUSEDSV folded on the Pre-Flop and did not bet
 Seat 7: coog showed [Td Th] and won 98650.00 with two pair, Tens and Eights [Th Td 8s 8h 9c]
 Seat 8: dartdog folded on the Pre-Flop and did not bet
-Seat 9: JokesyWales folded on the Pre-Flop and did not bet
+Seat 9: JokesyWales folded on the Pre-Flop and did not bet''',
 
-Game Hand #712009450 - Tournament #24095328 - Holdem(No Limit) - Level 9 (2500.00/5000.00)- 2021/02/20 18:47:34 UTC
+'''Game Hand #712009450 - Tournament #24095328 - Holdem(No Limit) - Level 9 (2500.00/5000.00)- 2021/02/20 18:47:34 UTC
 Table '3' 9-max Seat #3 is the button
 Seat 1: MateusVR (146296.00)
 Seat 2: PotNoodle99912 (154572.00)
@@ -110,9 +110,9 @@ Seat 4: TiltedMILF (small blind) folded on the Pre-Flop
 Seat 6: VUSEDSV (big blind) showed [Qd Qs] and lost with two pair, Kings and Queens [Ks Kh Qs Qd Ts]
 Seat 7: coog folded on the Pre-Flop and did not bet
 Seat 8: dartdog folded on the Pre-Flop and did not bet
-Seat 9: JokesyWales folded on the Pre-Flop and did not bet
+Seat 9: JokesyWales folded on the Pre-Flop and did not bet''',
 
-Game Hand #712010302 - Tournament #24095328 - Holdem(No Limit) - Level 9 (2500.00/5000.00)- 2021/02/20 18:48:26 UTC
+'''Game Hand #712010302 - Tournament #24095328 - Holdem(No Limit) - Level 9 (2500.00/5000.00)- 2021/02/20 18:48:26 UTC
 Table '3' 9-max Seat #4 is the button
 Seat 1: MateusVR (135796.00)
 Seat 2: PotNoodle99912 (223797.00)
@@ -159,9 +159,9 @@ Seat 3: Frank126 folded on the Pre-Flop and did not bet
 Seat 4: TiltedMILF (button) folded on the Pre-Flop
 Seat 7: coog (big blind) showed [Kh Ac] and won 97300.00 with two pair, Aces and Sixs [Ah Ac 6d 6c Kh] with the kicker King
 Seat 8: dartdog folded on the Pre-Flop and did not bet
-Seat 9: JokesyWales showed [5s As] and lost with two pair, Aces and Sixs [As Ah 6d 6c Qd]
+Seat 9: JokesyWales showed [5s As] and lost with two pair, Aces and Sixs [As Ah 6d 6c Qd]''',
 
-Game Hand #712012036 - Tournament #24095328 - Holdem(No Limit) - Level 10 (3000.00/6000.00)- 2021/02/20 18:50:12 UTC
+'''Game Hand #712012036 - Tournament #24095328 - Holdem(No Limit) - Level 10 (3000.00/6000.00)- 2021/02/20 18:50:12 UTC
 Table '3' 9-max Seat #1 is the button
 Seat 1: MateusVR (125696.00)
 Seat 2: PotNoodle99912 (238797.00)
@@ -211,9 +211,9 @@ Seat 2: PotNoodle99912 (small blind) showed [Kh 8d] and won 186036.00 with two p
 Seat 3: Frank126 (big blind) showed [Jh Js] and lost with two pair, Jacks and Fours [Js Jh 4s 4h Ah]
 Seat 4: TiltedMILF folded on the Pre-Flop and did not bet
 Seat 7: coog folded on the Pre-Flop and did not bet
-Seat 8: dartdog folded on the Pre-Flop and did not bet
+Seat 8: dartdog folded on the Pre-Flop and did not bet''',
 
-Game Hand #712019578 - Tournament #24095328 - Holdem(No Limit) - Level 11 (3500.00/7000.00)- 2021/02/20 19:00:24 UTC
+'''Game Hand #712019578 - Tournament #24095328 - Holdem(No Limit) - Level 11 (3500.00/7000.00)- 2021/02/20 19:00:24 UTC
 Table '3' 9-max Seat #2 is the button
 Seat 1: MateusVR (111796.00)
 Seat 2: PotNoodle99912 (376715.00)
@@ -257,9 +257,9 @@ Seat 1: MateusVR showed [Kd Ac] and lost with a pair of Aces [Ah Ac Kd Qc 7d]
 Seat 2: PotNoodle99912 (button) showed [Qs Ad] and won 236192.00 with two pair, Aces and Queens [Ah Ad Qs Qc 7d]
 Seat 4: TiltedMILF (small blind) folded on the Pre-Flop
 Seat 7: coog (big blind) folded on the Pre-Flop
-Seat 8: dartdog folded on the Pre-Flop and did not bet
+Seat 8: dartdog folded on the Pre-Flop and did not bet''',
 
-Game Hand #712021392 - Tournament #24095328 - Holdem(No Limit) - Level 11 (3500.00/7000.00)- 2021/02/20 19:02:27 UTC
+'''Game Hand #712021392 - Tournament #24095328 - Holdem(No Limit) - Level 11 (3500.00/7000.00)- 2021/02/20 19:02:27 UTC
 Table '3' 9-max Seat #2 is the button
 Seat 2: PotNoodle99912 (518611.00)
 Seat 4: TiltedMILF (36500.00)
@@ -295,9 +295,9 @@ Board [2c 5h 9d 5d 2s]
 Seat 2: PotNoodle99912 (button) folded on the Pre-Flop
 Seat 4: TiltedMILF (small blind) showed [Qs Ah] and lost with two pair, Fives and Deuces [5h 5d 2s 2c Ah]
 Seat 7: coog (big blind) showed [Ad 9c] and won 74400.00 with two pair, Nines and Fives [9d 9c 5h 5d Ad]
-Seat 8: dartdog folded on the Pre-Flop and did not bet
+Seat 8: dartdog folded on the Pre-Flop and did not bet''',
 
-Game Hand #712025172 - Tournament #24095328 - Holdem(No Limit) - Level 12 (4000.00/8000.00)- 2021/02/20 19:06:05 UTC
+'''Game Hand #712025172 - Tournament #24095328 - Holdem(No Limit) - Level 12 (4000.00/8000.00)- 2021/02/20 19:06:05 UTC
 Table '3' 9-max Seat #2 is the button
 Seat 2: PotNoodle99912 (580611.00)
 Seat 7: coog (125009.00)
@@ -340,9 +340,9 @@ Total pot 294398.00
 Board [Th 8h 3s Ts 4h]
 Seat 2: PotNoodle99912 (button) showed [As Qs] and won 147199.00 with a pair of Tens [Ts Th As Qs 8h]
 Seat 7: coog (small blind) showed [Ad Qc] and won 147199.00 with a pair of Tens [Ts Th Ad Qc 8h]
-Seat 8: dartdog (big blind) showed [Js Ac] and lost with a pair of Tens [Ts Th Ac Js 8h]
+Seat 8: dartdog (big blind) showed [Js Ac] and lost with a pair of Tens [Ts Th Ac Js 8h]''',
 
-Game Hand #712027902 - Tournament #24095328 - Holdem(No Limit) - Level 12 (4000.00/8000.00)- 2021/02/20 19:08:39 UTC
+'''Game Hand #712027902 - Tournament #24095328 - Holdem(No Limit) - Level 12 (4000.00/8000.00)- 2021/02/20 19:08:39 UTC
 Table '3' 9-max Seat #7 is the button
 Seat 2: PotNoodle99912 (697201.00)
 Seat 7: coog (52799.00)
@@ -372,5 +372,4 @@ PotNoodle99912 collected 105598.00 from main pot
 Total pot 105598.00
 Board [Kc Jc Ad 8s 8c]
 Seat 2: PotNoodle99912 (big blind) showed [7s As] and won 105598.00 with two pair, Aces and Eights [As Ad 8s 8c Kc]
-Seat 7: coog (button) showed [Js Kh] and lost with two pair, Kings and Jacks [Kh Kc Js Jc Ad]
-
+Seat 7: coog (button) showed [Js Kh] and lost with two pair, Kings and Jacks [Kh Kc Js Jc Ad]''']

@@ -32,7 +32,7 @@ class test(unittest.TestCase):
             "time",
             "tournament_id",
             "table_type",
-            "position_and_player"]
+            "position_info"]
 
         all_attributes = []
         for attribute in dir(myH):
@@ -58,7 +58,7 @@ class test(unittest.TestCase):
         self.assertEqual(myH.side_pot_3_size_bb, 0)
         self.assertEqual(myH.nb_occupied_seats, 5)
         self.assertEqual(myH.table_type, '9-max')
-        self.assertEqual(myH.position_and_player,
+        self.assertEqual(myH.position_info,
              {'BTN': {'Name': 'PotNoodle99912', 'Stack': 18150.0, 'Cards': '4s Qs'},
               'SB': {'Name': 'rldes', 'Stack': 20790.0, 'Cards': None},
               'BB': {'Name': 'bacchus5555', 'Stack': 108315.0, 'Cards': 'Js Ad'},
