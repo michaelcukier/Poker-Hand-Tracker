@@ -11,7 +11,7 @@ from import_new_tournaments.process_hh_files.process.hands.extract.side_pot_n_si
 from import_new_tournaments.process_hh_files.process.hands.extract.main_pot_size_bb import main_pot_size_bb
 from import_new_tournaments.process_hh_files.process.hands.extract.nb_occupied_seats import nb_occupied_seats
 from import_new_tournaments.process_hh_files.process.hands.extract.table_type import table_type
-from import_new_tournaments.process_hh_files.process.hands.extract.positions_info import position_player_name
+from import_new_tournaments.process_hh_files.process.hands.extract.positions_info import position_info
 
 
 class Hand:
@@ -76,11 +76,10 @@ class Hand:
     table_type = str
         the table type (eg: 9-max)
 
-    position_and_player = dict
+    position_info = dict
         dict containing each position (regardless of
         how many players seated) as key and the name of
-        the player as value. If no player is seated at
-        position X, then position X is set to None.
+        the player, his stack size and his cards (if showdown).
     """
 
     def __init__(self, hand_txt):
@@ -102,7 +101,7 @@ class Hand:
         self.side_pot_3_size_bb = None
         self.nb_occupied_seats = None
         self.table_type = None
-        self.position_and_player = None
+        self.position_info = None
 
     def build_hand(self):
         self._get_time()
@@ -122,7 +121,7 @@ class Hand:
         self._get_side_pot_3_size_bb()
         self._get_nb_occupied_seats()
         self._get_table_type()
-        self._get_position_player_name()
+        self._get_position_info()
 
     def _get_time(self):
         self.time = time(self.hand_txt)
@@ -175,5 +174,5 @@ class Hand:
     def _get_table_type(self):
         self.table_type = table_type(self.hand_txt)
 
-    def _get_position_player_name(self):
-        self.position_and_player = position_player_name(self.hand_txt)
+    def _get_position_info(self):
+        self.position_info = position_info(self.hand_txt)
