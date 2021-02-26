@@ -1,17 +1,12 @@
-
 import unittest
 from import_new_tournaments.process_hh_files.process.hands.extract.tournament_id import tournament_id
-from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
-from os import listdir
-from os.path import isfile, join
+from GLOBAL_VARIABLES import TEST_RANDOM_HAND_HISTORIES_FOLDER
 from import_new_tournaments.process_hh_files.process.tournament.extract.hands import get_hands_in_list
 
 
 class test(unittest.TestCase):
     def test_tournament_id(self):
-        new_filenames = [f for f in listdir(FAKE_HAND_HISTORY_FOLDER) if isfile(join(FAKE_HAND_HISTORY_FOLDER, f))]
-        new_filenames = new_filenames[1:2]  # just select 11 hands from 1 hh
-        hands = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, new_filenames)
+        hands = get_hands_in_list(TEST_RANDOM_HAND_HISTORIES_FOLDER, ["HH20201217 SITGOID-G23140753T3 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"])
 
         expected_tournament_id = [
             23140753,
@@ -24,8 +19,7 @@ class test(unittest.TestCase):
             23140753,
             23140753,
             23140753,
-            23140753,
-        ]
+            23140753]
 
         for idx, h in enumerate(hands):
             self.assertEqual(tournament_id(h), expected_tournament_id[idx])

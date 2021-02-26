@@ -1,13 +1,13 @@
 
 import unittest
 from import_new_tournaments.process_hh_files.process.tournament.extract.hands import *
-from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
+from GLOBAL_VARIABLES import TEST_HH_FOR_SIDE_POTS_FOLDER
 
 
 class test(unittest.TestCase):
     def test_hands(self):
 
-        hands_ = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, ["HH20210112 SITGOID-G99999999T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0 ---- for side pot.txt"])
+        hands_ = get_hands_in_list(TEST_HH_FOR_SIDE_POTS_FOLDER, ["HH20210112 SITGOID-G99999999T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0 ---- for side pot.txt"])
         processed = process_hands(hands_)
 
         expected_times = [

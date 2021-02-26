@@ -1,7 +1,7 @@
 
 import unittest
 from import_new_tournaments.process_hh_files.process.hands.extract.my_cards import my_cards
-from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
+from GLOBAL_VARIABLES import TEST_RANDOM_HAND_HISTORIES_FOLDER
 from os import listdir
 from os.path import isfile, join
 from import_new_tournaments.process_hh_files.process.tournament.extract.hands import get_hands_in_list
@@ -9,9 +9,7 @@ from import_new_tournaments.process_hh_files.process.tournament.extract.hands im
 
 class test(unittest.TestCase):
     def test_my_cards(self):
-        new_filenames = [f for f in listdir(FAKE_HAND_HISTORY_FOLDER) if isfile(join(FAKE_HAND_HISTORY_FOLDER, f))]
-        new_filenames = new_filenames[1:2]  # just select 11 hands from 1 hh
-        hands = get_hands_in_list(FAKE_HAND_HISTORY_FOLDER, new_filenames)
+        hands = get_hands_in_list(TEST_RANDOM_HAND_HISTORIES_FOLDER, ["HH20201217 SITGOID-G23140753T3 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt"])
 
         expected_my_cards = [
             "4s Qs",
@@ -28,5 +26,4 @@ class test(unittest.TestCase):
         ]
 
         for idx, h in enumerate(hands):
-            # print('"' + my_cards(h) + '",')
             self.assertEqual(my_cards(h), expected_my_cards[idx])

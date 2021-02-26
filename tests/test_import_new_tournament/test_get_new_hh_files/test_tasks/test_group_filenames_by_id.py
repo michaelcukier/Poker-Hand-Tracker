@@ -1,5 +1,5 @@
 import unittest
-from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
+from GLOBAL_VARIABLES import TEST_RANDOM_HAND_HISTORIES_FOLDER
 from os import listdir
 from os.path import isfile, join
 from import_new_tournaments.get_new_hh_files.tasks.group_filenames_by_id import group_filenames_by_id
@@ -8,7 +8,7 @@ from import_new_tournaments.get_new_hh_files.tasks.group_filenames_by_id import 
 class test(unittest.TestCase):
 
     def test_group_filenames_by_id(self):
-        new_filenames = [f for f in listdir(FAKE_HAND_HISTORY_FOLDER) if isfile(join(FAKE_HAND_HISTORY_FOLDER, f))]
+        new_filenames = [f for f in listdir(TEST_RANDOM_HAND_HISTORIES_FOLDER) if isfile(join(TEST_RANDOM_HAND_HISTORIES_FOLDER, f))]
         files = group_filenames_by_id(new_filenames)
 
         ids = [
@@ -17,7 +17,7 @@ class test(unittest.TestCase):
             23140119,
             23315209,
             23140238,
-            99999999
+            24095328
         ]
 
         hh_amount = [

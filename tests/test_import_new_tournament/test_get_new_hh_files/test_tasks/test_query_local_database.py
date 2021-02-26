@@ -3,7 +3,7 @@ import unittest
 
 from utils.create_fake_database.create_fake_database import CreateFakeDatabase
 from import_new_tournaments.get_new_hh_files.tasks.query_local_database import query_local_database
-from GLOBAL_VARIABLES import FAKE_HAND_HISTORY_FOLDER
+from GLOBAL_VARIABLES import TEST_RANDOM_HAND_HISTORIES_FOLDER
 
 from os import listdir
 from os.path import isfile, join
@@ -26,7 +26,7 @@ class test(unittest.TestCase):
         cls.database.destroy()
 
     def test_query_local_database(self):
-        new_filenames = [f for f in listdir(FAKE_HAND_HISTORY_FOLDER) if isfile(join(FAKE_HAND_HISTORY_FOLDER, f))]
+        new_filenames = [f for f in listdir(TEST_RANDOM_HAND_HISTORIES_FOLDER) if isfile(join(TEST_RANDOM_HAND_HISTORIES_FOLDER, f))]
 
         files = query_local_database(
             filenames=new_filenames,
@@ -36,10 +36,9 @@ class test(unittest.TestCase):
 
         # since there's "23889488" in the database,
         # should return 9-2=7 elements from above list
-        self.assertEqual(len(files), 8)
+        self.assertEqual(len(files), 7)
         self.assertCountEqual(
             [
-                "HH20210112 SITGOID-G99999999T3 TN-$1{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0 ---- for side pot.txt",
                 "HH20201217 SITGOID-G23140119T3 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
                 "HH20201217 SITGOID-G23140238T1 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",
                 "HH20201217 SITGOID-G23140753T2 TN-$0{FULLSTOP}50 Hold'Em Turbo - On Demand GAMETYPE-Hold'em LIMIT-no CUR-REAL OND-T BUYIN-0.txt",

@@ -10,7 +10,7 @@ from import_new_tournaments.process_hh_files.process.tournament.extract.opponent
 from import_new_tournaments.process_hh_files.process.tournament.extract.nb_of_participants import nb_of_participants
 
 
-# from utils.get_hands_in_list import get_hands_in_list
+# from position_utils.get_hands_in_list import get_hands_in_list
 
 
 class Tournament:
