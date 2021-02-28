@@ -47,7 +47,7 @@ Step 1 | Make sure `matplotlib`, `scipy`, `PrettyTable` and `Click` are all inst
 
 Step 2 | Clone this repo, and run
 
-    $ python cli.py setup-db
+    $ python cli.py setup-database
 
 This will set up the database with the appropriate schema.
 
