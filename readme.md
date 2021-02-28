@@ -11,8 +11,11 @@ It has been built to make it easy to extend it and add your own plots or tables 
 
 
 
-##Contents
- - [Command Line Options](##Command-Line-Options) 
+
+## Content
+
+* [testBob](#testBob)
+* [Chapter 2](#Chapter2)
 
 
 ##Command Line Options
@@ -47,6 +50,10 @@ It has been built to make it easy to extend it and add your own plots or tables 
 +-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
 ```
 
+
+<div id="testBob"></div>
+##testBob
+--------------------
 
 Installation
 --------------------
