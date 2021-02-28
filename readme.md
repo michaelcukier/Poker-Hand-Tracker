@@ -51,7 +51,7 @@ Step 2 | Clone this repo, and run
 
 This will set up the database with the appropriate schema.
 
-Step 3 | Open `GLOBAL_VARIABLES.py` and write this for the 4 variables:
+Step 3 | Open `GLOBAL_VARIABLES.py`, and edit:
 
 * `PLAYER_NAME`: your username    
 * `HAND_HISTORY_FOLDER`: replace `<>` with the the absolute path of the hand histories  
