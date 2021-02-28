@@ -108,6 +108,8 @@ Examples
 
 ![money graph](imgs/All_Profit_in_$_won_(all_buyins).jpg?raw=true "Money Graph")
 
+<img alt='x' src="./imgs/All_Profit_in_$_won_(all_buyins).jpg" width="250">
+
 --------------------
 
 `$ python cli.py range PotNoodle99912 middle` 
