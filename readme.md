@@ -22,7 +22,8 @@ It has been built to make it easy to extend it and add your own plots or tables 
 
 <div id="commandlineoptions"></div>
 
-##Command Line Options
+Command Line Options
+--------------------
 
 | **command**   | **params**   | **description** |
 | :----:    | :---:    | :---: |
@@ -103,7 +104,7 @@ Examples
 
 `$ python cli.py show-chip-graph 23075960` 
 
-![chip graph tournament](imgs/Chip_graph_for_Tournament_#23075960.jpg?raw=true "chip graph")
+![chip graph tournament](imgs/Chip_graph_for_Tournament_23075960.jpg?raw=true "chip graph")
 
 --------------------
 
