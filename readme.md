@@ -5,7 +5,7 @@ This is a poker hand tracker for tournaments and SnGs played on ACR.
 
 This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc (see [List of extracted fields](#dataextracted)).
 
-A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc (see [Examples](#examples)).
+A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc (see [Demo](#demo)).
  
 It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see [Adding my own plots or table](#createnew)).
 
@@ -14,7 +14,7 @@ It has been built to make it easy to extend it and add your own plots or tables 
 
 * [Command Line Options](#commandlineoptions)
 * [Installation](#installation)
-* [Examples](#examples)
+* [Demo](#demo)
 * [Adding my own plots or table](#createnew)
 * [List of extracted fields](#dataextracted)
 * [Folder structure and notes](#folderstructure)
@@ -88,9 +88,9 @@ Step 4 | Now, if you run `python cli.py update-db` it should import all your tou
 Step 5 | Run `python cli.py --help` to see the things you can do.
 
 
-<div id="examples"></div>
+<div id="demo"></div>
 
-Examples
+Demo
 --------------------
 `$ python cli.py show-money-graph` 
 
