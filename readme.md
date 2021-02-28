@@ -102,7 +102,7 @@ Examples
 
 --------------------
 
-`$ python cli.py show-chip-graph 23075960` 
+`$ python cli.py show-chip-graph 23075960 15` 
 
 ![chip graph tournament](imgs/Chip_graph_for_Tournament_23075960.jpg?raw=true "chip graph")
 
@@ -141,9 +141,9 @@ There are 2 tables in the database: `hands` and `tournaments`.
 
 Every time you process a new hand history / tournament summary using `$ python cli.py update-db`, it will extract the following data:
 
-|       | hands table | tournaments table    |
-| :---        |    :----:   |          :---: |
-| fields      | time, level, my_cards, board_cards, tournament_id, id, starting_stack_size_bb, main_pot_winner, side_pot_1_winner, side_pot_2_winner , side_pot_3_winner, main_pot_size_bb, side_pot_1_size_bb, side_pot_2_size_bb , side_pot_3_size_bb, nb_occupied_seats, table_type, BTN_player_name, SB_player_name, BB_player_name, UTG_player_name, UTGp1_player_name, MP_player_name, MPp1_player_name, MPp2_player_name, CO_player_name, BTN_stack, SB_stack, BB_stack, UTG_stack, UTGp1_stack, MP_stack, MPp1_stack, MPp2_stack, CO_stack, BTN_cards, SB_cards, BB_cards, UTG_cards, UTGp1_cards, MP_cards, MPp1_cards, MPp2_cards, CO_cards       | hands, id, price, finish_time, elapsed_time, prize, position, opponents, nb_of_participants   |
+| hands table | tournaments table    |
+|    :----:   |          :---: |
+| time, level, my_cards, board_cards, tournament_id, id, starting_stack_size_bb, main_pot_winner, side_pot_1_winner, side_pot_2_winner , side_pot_3_winner, main_pot_size_bb, side_pot_1_size_bb, side_pot_2_size_bb , side_pot_3_size_bb, nb_occupied_seats, table_type, BTN_player_name, SB_player_name, BB_player_name, UTG_player_name, UTGp1_player_name, MP_player_name, MPp1_player_name, MPp2_player_name, CO_player_name, BTN_stack, SB_stack, BB_stack, UTG_stack, UTGp1_stack, MP_stack, MPp1_stack, MPp2_stack, CO_stack, BTN_cards, SB_cards, BB_cards, UTG_cards, UTGp1_cards, MP_cards, MPp1_cards, MPp2_cards, CO_cards       | hands, id, price, finish_time, elapsed_time, prize, position, opponents, nb_of_participants   |
 
 and save it in the database.
 
@@ -163,33 +163,27 @@ Folder structure and notes
 * I play on ACR, so it is using the ACR hand histories and the tournament summaries files. It should not be hard to port this tool to be used with other sites like PokerStars.
 * This is built for tournaments and SnGs and I never used it for cash games. But you should also be able to port this code easily if you want to track cash games. 
 
-Here is the folder structure:
 ```
-    cli.py                                # 
-    
-    ├── /__tests__/     
-    
-    ├── /database/     
+    cli.py                                # the CLI code
+    GLOBAL_VARIABLES.py                   # variables used by this project, 
+                                          # for eg. your player username
+    run_all_tests.py                      # little script to run all the tests at once
 
-    ├── /hh_import/                       
-        ── get_raw_hh_from_file.py        # returns an array of not-yet-processed .txt files
-        ── extract_from_raw_hh.py         # extracts relevant data from .txt files
-        ── store_hh_sqlite_db.py          # stores new data in the sqlite db
-        
-    ├── /add_notes/                        
-        ── add_hand_note.py               # adds a note linked to a hand ID
-        ── add_tournament_note.py         # adds a note linked to a tournament ID
-        
-    ├── /db_api/                         
-        ├── /tournaments/                 # 
-            ── get_tournaments.py         # 
-        ├── /hands/                       # 
-        ├── /summaries/                   # 
-        
-    ├── /helpers/                         
+    ├── /cli_commands/                    # the Click commands used by cli.py
+    
+    ├── /import_new_tournaments/          # code that finds the new hand 
+                                          # histories/tournaments summaries, processes 
+                                          # them and stores in the database
+
+    ├── /plots_dump/                      # folder where the plots are saved 
+
+    ├── /tests/                           # all the tests. follows the same folder 
+                                          # structure as the entire project.
+
+    ├── /utils/                           # some scripts to avoid duplicate code
 ```
 
 Copyright
 --------------------
 
-Copyright (c) 2021 Michael Cukier. See LICENSE for details.
+Copyright (c) 2021 Michael Cukier. See [LICENSE](LICENSE) for details.
