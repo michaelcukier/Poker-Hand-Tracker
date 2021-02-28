@@ -53,12 +53,12 @@ This will set up the database with the appropriate schema.
 
 Step 3 | Open `GLOBAL_VARIABLES.py` and write this for the 4 variables:
 
-`PLAYER_NAME` = your username    
-`HAND_HISTORY_FOLDER` = replace `<>` with the the absolute path of the hand histories  
-`TOURNEY_SUMMARY_FOLDER` = replace `<>` with the absolute path of the tournament summaries files  
-`FOLDER_PLOT_DUMP` = replace `<>` with the absolute path of this project's code  
-`DATABASE_LOCATION` = replace `<>` with the absolute path of the database .db file    
-`TOURNAMENTS_TO_EXTRACT`: this one is slightly tricky. This is the list of tournaments you want to track, along with their buyins amount including rake. You need to find the common pattern between those filenames.
+* `PLAYER_NAME`: your username    
+* `HAND_HISTORY_FOLDER`: replace `<>` with the the absolute path of the hand histories  
+* `TOURNEY_SUMMARY_FOLDER`: replace `<>` with the absolute path of the tournament summaries files  
+* `FOLDER_PLOT_DUMP`: replace `<>` with the absolute path of this project's code  
+* `DATABASE_LOCATION`: replace `<>` with the absolute path of the database .db file    
+* `TOURNAMENTS_TO_EXTRACT`: this one is slightly tricky. This is the list of tournaments you want to track, along with their buyins amount including rake. You need to find the common pattern between those filenames.
 For example, let's say you play SnGs and cash games, and you want to track the $3 and $6 SnGs you are playing. So you hand history folder look like this:
 
 ```
