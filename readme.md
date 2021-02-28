@@ -1,6 +1,10 @@
   
 * create setup.py, script which creates the database schema
  
+ 
+* move utils where they belong, create /utils/ in each folder
+ 
+ 
 * plots/tables to do:
 [plot] Hand chart heatmap for particular player and position
 [table] show all opponents sorted by most seen first 

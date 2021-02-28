@@ -263,10 +263,25 @@ wdwdlllll = mySuperDat['SB']
 
 freq_percentage = transform_list_of_hands_to_frequencies(wdwdlllll)
 
-for x, y in freq_percentage.items():
-    print(x, '-', y)
+# print(freq_percentage)
+#
+#
+# quit()
+#
+# for x, y in freq_percentage.items():
+#     print(x, '-', y)
+
+
+
+
+
+# create freq matrix
 
 matrix = [[0 for i in range(13)] for j in range(13)]
+
+print(freq_percentage)
+
+quit()
 
 for i in freq_percentage:
     for m in range(13):
@@ -279,13 +294,20 @@ for i in freq_percentage:
         if(b):
             break
 
-for r in matrix:
-    print(r)
+
+
+
+#
+#
+#
+#
+# for r in matrix:
+#     print(r)
 
 from matplotlib import rcParams
 
 # figure size in inches
-rcParams['figure.figsize'] = 11.7,8.27
+rcParams['figure.figsize'] = 15, 15
 
 
 hands_percentage1 = pd.DataFrame(matrix)
