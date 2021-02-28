@@ -3,11 +3,11 @@ Poker Hand Tracker
 
 This is a poker hand tracker for tournaments and SnGs.   
 
-This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc (see [List of extracted fields](#data_extracted)).
+This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc (see [List of extracted fields](#dataextracted)).
 
 A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc (see [Examples](#examples)).
  
-It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see [Adding my own plots or table](#add_own_stuff)).
+It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see [Adding my own plots or table](#createnew)).
 
 
 
@@ -18,7 +18,8 @@ It has been built to make it easy to extend it and add your own plots or tables 
 * [Installation](#installation)
 * [Examples](#examples)
 * [Adding my own plots or table](#createnew)
-* [List of extracted fields](#data_extracted)
+* [List of extracted fields](#dataextracted)
+* [Folder structure and notes](#folderstructure)
 
 
 <div id="commandlineoptions"></div>
@@ -149,23 +150,25 @@ For example, let's say you want to see the amount of chips won / lost by positio
 3. Finally update `cli.py` to use that new script from the CLI for convenience
 
 
-<div id="data_extracted"></div>
+<div id="dataextracted"></div>
 
 List of extracted fields
 --------------------
 
-There's 2 tables in the database: `hands` and `tournaments`.  
+There are 2 tables in the database: `hands` and `tournaments`.  
 
 Every time you process a new hand history / tournament summary using `$ python cli.py update-db`, it will extract the following data:
 
 |       | hands table | tournaments table    |
 | :---        |    :----:   |          ---: |
-| fields      | time, level, my_cards, board_cards, tournament_id, id, starting_stack_size_bb, main_pot_winner, side_pot_1_winner, side_pot_2_winner , side_pot_3_winner, main_pot_size_bb, side_pot_1_size_bb, side_pot_2_size_bb , side_pot_3_size_bb, nb_occupied_seats, table_type, BTN_player_name, SB_player_name, BB_player_name, UTG_player_name, UTGp1_player_name, MP_player_name, MPp1_player_name, MPp2_player_name, CO_player_name, BTN_stack, SB_stack, BB_stack, UTG_stack, UTGp1_stack, MP_stack, MPp1_stack, MPp2_stack, CO_stack, BTN_cards, SB_cards, BB_cards, UTG_cards, UTGp1_cards, MP_cards, MPp1_cards, MPp2_cards, CO_cards       | Here's this   |
+| fields      | time, level, my_cards, board_cards, tournament_id, id, starting_stack_size_bb, main_pot_winner, side_pot_1_winner, side_pot_2_winner , side_pot_3_winner, main_pot_size_bb, side_pot_1_size_bb, side_pot_2_size_bb , side_pot_3_size_bb, nb_occupied_seats, table_type, BTN_player_name, SB_player_name, BB_player_name, UTG_player_name, UTGp1_player_name, MP_player_name, MPp1_player_name, MPp2_player_name, CO_player_name, BTN_stack, SB_stack, BB_stack, UTG_stack, UTGp1_stack, MP_stack, MPp1_stack, MPp2_stack, CO_stack, BTN_cards, SB_cards, BB_cards, UTG_cards, UTGp1_cards, MP_cards, MPp1_cards, MPp2_cards, CO_cards       | hands, id, price, finish_time, elapsed_time, prize, position, opponents, nb_of_participants   |
+
+and save it in the database.
 
 
-___
 
 
+<div id="folderstructure"></div>
 
 
 Folder structure and notes
