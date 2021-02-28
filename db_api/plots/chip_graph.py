@@ -9,6 +9,7 @@ def chip_graph(tourney_id: int, database_file_path: str, width: int) -> str:
             Parameters:
                     tourney_id (int): the tournament ID
                     database_file_path (str): the path of the database file
+                    width (int): the width of the plot
 
             Returns:
                     plot_path (str): path of the plot
@@ -43,7 +44,7 @@ def chip_graph(tourney_id: int, database_file_path: str, width: int) -> str:
         list_of_data_points=data_,
         xlabel='Hand #',
         ylabel='Chips (in bb)',
-        title='Chip graph for Tournament #' + str(tourney_id),
+        title='Chip graph for Tournament ' + str(tourney_id),
         all_xticks=True,
         custom_width=True,
         width=width
