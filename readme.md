@@ -3,7 +3,7 @@ Poker Hand Tracker
 
 This is a poker hand tracker for tournaments and SnGs.   
 
-This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc (see [What is extracted from hand histories / tournaments summaries text files](#data_extracted)).
+This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc (see [List of extracted fields](#data_extracted)).
 
 A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc (see [Examples](#examples)).
  
@@ -16,6 +16,9 @@ It has been built to make it easy to extend it and add your own plots or tables 
 
 * [Command Line Options](#commandlineoptions)
 * [Installation](#installation)
+* [Examples](#examples)
+* [Adding my own plots or table](#createnew)
+* [List of extracted fields](#data_extracted)
 
 
 <div id="commandlineoptions"></div>
@@ -106,8 +109,7 @@ Examples
 --------------------
 `$ python cli.py show-money-graph` 
 
-
-![money graph](imgs/All_Profit_in_$_won_(all_buyins).jpg?raw=true "Money Graph"){:height="36px" width="36px"}
+![money graph](imgs/All_Profit_in_$_won_(all_buyins).jpg?raw=true "Money Graph")
 
 --------------------
 
@@ -119,7 +121,7 @@ Examples
 
 `$ python cli.py show-chip-graph 23075960` 
 
-![reg time pos](imgs/Chip_graph_for_Tournament_#23075960.jpg?raw=true "chip graph")
+![chip graph tournament](imgs/Chip_graph_for_Tournament_#23075960.jpg?raw=true "chip graph")
 
 --------------------
 
@@ -135,17 +137,35 @@ Examples
 
 
 
+<div id="createnew"></div>
+
 Create new plots / tables and deriving new insights
 --------------------
 
-For example, let's say you want to see the amount of chips won / lost by position. The entire hand history is also stored in the database, in the `hand_txt` section in case you want to access it directly. 
+For example, let's say you want to see the amount of chips won / lost by position. The entire hand history is also stored in the database, in the `hand_txt` sql column in case you want to access it directly. 
 
 1. Create a script that queries the SQL database and displays it in a table form (see `/db_api/` for some examples).
 2. Create a new file in `cli_commands/` containing the CLI script that gets run when the command is called from the terminal. You can use this a wrapper, so if you have one command that does something, another that does something else and a third one that combines everything, you can wrap them up here.
 3. Finally update `cli.py` to use that new script from the CLI for convenience
 
 
+<div id="data_extracted"></div>
+
+List of extracted fields
+--------------------
+
+There's 2 tables in the database: `hands` and `tournaments`.  
+
+Every time you process a new hand history / tournament summary using `$ python cli.py update-db`, it will extract the following data:
+
+|       | hands table | tournaments table    |
+| :---        |    :----:   |          ---: |
+| fields      | time, level, my_cards, board_cards, tournament_id, id, starting_stack_size_bb, main_pot_winner, side_pot_1_winner, side_pot_2_winner , side_pot_3_winner, main_pot_size_bb, side_pot_1_size_bb, side_pot_2_size_bb , side_pot_3_size_bb, nb_occupied_seats, table_type, BTN_player_name, SB_player_name, BB_player_name, UTG_player_name, UTGp1_player_name, MP_player_name, MPp1_player_name, MPp2_player_name, CO_player_name, BTN_stack, SB_stack, BB_stack, UTG_stack, UTGp1_stack, MP_stack, MPp1_stack, MPp2_stack, CO_stack, BTN_cards, SB_cards, BB_cards, UTG_cards, UTGp1_cards, MP_cards, MPp1_cards, MPp2_cards, CO_cards       | Here's this   |
+
+
 ___
+
+
 
 
 Folder structure and notes
