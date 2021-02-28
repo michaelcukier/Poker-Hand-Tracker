@@ -83,7 +83,7 @@ TOURNAMENTS_TO_EXTRACT = {
     "$6 Hold'Em Turbo - On Demand": 6.60}
 ```
 
-Step 4 | Now, if you run `python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. When you go back to playing, you'll have to re-run this command and it will import only the new hand histories.  
+Step 4 | Now, if you run `python cli.py update-db` it should import all your tournaments and hands. This can take a few seconds if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. When you go back to playing, you'll have to re-run this command and it will import only the new hand histories.  
  
 Step 5 | Run `python cli.py --help` to see the things you can do.
 
