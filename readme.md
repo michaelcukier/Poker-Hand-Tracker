@@ -50,9 +50,9 @@ It has been built to make it easy to extend it and add your own plots or tables 
 +-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
 ```
 
-
 <div id="testBob"></div>
-##testBob
+
+testBob  
 --------------------
 
 Installation
