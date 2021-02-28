@@ -106,9 +106,8 @@ Examples
 --------------------
 `$ python cli.py show-money-graph` 
 
-![money graph](imgs/All_Profit_in_$_won_(all_buyins).jpg?raw=true "Money Graph")
 
-<img alt='x' src="./imgs/All_Profit_in_$_won_(all_buyins).jpg" width="250">
+![money graph](imgs/All_Profit_in_$_won_(all_buyins).jpg?raw=true "Money Graph"){:height="36px" width="36px"}
 
 --------------------
 
