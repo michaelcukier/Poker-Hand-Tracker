@@ -32,7 +32,7 @@ Command Line Options
 | show-money-graph | optional: buyin (float)     |  Shows a line plot of the money graph |
 | show-reg-time-and-pos | optional: buyin (float)     |  Shows a box plot representing the relationship between registration time and final position|
 | show-profit-rate | optional: buyin (float))     |  Shows a line plot of the evolutation of profit/game |
-| show-chip-graph | required: id (int)     |  Shows the chip graph for a tournament  |
+| show-chip-graph | required: id (int) <br /> required: plot_width (int)    |  Shows the chip graph for a tournament  |
 | show-range | required: player_name (str) <br /> (required) position: blinds OR early OR middle OR late    |  Shows the range of hands observed for a particular player  |
 | show-last-n-tournaments | required: n (int)    |  Shows the last n tournaments |
 | show-report-by-buyin | None     |  Shows statistics about each buy-in |
