@@ -14,9 +14,11 @@ It has been built to make it easy to extend it and add your own plots or tables 
 
 ## Content
 
-* [testBob](#testBob)
-* [Chapter 2](#Chapter2)
+* [Command Line Options](#commandlineoptions)
+* [Installation](#installation)
 
+
+<div id="commandlineoptions"></div>
 
 ##Command Line Options
 
@@ -50,10 +52,7 @@ It has been built to make it easy to extend it and add your own plots or tables 
 +-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
 ```
 
-<div id="testBob"></div>
-
-testBob  
---------------------
+<div id="installation"></div>
 
 Installation
 --------------------
@@ -96,13 +95,44 @@ TOURNAMENTS_TO_EXTRACT = {
     "$6 Hold'Em Turbo - On Demand": 6.60}
 ```
 
-Step 4 | Now, if you run `python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. When you go back to playing, you'll have to re-run this command and it will import only the new hand histories. You can then run `python cli.py --help` to see the things you can do.
+Step 4 | Now, if you run `python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. When you go back to playing, you'll have to re-run this command and it will import only the new hand histories.  
+ 
+Step 5 | Run `python cli.py --help` to see the things you can do.
 
 
-## <h1 name="examples">Examples</h1>
+<div id="examples"></div>
+
+Examples
+--------------------
+`$ python cli.py show-money-graph` 
+
+![money graph](imgs/All_Profit_in_$_won_(all_buyins).jpg?raw=true "Money Graph")
+
 --------------------
 
-test
+`$ python cli.py range PotNoodle99912 middle` 
+
+![reg time pos](imgs/PotNoodle99912_middle.png?raw=true "reg time")
+
+--------------------
+
+`$ python cli.py show-chip-graph 23075960` 
+
+![reg time pos](imgs/Chip_graph_for_Tournament_#23075960.jpg?raw=true "chip graph")
+
+--------------------
+
+`$ python cli.py show-profit-rate` 
+
+![reg time pos](imgs/Profit_rate_per_tournament_(across_all_tournament_buyins).jpg?raw=true "profit rate")
+
+--------------------
+
+`$ python cli.py show-reg-time-and-pos` 
+
+![reg time pos](imgs/Relationship_between_regging_level_and_final_position.jpg?raw=true "relationship reg time pos")
+
+
 
 Create new plots / tables and deriving new insights
 --------------------
