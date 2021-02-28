@@ -125,6 +125,7 @@ Examples
 Create new plots / tables and deriving new insights
 --------------------
 
+
 For example, let's say you want to see the amount of chips won / lost by position. The entire hand history is also stored in the database, in the `hand_txt` sql column in case you want to access it directly. 
 
 1. Create a script that queries the SQL database and displays it in a table form (see `/db_api/` for some examples).
