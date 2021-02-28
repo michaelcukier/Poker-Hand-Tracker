@@ -1,40 +1,51 @@
-  
-* create setup.py, script which creates the database schema
- 
- 
-* move utils where they belong, create /utils/ in each folder
- 
- 
-* plots/tables to do:
-[plot] Hand chart heatmap for particular player and position
-[table] show all opponents sorted by most seen first 
-[table] show all n tournaments sort by [most recent, highest prizes]
-[table] show all n hands   
-params: all time / from last n sng | how many to get | sort_by [pot_size, level, hand, position, player_name]
-[table] show all hands from tournament x 
-
-
-_______
-
 Poker Hand Tracker
 =================
 
-This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc. 
-A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc. 
-It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see #Adding my own plots or table).
+This is a poker hand tracker for tournaments and SnGs.   
 
-Command Line Options
---------------------
+This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc (see [What is extracted from hand histories / tournaments summaries text files](#data_extracted)).
 
-	-h, --help            show this help message and exit
-	-b [card [card ...]], --board [card [card ...]]
-	                      Add board cards
-	-e, --exact           Find exact odds by enumerating every possible board
-	-n N                  Run N Monte Carlo simulations
-	-i INPUT, --input INPUT
-	                      Read hole cards and boards from an input file.
-	                      Commandline arguments for hole cards and board will be
-	                      ignored
+A CLI has been created for convenience, to update the database with new hand histories, create plots, create PrettyPrintable tables, etc (see [Examples](#examples)).
+ 
+It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see [Adding my own plots or table](#add_own_stuff)).
+
+
+
+##Contents
+ - [Command Line Options](##Command-Line-Options) 
+
+
+##Command Line Options
+
+```
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|         Command         |  Type  |                      Parameters                     |                      Description                      |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|        update-db        | action |                         None                        |       Updates the database with new tournaments       |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|      setup-database     | action |                         None                        | Creates an empty database with the appropriate schema |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|                         |        |                                                     |                                                       |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|     show-money-graph    |  plot  |               optional: buyin (float)               |          Shows a line plot of the money graph         |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|  show-reg-time-and-pos  |  plot  |                         None                        |    Shows a box plot representing the relationship     |
+|                         |        |                                                     |      between registration time and final position     |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|     show-profit-rate    |  plot  |               (optional) buyin (float)              |     Shows the the avg profit/tournament over time     |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|     show-chip-graph     |  plot  |           (required) tournament ID (int)            |         Shows the chip graph for a tournament         |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|        show-range       |  plot  |             (required) player name (str)            |           Shows the range of hands observed           |
+|                         |        | (required) position: blinds | early | middle | late |                for a particular player                |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|                         |        |                                                     |                                                       |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+| show-last-n-tournaments | table  |                     (required) n                    |              Shows the last n tournaments             |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+|   show-report-by-buyin  | table  |                         None                        |           Shows statistics about each buy-in          |
++-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
+```
 
 
 Installation
@@ -44,7 +55,7 @@ Step 1 | Make sure `matplotlib`, `scipy`, `PrettyTable` and `Click` are all inst
 
 Step 2 | Clone this repo, and run
 
-    $ python cli.py setup
+    $ python cli.py setup-db
 
 This will set up the database with the appropriate schema.
 
@@ -79,6 +90,12 @@ TOURNAMENTS_TO_EXTRACT = {
 ```
 
 Step 4 | Now, if you run `python cli.py update-db` it should import all your tournaments and hands. This can take a few minutes if you have a large number of hand histories. It will tell you how many tournaments/sngs it has added in the end. When you go back to playing, you'll have to re-run this command and it will import only the new hand histories. You can then run `python cli.py --help` to see the things you can do.
+
+
+## <h1 name="examples">Examples</h1>
+--------------------
+
+test
 
 Create new plots / tables and deriving new insights
 --------------------

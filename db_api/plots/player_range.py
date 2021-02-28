@@ -1,3 +1,9 @@
+from GLOBAL_VARIABLES import FOLDER_PLOT_DUMP, PLAYER_NAME
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+import pandas as pd
+import seaborn as sns
+from utils.run_sql_command import run_sql_command
 
 
 hand_matrix = [
@@ -49,16 +55,12 @@ def create_config_for_sql_query(position_at_table: str, player_name: str) -> dic
     return config
 
 
-
 def check_if_folded_pre(hand_txt):
     for line in hand_txt.split('\n'):
-        if ('PotNoodle99912' in line) and ('folded on the Pre-Flop' in line):
+        if (PLAYER_NAME in line) and ('folded on the Pre-Flop' in line):
             return True
     return False
 
-from utils.run_sql_command import run_sql_command
-
-from GLOBAL_VARIABLES import PLAYER_NAME, DATABASE_LOCATION
 
 def get_sql_data(config: dict, database_file_path: str) -> list:
 
@@ -83,15 +85,17 @@ def get_sql_data(config: dict, database_file_path: str) -> list:
             unique_items=False,
             database_file_path=database_file_path)
 
-        remove_folded_preflop = []
-        for cards, hand_txt in retrieval:
-            if not check_if_folded_pre(hand_txt):
-                remove_folded_preflop.append(cards)
-
-        data.extend(remove_folded_preflop)
+        if config['player_name'] == PLAYER_NAME:
+            remove_folded_preflop = []
+            for cards, hand_txt in retrieval:
+                if not check_if_folded_pre(hand_txt):
+                    remove_folded_preflop.append(cards)
+            data.extend(remove_folded_preflop)
+        else:
+            for cards, hand_txt in retrieval:
+                data.append(cards)
 
     return data
-
 
 
 def transform_cards(cards: list) -> list:
@@ -142,8 +146,6 @@ def transform_to_frequencies(observed_hands: list) -> dict:
     return all_possible_hands
 
 
-
-
 def create_freq_matrix(freq: dict) -> list:
     # creates a 13*13 matrix with each value set to the frequencies
     matrix = [[0 for i in range(13)] for j in range(13)]
@@ -162,26 +164,7 @@ def create_freq_matrix(freq: dict) -> list:
     return matrix
 
 
-
-
-
-
-
-
-
-
-
-
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
-import pandas as pd
-import seaborn as sns
-
-
-def create_heatmaps(freq_matrix: list, pos: str, player_name: str, nb_of_samples: int):
-
-    # creates and saves the heatmap plot(s)
-
+def create_heatmaps(freq_matrix: list, pos: str, player_name: str, nb_of_samples: int) -> str:
     rcParams['figure.figsize'] = 15, 7
     df = pd.DataFrame(freq_matrix)
     fig = plt.figure()
@@ -203,13 +186,10 @@ def create_heatmaps(freq_matrix: list, pos: str, player_name: str, nb_of_samples
     def generatePositionsNames(_pos: str) -> str:
         if _pos == 'early':
             return 'UTG  |  UTGp1'
-
         if _pos == 'blinds':
             return 'SB  |  BB'
-
         if _pos == 'middle':
             return 'MP  |  MPp1  |  MPp2'
-
         if _pos == 'late':
             return 'CO  |  BTN'
 
@@ -217,7 +197,7 @@ def create_heatmaps(freq_matrix: list, pos: str, player_name: str, nb_of_samples
         player_name,
         nb_of_samples,
         pos,
-        generatePositionsNames(pos)
-    ))
+        generatePositionsNames(pos)))
 
-    plt.savefig('/Users/cukiermichael/Dropbox/backup/projects/2020/pokerHUDv2/plots_dump/'+player_name+'_'+pos+'.png', bbox_inches='tight', pad_inches=0.2, dpi=300)
+    plt.savefig(FOLDER_PLOT_DUMP + player_name + '_' + pos + '.png', bbox_inches='tight', pad_inches=0.2, dpi=300)
+    return FOLDER_PLOT_DUMP + player_name + '_' + pos + '.png'

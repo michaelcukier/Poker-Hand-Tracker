@@ -1,8 +1,9 @@
 from utils.run_sql_command import run_sql_command
 from utils.make_line_plot import make_line_plot
+from GLOBAL_VARIABLES import FOLDER_PLOT_DUMP
 
 
-def money_graph(sigma, database_file_path, save_to, buyin=None):
+def money_graph(sigma, database_file_path, buyin=None):
 
     query = '''
         SELECT 
@@ -33,7 +34,7 @@ def money_graph(sigma, database_file_path, save_to, buyin=None):
     title = 'All Profit in $ won (all buyins)' if buyin is None else 'All Profit in $ won (buyin:' + str(buyin) + ')'
 
     plot_path = make_line_plot(
-        save_to_folder=save_to,
+        save_to_folder=FOLDER_PLOT_DUMP,
         list_of_data_points=datapoints,
         xlabel='Game #',
         ylabel='Money ($)',
