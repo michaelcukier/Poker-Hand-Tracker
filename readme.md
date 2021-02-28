@@ -10,8 +10,6 @@ A CLI has been created for convenience, to update the database with new hand his
 It has been built to make it easy to extend it and add your own plots or tables with whatever data or insight you're looking for (see [Adding my own plots or table](#createnew)).
 
 
-
-
 ## Content
 
 * [Command Line Options](#commandlineoptions)
@@ -25,37 +23,19 @@ It has been built to make it easy to extend it and add your own plots or tables 
 <div id="commandlineoptions"></div>
 
 ##Command Line Options
-<sub><sup>
-```
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|         Command         |  Type  |                      Parameters                     |                      Description                      |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|        update-db        | action |                         None                        |       Updates the database with new tournaments       |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|      setup-database     | action |                         None                        | Creates an empty database with the appropriate schema |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|                         |        |                                                     |                                                       |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|     show-money-graph    |  plot  |               optional: buyin (float)               |          Shows a line plot of the money graph         |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|  show-reg-time-and-pos  |  plot  |                         None                        |    Shows a box plot representing the relationship     |
-|                         |        |                                                     |      between registration time and final position     |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|     show-profit-rate    |  plot  |               (optional) buyin (float)              |     Shows the the avg profit/tournament over time     |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|     show-chip-graph     |  plot  |           (required) tournament ID (int)            |         Shows the chip graph for a tournament         |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|        show-range       |  plot  |             (required) player name (str)            |           Shows the range of hands observed           |
-|                         |        | (required) position: blinds | early | middle | late |                for a particular player                |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|                         |        |                                                     |                                                       |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-| show-last-n-tournaments | table  |                     (required) n                    |              Shows the last n tournaments             |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-|   show-report-by-buyin  | table  |                         None                        |           Shows statistics about each buy-in          |
-+-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
-```
-</sup></sub>
+
+| **command**   | **params**   | **description** |
+| :----:    | :---:    | :---: |
+| update-db | None     |  Updates the database with new tournaments |
+| setup-database | None     |  Creates an empty database with the appropriate schema |
+| show-money-graph | optional: buyin (float)     |  Shows a line plot of the money graph |
+| show-reg-time-and-pos | optional: buyin (float)     |  Shows a box plot representing the relationship between registration time and final position|
+| show-profit-rate | None     |  Updates the database with new tournaments |
+| show-chip-graph | None     |  Updates the database with new tournaments |
+| show-range | (required) player name (str), (required) position: blinds or early or middle or late    |  Shows the range of hands observed for a particular player  |
+| show-last-n-tournaments | (required) n     |  Shows the last n tournaments |
+| show-report-by-buyin | None     |  Shows statistics about each buy-in |
+
 
 <div id="installation"></div>
 
