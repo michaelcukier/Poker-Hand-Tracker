@@ -31,10 +31,10 @@ Command Line Options
 | setup-database | None     |  Creates an empty database with the appropriate schema |
 | show-money-graph | optional: buyin (float)     |  Shows a line plot of the money graph |
 | show-reg-time-and-pos | optional: buyin (float)     |  Shows a box plot representing the relationship between registration time and final position|
-| show-profit-rate | None     |  Updates the database with new tournaments |
-| show-chip-graph | None     |  Updates the database with new tournaments |
-| show-range | (required) player name (str), (required) position: blinds or early or middle or late    |  Shows the range of hands observed for a particular player  |
-| show-last-n-tournaments | (required) n     |  Shows the last n tournaments |
+| show-profit-rate | optional: buyin (float))     |  Shows a line plot of the evolutation of profit/game |
+| show-chip-graph | required: id (int)     |  Shows the chip graph for a tournament  |
+| show-range | required: player_name (str) <br /> (required) position: blinds OR early OR middle OR late    |  Shows the range of hands observed for a particular player  |
+| show-last-n-tournaments | required: n (int)    |  Shows the last n tournaments |
 | show-report-by-buyin | None     |  Shows statistics about each buy-in |
 
 
