@@ -1,7 +1,7 @@
 Poker Hand Tracker
 =================
 
-This is a poker hand tracker for tournaments and SnGs.   
+This is a poker hand tracker for tournaments and SnGs played on ACR.   
 
 This program processes the hand histories .txt files to extract some relevant data, such as hole cards, position, etc (see [List of extracted fields](#dataextracted)).
 
@@ -53,10 +53,12 @@ This will set up the database with the appropriate schema.
 
 Step 3 | Open `GLOBAL_VARIABLES.py` and write this for the 4 variables:
 
-* `PLAYER_NAME`: your playing username 
-* `HAND_HISTORY_FOLDER`: the absolute path where the hand histories files are located
-* `TOURNEY_SUMMARY_FOLDER`: the absolute path where the tournament summaries files are located
-* `TOURNAMENTS_TO_EXTRACT`: this one is slightly tricky. This is the list of tournaments you want to track, along with their buyins amount including rake. You need to find the common pattern between those filenames.
+`PLAYER_NAME` = your username    
+`HAND_HISTORY_FOLDER` = replace `<>` with the the absolute path of the hand histories  
+`TOURNEY_SUMMARY_FOLDER` = replace `<>` with the absolute path of the tournament summaries files  
+`FOLDER_PLOT_DUMP` = replace `<>` with the absolute path of this project's code  
+`DATABASE_LOCATION` = replace `<>` with the absolute path of the database .db file    
+`TOURNAMENTS_TO_EXTRACT`: this one is slightly tricky. This is the list of tournaments you want to track, along with their buyins amount including rake. You need to find the common pattern between those filenames.
 For example, let's say you play SnGs and cash games, and you want to track the $3 and $6 SnGs you are playing. So you hand history folder look like this:
 
 ```
@@ -122,7 +124,7 @@ Examples
 
 <div id="createnew"></div>
 
-Create new plots / tables and deriving new insights
+Adding my own plots or table
 --------------------
 
 
@@ -177,6 +179,9 @@ Folder structure and notes
                                           # them and stores in the database
 
     ├── /plots_dump/                      # folder where the plots are saved 
+
+    ├── /db_api/                          # the scripts that make use of the 
+                                          # data in the db to plot stuff, create tables etc.
 
     ├── /tests/                           # all the tests. follows the same folder 
                                           # structure as the entire project.
