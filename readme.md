@@ -25,7 +25,7 @@ It has been built to make it easy to extend it and add your own plots or tables 
 <div id="commandlineoptions"></div>
 
 ##Command Line Options
-
+<sub><sup>
 ```
 +-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
 |         Command         |  Type  |                      Parameters                     |                      Description                      |
@@ -55,6 +55,7 @@ It has been built to make it easy to extend it and add your own plots or tables 
 |   show-report-by-buyin  | table  |                         None                        |           Shows statistics about each buy-in          |
 +-------------------------+--------+-----------------------------------------------------+-------------------------------------------------------+
 ```
+</sup></sub>
 
 <div id="installation"></div>
 
